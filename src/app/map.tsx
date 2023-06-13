@@ -18,7 +18,7 @@ import ControlPanel from './control-panel';
 
 const TOKEN = 'pk.eyJ1IjoiYWZyYW5rZW50aGFsIiwiYSI6ImNsaDI5cTFtaDE4anEzbXNhaTNyejFqbGoifQ.fDTJJiWcR4DJyyqsOmcixA'; // Set your mapbox token here
 
-function FullMap({ EXPERIMENTS }) {
+function FullMap({ EXPERIMENTS } : any) {
 
   const [content, setContent] = useState<any | null>(null);
 
@@ -47,7 +47,7 @@ function FullMap({ EXPERIMENTS }) {
   });
 
   const pins = useMemo( () =>
-      EXPERIMENTS["experiment_data"].map((experiment, index) => (
+      EXPERIMENTS["experiment_data"].map((experiment: any, index: any) => (
         <Marker
           key={`marker-${index}`}
           longitude={experiment.id.longitude}
