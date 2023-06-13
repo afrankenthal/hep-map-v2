@@ -1,0 +1,50 @@
+[
+    {
+        "id": {
+            "shortname": "CMS", 
+            "longname": "Compact Muon Solenoid", 
+            "latitude": 46.31050, 
+            "longitude": 6.07654,
+            "image": "/images/CMS.png"
+        },
+        "info": {
+            "location": "CERN",
+            "type": "accelerator",
+            "accelerator": "LHC",
+            "city": "Geneva",
+            "country": "Switzerland"
+        }
+    },
+    {
+        "id": {
+            "shortname": "PADME", 
+            "longname": "Positron Annihilation into Dark Matter Experiment", 
+            "latitude": 41.824364513484774,
+            "longitude": 12.672461166797758,
+            "image": "/images/PADME.png"
+        },
+        "info": {
+            "location": "LNF",
+            "type": "accelerator",
+            "accelerator": "DAFNE",
+            "city": "Frascati",
+            "country": "Italy"
+        }
+    },
+    {
+        "id": {
+            "shortname": "g-2", 
+            "longname": "Muon g-2 Experiment", 
+            "latitude": 41.83589267585788, 
+            "longitude": -88.26538650473557,
+            "image": "/images/Muon_gm2.png"
+        },
+        "info": {
+            "location": "Fermilab",
+            "type": "accelerator",
+            "accelerator": "Fermilab",
+            "city": "Batavia",
+            "country": "US"
+        }
+    }
+]

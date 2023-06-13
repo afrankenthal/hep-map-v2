@@ -1,3 +1,4 @@
+import 'mapbox-gl/dist/mapbox-gl.css';
 import './globals.css'
 import { Inter } from 'next/font/google'
 
