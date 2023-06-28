@@ -1,6 +1,27 @@
 [
     {
         "id": {
+            "shortname": "LDMX", 
+            "longname": "Light Dark Matter eXperiment",
+            "latitude": 37.41768202292807, 
+            "longitude": -122.20107820557959,
+            "image": "/images/LDMX.png"
+        },
+        "info": {
+            "status": "proposed",
+            "facility": "SLAC",
+            "type": "fixed-target",
+            "accelerator": {
+                "name": "LCLS-II",
+                "beam": "electrons",
+                "energy": "4-8 GeV"
+            },
+            "city": "Palo Alto",
+            "country": "US"
+        }
+    },
+    {
+        "id": {
             "shortname": "CMS", 
             "longname": "Compact Muon Solenoid", 
             "latitude": 46.31050, 
@@ -8,9 +29,35 @@
             "image": "/images/CMS.png"
         },
         "info": {
-            "location": "CERN",
-            "type": "accelerator",
-            "accelerator": "LHC",
+            "status": "active",
+            "facility": "CERN",
+            "type": "collider",
+            "accelerator": {
+                "name": "LHC",
+                "beam": "protons",
+                "energy": "13 TeV"
+            },
+            "city": "Geneva",
+            "country": "Switzerland"
+        }
+    },
+    {
+        "id": {
+            "shortname": "ATLAS", 
+            "longname": "ATLAS", 
+            "latitude": 46.235426466829146,
+            "longitude": 6.05584227299961,
+            "image": "/images/ATLAS.png"
+        },
+        "info": {
+            "status": "active",
+            "facility": "CERN",
+            "type": "collider",
+            "accelerator": {
+                "name": "LHC",
+                "beam": "protons",
+                "energy": "13 TeV"
+            },
             "city": "Geneva",
             "country": "Switzerland"
         }
@@ -24,9 +71,14 @@
             "image": "/images/PADME.png"
         },
         "info": {
-            "location": "LNF",
+            "status": "active",
+            "facility": "LNF",
             "type": "accelerator",
-            "accelerator": "DAFNE",
+            "accelerator": {
+                "name": "DAFNE",
+                "Beam": "positrons",
+                "Energy": "550 MeV"
+            },
             "city": "Frascati",
             "country": "Italy"
         }
@@ -40,9 +92,15 @@
             "image": "/images/Muon_gm2.png"
         },
         "info": {
-            "location": "Fermilab",
+            "status": "active",
+            "description": "measurement of the anomalous magnetic moment of the muon",
+            "facility": "Fermilab",
             "type": "accelerator",
-            "accelerator": "Fermilab",
+            "accelerator": {
+                "name": "Fermilab",
+                "beam": "protons",
+                "energy": "160 GeV"
+            },
             "city": "Batavia",
             "country": "US"
         }
