@@ -1,22 +1,51 @@
 import * as React from 'react';
+import {useState} from 'react'
 
-function ControlPanel() {
+type VisibilityType = { [key: string]: boolean }
+// interface VisibilityType {
+//   proposed: boolean,
+//   planned: boolean,
+//   active: boolean,
+//   concluded: boolean
+// }
+
+export interface VisibilityProps {
+  visibility : VisibilityType,
+  setVisibility : (visibility : VisibilityType) => void,
+}
+
+function ControlPanel({visibility, setVisibility} : VisibilityProps) {
+  const categories = ['proposed', 'planned', 'active', 'concluded'];
+  const colors : {[key: string]: string}= {
+    'proposed': 'magenta',
+    'planned': 'blue',
+    'active': 'red',
+    'concluded': 'green'
+  };
+  const onVisibilityChange = (name : string, value : boolean) => {
+    setVisibility({...visibility, [name]: value});
+  };
+  const [bar, setBar] = useState({ isHidden: true });
+  function toggleHidden() {
+      setBar({ isHidden: !bar.isHidden });
+  }
+  // const style = { display: bar.isHidden ? 'none' : 'flex' };
+  const myClassName = "px-2 md:w-1/4 flex-row md:justify-center " + (bar.isHidden ? "hidden md:flex" : "flex");
+  
   return (
-    <div className="control-panel">
-      <h3 style={{textAlign:"center", fontWeight:"bold"}}>Welcome to HEP-MAP!</h3>
-      <p>
-        See the location of various particle physics experiments around the world! Click on a marker to learn
-        more about each experiment. <span className="spanMobileView">Advanced functionality coming soon!</span>
-      </p>
-      {/* 
-      <div className="source-link">
-        <a
-          href="https://github.com/visgl/react-map-gl/tree/7.0-release/examples/controls"
-          target="_new"
-        >
-          View Code ↗
-        </a>
-      </div> */}
+    <div className="control-panel-ctrl top-28 md:top-0 mx-auto w-2/5 md:w-1/3 inset-x-0 bg-slate-200 flex flex-col md:flex-row flex-wrap justify-between absolute shadow-xl rounded-m">
+      <button className="md:hidden" onClick={() => {toggleHidden()}}>Filters <i className={bar.isHidden ? "arrow right" : "arrow down"}></i></button>
+      {categories.map(name => (
+        <div key={name} className={myClassName} style={Object.assign({}, {color: colors[name]}, {})}>
+          <input className="pr-2 my-1 align-middle"
+            type="checkbox"
+            checked={visibility[name]}
+            // onChange={evt => setVisibility(evt.target.checked)}
+            onChange={evt => onVisibilityChange(name, evt.target.checked)}
+          />
+          <label className='text-sm md:text-[1vw] pl-2 my-1 align-middle capitalize' >{name}</label>
+        </div>
+      ))}
     </div>
   );
 }
