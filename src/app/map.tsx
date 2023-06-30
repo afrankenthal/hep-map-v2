@@ -169,7 +169,7 @@ function FullMap({ EXPERIMENTS } : any) {
           >
             <div className="">
             <div className="text-xl items-center text-center font-bold pb-3.5">
-              {content.id.longname} ({content.id.shortname}) 
+              <a className="outline-none" target="_blank" href={content.id.link}>{content.id.longname} ({content.id.shortname})</a>
             </div>
             <div className="flex items-center">
             <div className="items-left w-1/2 h-full pr-2">
@@ -192,7 +192,7 @@ function FullMap({ EXPERIMENTS } : any) {
             </table>
             </div>
             <div className="items-center w-1/2 h-full relative pl-2">
-              <Image className="w-full h-auto items-center max-h-25" width={0} height={0} sizes="100vw" alt={content.id.longname} src={content.id.image} />
+            <a className="outline-none" target="_blank" href={content.id.link}><Image className="w-full h-auto items-center max-h-25" width={0} height={0} sizes="100vw" alt={content.id.longname} src={content.id.image} /></a>
               {/* <Image layout="fill" objectFit="contain"alt={content.id.longname} src={content.id.image} /> */}
             </div>
             </div>

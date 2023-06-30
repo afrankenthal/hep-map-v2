@@ -5,7 +5,8 @@
             "longname": "Light Dark Matter eXperiment",
             "latitude": 37.41768202292807, 
             "longitude": -122.20107820557959,
-            "image": "/images/LDMX.png"
+            "image": "/images/LDMX.png",
+            "link": "https://confluence.slac.stanford.edu/display/MME/Light+Dark+Matter+Experiment"
         },
         "info": {
             "status": "proposed",
@@ -27,7 +28,8 @@
             "longname": "Compact Muon Solenoid", 
             "latitude": 46.31050, 
             "longitude": 6.07654,
-            "image": "/images/CMS.png"
+            "image": "/images/CMS.png",
+            "link": "https://cms.cern/"
         },
         "info": {
             "status": "active",
@@ -49,7 +51,8 @@
             "longname": "ATLAS", 
             "latitude": 46.235426466829146,
             "longitude": 6.05584227299961,
-            "image": "/images/ATLAS.png"
+            "image": "/images/ATLAS.png",
+            "link": "https://atlas.cern/"
         },
         "info": {
             "status": "active",
@@ -71,7 +74,8 @@
             "longname": "Positron Annihilation into Dark Matter Experiment", 
             "latitude": 41.824364513484774,
             "longitude": 12.672461166797758,
-            "image": "/images/PADME.png"
+            "image": "/images/PADME.png",
+            "link": "https://padme.lnf.infn.it/"
         },
         "info": {
             "status": "active",
@@ -93,7 +97,8 @@
             "longname": "Muon g-2 Experiment", 
             "latitude": 41.83589267585788, 
             "longitude": -88.26538650473557,
-            "image": "/images/Muon_gm2.png"
+            "image": "/images/Muon_gm2.png",
+            "link": "https://muon-g-2.fnal.gov/"
         },
         "info": {
             "status": "active",
@@ -115,7 +120,8 @@
             "longname": "Deep Underground Neutrino Experiment", 
             "latitude": 44.3516161531405,
             "longitude": -103.75121813384145,
-            "image": "/images/DUNE.jpeg"
+            "image": "/images/DUNE.jpeg",
+            "link": "https://www.dunescience.org/"
         },
         "info": {
             "status": "planned",
@@ -137,7 +143,8 @@
             "longname": "DZero Experiment", 
             "latitude": 41.82598536295202,
             "longitude": -88.24226364885304,
-            "image": "/images/D0.jpeg"
+            "image": "/images/D0.jpeg",
+            "link": "https://d0.fnal.gov/"
         },
         "info": {
             "status": "concluded",
