@@ -148,7 +148,7 @@ function FullMap({ EXPERIMENTS } : any) {
             switch (experiment.info.status) {
             case "active":   return <Pin fill={"red"} />;
             case "concluded":   return <Pin fill={"chartreuse"} />;
-            case "planned":   return <Pin fill={"aqua"} />;
+            case "planned":   return <Pin fill={"dodgerblue"} />;
             case "proposed":   return <Pin fill={"fuchsia"} />;
             default:      return <Pin fill={"gray"} />;
             }

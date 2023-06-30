@@ -9,6 +9,7 @@
         },
         "info": {
             "status": "proposed",
+            "description": "Search for light dark matter",
             "facility": "SLAC",
             "type": "fixed-target",
             "accelerator": {
@@ -30,12 +31,13 @@
         },
         "info": {
             "status": "active",
+            "description": "General-purpose detector for proton collisions",
             "facility": "CERN",
             "type": "collider",
             "accelerator": {
                 "name": "LHC",
                 "beam": "protons",
-                "energy": "13 TeV"
+                "energy": "13.6 TeV"
             },
             "city": "Geneva",
             "country": "Switzerland"
@@ -51,12 +53,13 @@
         },
         "info": {
             "status": "active",
+            "description": "General-purpose detector for proton collisions",
             "facility": "CERN",
             "type": "collider",
             "accelerator": {
                 "name": "LHC",
                 "beam": "protons",
-                "energy": "13 TeV"
+                "energy": "13.6 TeV"
             },
             "city": "Geneva",
             "country": "Switzerland"
@@ -72,12 +75,13 @@
         },
         "info": {
             "status": "active",
+            "description": "Search for dark photons",
             "facility": "LNF",
-            "type": "accelerator",
+            "type": "fixed-target",
             "accelerator": {
                 "name": "DAFNE",
                 "Beam": "positrons",
-                "Energy": "550 MeV"
+                "Energy": "500 MeV"
             },
             "city": "Frascati",
             "country": "Italy"
@@ -85,7 +89,7 @@
     },
     {
         "id": {
-            "shortname": "g-2", 
+            "shortname": "Muon g-2", 
             "longname": "Muon g-2 Experiment", 
             "latitude": 41.83589267585788, 
             "longitude": -88.26538650473557,
@@ -93,13 +97,57 @@
         },
         "info": {
             "status": "active",
-            "description": "measurement of the anomalous magnetic moment of the muon",
+            "description": "measurement of the anomalous muon magnetic moment",
             "facility": "Fermilab",
             "type": "accelerator",
             "accelerator": {
                 "name": "Fermilab",
                 "beam": "protons",
                 "energy": "160 GeV"
+            },
+            "city": "Batavia",
+            "country": "US"
+        }
+    },
+    {
+        "id": {
+            "shortname": "DUNE/LBNF", 
+            "longname": "Deep Underground Neutrino Experiment", 
+            "latitude": 44.3516161531405,
+            "longitude": -103.75121813384145,
+            "image": "/images/DUNE.jpeg"
+        },
+        "info": {
+            "status": "planned",
+            "description": "Study of neutrino physics",
+            "facility": "Fermilab/SURF",
+            "type": "accelerator",
+            "accelerator": {
+                "name": "PIP-II",
+                "beam": "neutrinos",
+                "energy": "1-5 GeV"
+            },
+            "city": "Batavia",
+            "country": "US"
+        }
+    },
+    {
+        "id": {
+            "shortname": "D0", 
+            "longname": "DZero Experiment", 
+            "latitude": 41.82598536295202,
+            "longitude": -88.24226364885304,
+            "image": "/images/D0.jpeg"
+        },
+        "info": {
+            "status": "concluded",
+            "description": "General-purpose detector for proton/anti-proton collisions",
+            "facility": "Fermilab",
+            "type": "accelerator",
+            "accelerator": {
+                "name": "Tevatron",
+                "beam": "protons/anti-protons",
+                "energy": "1 TeV"
             },
             "city": "Batavia",
             "country": "US"
