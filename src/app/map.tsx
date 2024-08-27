@@ -59,10 +59,8 @@ function FullMap({ EXPERIMENTS } : any) {
 
   const pins = useMemo( () =>
       EXPERIMENTS["experiment_data"].map((experiment: any, index: any) => {
-        if (visibility[experiment.custom_data.status]) {
-          console.log(experiment.inspire_data.long_name + " visible")
+        if (visibility[experiment.custom_data.status])
           return (<MyMarker experiment={experiment} setContent={setContent} index={index} />)
-        }
       }),
     []
   );
@@ -82,7 +80,13 @@ function FullMap({ EXPERIMENTS } : any) {
         <FullscreenControl position="top-left" />
         <NavigationControl position="top-left" />
         <ScaleControl />
-        {pins}
+        {/* Note: pins cannot be defined outside Map, since it does not update the visibility. TODO: understand this */}
+        {/* {pins} */}
+        {EXPERIMENTS["experiment_data"].map((experiment: any, index: any) => {
+          if (visibility[experiment.custom_data.status])
+            return (<MyMarker experiment={experiment} setContent={setContent} index={index} />)
+        })}
+        {/* Only draw popup if 'content' is defined (not null) */}
         {content && <MyPopup content={content} setContent={setContent} />}
       </Map>
       <ControlPanel visibility={visibility} setVisibility={setVisibility} />
