@@ -1,0 +1,495 @@
+[
+    {
+        "inspire_data": {
+            "number_of_papers": 13968,
+            "normalized_name_variants": [
+                "CMS",
+                "CMS",
+                "CERN-CMS"
+            ],
+            "normalized_subgroups": [
+                "CMS ECAL",
+                "CMS GEM",
+                "CMS HCAL",
+                "CMS Muon",
+                "CMS Pixel",
+                "CMS RPC",
+                "CMS Silicon Strip Tracker",
+                "CMS Silicon Tracker",
+                "CMS Tracker"
+            ],
+            "facet_inspire_classification": [
+                "Collider|Hadrons|p p"
+            ],
+            "core": true,
+            "self": {
+                "$ref": "https://inspirehep.net/api/experiments/1108642"
+            },
+            "urls": [
+                {
+                    "value": "https://cms.cern/",
+                    "description": "home page"
+                },
+                {
+                    "value": "https://twitter.com/CMSexperiment",
+                    "description": "TWITTER"
+                },
+                {
+                    "value": "https://en.wikipedia.org/wiki/Compact_Muon_Solenoid",
+                    "description": "Wikipedia"
+                }
+            ],
+            "$schema": "https://inspirehep.net/schemas/records/experiments.json",
+            "long_name": "CMS: The Compact Muon Solenoid",
+            "accelerator": {
+                "value": "LHC"
+            },
+            "description": "The 27-km Large Hadron Collider (LHC) is the largest and most powerful particle accelerator ever built. It accelerates protons to nearly the velocity of light -- in clockwise and anti-clockwise directions -- and then collides them at four locations around its ring. At these points, the energy of the particle collisions gets transformed into mass, spraying particles in all directions. The Compact Muon Solenoid (or CMS) detector sits at one of these four collision points. It is a general-purpose detector; that is, it is designed to observe any new physics phenomena that the LHC might reveal. CMS acts as a giant, high-speed camera, taking 3D \u201cphotographs\u201d of particle collisions from all directions up to 40 million times each second. Although most of the particles produced in the collisions are \u201cunstable\u201d, they transform rapidly into stable particles that can be detected by CMS. By identifying (nearly) all the stable particles produced in each collision, measuring their momenta and energies, and then piecing together the information of all these particles like putting together the pieces of a puzzle, the detector can recreate an \u201cimage\u201d of the collision for further analysis.",
+            "legacy_name": "CERN-LHC-CMS",
+            "date_started": "2009-11-23",
+            "institutions": [
+                {
+                    "value": "CERN",
+                    "record": {
+                        "$ref": "https://inspirehep.net/api/institutions/902725"
+                    },
+                    "curated_relation": true
+                }
+            ],
+            "project_type": [
+                "experiment"
+            ],
+            "collaboration": {
+                "value": "CMS",
+                "subgroup_names": [
+                    "CMS ECAL",
+                    "CMS GEM",
+                    "CMS HCAL",
+                    "CMS Muon",
+                    "CMS Pixel",
+                    "CMS RPC",
+                    "CMS Silicon Strip Tracker",
+                    "CMS Silicon Tracker",
+                    "CMS Tracker"
+                ],
+                "curated_relation": false
+            },
+            "date_approved": "1996-01-31",
+            "date_proposed": "1992-10-01",
+            "name_variants": [
+                "CMS",
+                "CERN-CMS"
+            ],
+            "control_number": 1108642,
+            "date_completed": "9999",
+            "legacy_version": "20210330171102.0",
+            "legacy_creation_date": "2012-04-13",
+            "inspire_classification": [
+                "Collider Experiments|Hadrons|p p"
+            ],
+            "external_system_identifiers": [
+                {
+                    "value": "EXPERIMENT-20389",
+                    "schema": "SPIRES"
+                }
+            ]
+        },
+        "custom_data": {
+            "latitude": 46.3105,
+            "longitude": 6.07654,
+            "image": "/images/CMS.png",
+            "inspire_id": "1108642",
+            "status": "active"
+        }
+    },
+    {
+        "inspire_data": {
+            "number_of_papers": 17621,
+            "normalized_name_variants": [
+                "ATLAS",
+                "ATLAS",
+                "CERN-ATLAS"
+            ],
+            "normalized_subgroups": [
+                "ATLAS CMOS",
+                "ATLAS IBL",
+                "ATLAS Inner Detector",
+                "ATLAS ITK",
+                "ATLAS LAr",
+                "ATLAS Liquid Argon",
+                "ATLAS Liquid Argon Calorimeter",
+                "ATLAS Muon",
+                "ATLAS Pixel",
+                "ATLAS Planar Pixel Sensor",
+                "ATLAS SCT",
+                "ATLAS TDAQ",
+                "ATLAS TileCal",
+                "ATLAS Tile Calorimeter",
+                "ATLAS TRT"
+            ],
+            "facet_inspire_classification": [
+                "Collider|Hadrons|p p"
+            ],
+            "core": true,
+            "self": {
+                "$ref": "https://inspirehep.net/api/experiments/1108541"
+            },
+            "urls": [
+                {
+                    "value": "https://atlas.cern",
+                    "description": "home page"
+                },
+                {
+                    "value": "https://twitter.com/ATLASexperiment",
+                    "description": "TWITTER"
+                },
+                {
+                    "value": "https://en.wikipedia.org/wiki/ATLAS_experiment",
+                    "description": "Wikipedia"
+                }
+            ],
+            "$schema": "https://inspirehep.net/schemas/records/experiments.json",
+            "long_name": "{ATLAS}",
+            "accelerator": {
+                "value": "LHC"
+            },
+            "description": "ATLAS is one of the four major experiments at the Large Hadron Collider (LHC) at CERN. It is a general-purpose particle physics experiment run by an international collaboration and, together with CMS, is designed to exploit the full discovery potential and the huge range of physics opportunities that the LHC provides. ATLAS' scientific exploration uses precision measurement to push the frontiers of knowledge by seeking answers to fundamental questions such as: What are the basic building blocks of matter? What are the fundamental forces of nature? Could there be a greater underlying symmetry to our universe? ATLAS physicists test the predictions of the Standard Model, which encapsulates our current understanding of what the building blocks of matter are and how they interact. These studies can lead to ground-breaking discoveries, such as that of the Higgs boson, physics beyond the Standard Model and the development of new theories to better describe our universe.",
+            "legacy_name": "CERN-LHC-ATLAS",
+            "date_started": "2009-11-23",
+            "institutions": [
+                {
+                    "value": "CERN",
+                    "record": {
+                        "$ref": "https://inspirehep.net/api/institutions/902725"
+                    },
+                    "curated_relation": true
+                }
+            ],
+            "project_type": [
+                "experiment"
+            ],
+            "collaboration": {
+                "value": "ATLAS",
+                "subgroup_names": [
+                    "ATLAS CMOS",
+                    "ATLAS IBL",
+                    "ATLAS Inner Detector",
+                    "ATLAS ITK",
+                    "ATLAS LAr",
+                    "ATLAS Liquid Argon",
+                    "ATLAS Liquid Argon Calorimeter",
+                    "ATLAS Muon",
+                    "ATLAS Pixel",
+                    "ATLAS Planar Pixel Sensor",
+                    "ATLAS SCT",
+                    "ATLAS TDAQ",
+                    "ATLAS TileCal",
+                    "ATLAS Tile Calorimeter",
+                    "ATLAS TRT"
+                ],
+                "curated_relation": false
+            },
+            "date_approved": "1996-01-31",
+            "date_proposed": "1992-10-01",
+            "name_variants": [
+                "ATLAS",
+                "CERN-ATLAS"
+            ],
+            "control_number": 1108541,
+            "date_completed": "9999",
+            "legacy_version": "20210401180219.0",
+            "legacy_creation_date": "2012-04-13",
+            "inspire_classification": [
+                "Collider Experiments|Hadrons|p p"
+            ],
+            "external_system_identifiers": [
+                {
+                    "value": "EXPERIMENT-21393",
+                    "schema": "SPIRES"
+                }
+            ]
+        },
+        "custom_data": {
+            "latitude": 46.235426466829146,
+            "longitude": 6.05584227299961,
+            "image": "/images/ATLAS.png",
+            "inspire_id": "1108541",
+            "status": "active"
+        }
+    },
+    {
+        "inspire_data": {
+            "number_of_papers": 71,
+            "facet_inspire_classification": [
+                "Dark matter search|Dark Forces"
+            ],
+            "normalized_name_variants": [
+                "PADME"
+            ],
+            "core": true,
+            "self": {
+                "$ref": "https://inspirehep.net/api/experiments/1597054"
+            },
+            "urls": [
+                {
+                    "value": "http://www.lnf.infn.it/acceleratori/padme/index.html",
+                    "description": "home page"
+                }
+            ],
+            "$schema": "https://inspirehep.net/schemas/records/experiments.json",
+            "long_name": "Positron Annihilation into Dark Matter Experiment",
+            "accelerator": {
+                "value": "DAFNE"
+            },
+            "description": "The long standing problem of reconciling the cosmological evidence of the existence of dark matter with the lack of any clear experimental observation of it, has recently revived the idea that the new particles are not directly connected with the Standard Model gauge fields, but only through mediator fields or \u201cportals\u201d, connecting our world with new \u201csecluded\u201d or \u201chidden\u201d sectors. One of the simplest models just adds an additional U(1) symmetry, with its corresponding vector boson A'. All SM particles will be neutral under this symmetry, while the new field will couple to the charged particles of the SM with an effective charge \u03f5e, so that this new particle is often called \u201cdark photon\". Additional interest arises from the observation that A' in the mass range 1 MeV/ c 2 to 1 GeV/ c 2 and coupling \u03f5\u223c10\u22123, would justify the discrepancy between theory and observation for the muon anomalous magnetic moment, (g \u2212 2)\u03bc. This possibility has been recently disproved in the hypothesis that the A' decays to SM particles only, on the contrary if A' decays to dark sector particles, almost all of the available experimental constraints can be evaded and the dark photon is still a valuable explanation for the muon (g-2) anomaly. Due to the weak experimental signature, the search for invisibly decaying A' requires carefully designed dedicated experiment. At the end of 2015 INFN has formally approved a new experiment, PADME, to search for invisible decays of the A' at the DAFNE Linac in Frascati. The experiment is designed to detect dark photon produced in positron on fixed target annihilation ( e +e \u2212\u2192\u03b3 A \u2032) decaying to dark matter by measuring the final state missing mass. The collaboration aims to complete the design and construction of the experiment by the end of 2017 and to collect \u223c10^13 positron on target by the end of 2018, thus allowing to reach the \u03f5\u223c10^\u22123 sensitivity up to a dark photon mass of \u223c23.6 MeV/c^2",
+            "legacy_name": "PADME",
+            "date_started": "2018",
+            "institutions": [
+                {
+                    "value": "Frascati",
+                    "record": {
+                        "$ref": "https://inspirehep.net/api/institutions/902807"
+                    },
+                    "curated_relation": true
+                }
+            ],
+            "project_type": [
+                "experiment"
+            ],
+            "collaboration": {
+                "value": "PADME",
+                "record": {
+                    "$ref": "https://inspirehep.net/api/experiments/1597054"
+                },
+                "curated_relation": true
+            },
+            "date_approved": "2015",
+            "date_proposed": "2014",
+            "control_number": 1597054,
+            "legacy_version": "20170829103146.0",
+            "legacy_creation_date": "2017-04-27",
+            "inspire_classification": [
+                "Dark matter search experiments|Dark Forces"
+            ]
+        },
+        "custom_data": {
+            "latitude": 41.824364513484774,
+            "longitude": 12.672461166797758,
+            "image": "/images/PADME.png",
+            "inspire_id": "1597054",
+            "status": "active"
+        }
+    },
+    {
+        "inspire_data": {
+            "number_of_papers": 4720,
+            "normalized_name_variants": [
+                "D0",
+                "D0",
+                "DZERO"
+            ],
+            "facet_inspire_classification": [
+                "Collider|Hadrons|p anti-p"
+            ],
+            "core": true,
+            "self": {
+                "$ref": "https://inspirehep.net/api/experiments/1109214"
+            },
+            "urls": [
+                {
+                    "value": "http://www-d0.fnal.gov/"
+                }
+            ],
+            "$schema": "https://inspirehep.net/schemas/records/experiments.json",
+            "long_name": "Study of Proton Anti-proton Collisions Using a Large Detector at D0",
+            "accelerator": {
+                "value": "Tevatron"
+            },
+            "description": "DZero is a general-purpose particle detector that was located at the Fermi National Accelerator Laboratory's Tevatron supporting a broad scientific program in quantum chromodynamics, electroweak physics, and searches for new phenomena. The experiment's highly successful inaugural run occurred between 1992 and 1996. At its peak, the DZero Collaboration included 650 physicists from over 80 national and international research institutions from 21 countries. Notable achievements from Run I were the discovery of the top quark, precise studies of the strong and electroweak interactions, and investigations of new phenomena. After an extensive upgrade to the muon, tracking, trigger, and data acquisition systems, the DZero experiment ran from 2001 to 2011. Highlights of the second run include the first observation of single top quark production; evidence, with the CDF experiment, of the Higgs boson production and decay to a pair of b-quarks; a precise measurement of the W boson mass; and discoveries of new heavy flavor baryons and numerous measurements of heavy flavor hadron properties.",
+            "legacy_name": "FNAL-E-0740",
+            "date_started": "1992-05",
+            "institutions": [
+                {
+                    "value": "Fermilab",
+                    "record": {
+                        "$ref": "https://inspirehep.net/api/institutions/902796"
+                    },
+                    "curated_relation": true
+                }
+            ],
+            "project_type": [
+                "experiment"
+            ],
+            "collaboration": {
+                "value": "D0",
+                "curated_relation": false
+            },
+            "date_approved": "1984-02-10",
+            "date_proposed": "1983-09-09",
+            "name_variants": [
+                "D0",
+                "DZERO"
+            ],
+            "control_number": 1109214,
+            "date_completed": "2001",
+            "legacy_version": "20180129173449.0",
+            "related_records": [
+                {
+                    "record": {
+                        "$ref": "https://inspirehep.net/api/experiments/1110315"
+                    },
+                    "relation": "successor",
+                    "curated_relation": true
+                }
+            ],
+            "legacy_creation_date": "2012-04-13",
+            "inspire_classification": [
+                "Collider Experiments|Hadrons|p anti-p"
+            ],
+            "external_system_identifiers": [
+                {
+                    "value": "EXPERIMENT-14664",
+                    "schema": "SPIRES"
+                }
+            ]
+        },
+        "custom_data": {
+            "latitude": 41.82598536295202,
+            "longitude": -88.24226364885304,
+            "image": "/images/D0.jpeg",
+            "inspire_id": "1109214",
+            "status": "completed"
+        }
+    },
+    {
+        "inspire_data": {
+            "number_of_papers": 13,
+            "normalized_name_variants": [
+                "LDMX"
+            ],
+            "facet_inspire_classification": [
+                "Dark matter search|Non-accelerator"
+            ],
+            "core": true,
+            "self": {
+                "$ref": "https://inspirehep.net/api/experiments/1621547"
+            },
+            "urls": [
+                {
+                    "value": "https://confluence.slac.stanford.edu/display/MME/Light+Dark+Matter+Experiment",
+                    "description": "home page"
+                }
+            ],
+            "$schema": "https://inspirehep.net/schemas/records/experiments.json",
+            "long_name": "LDMX: Light Dark Matter eXperiment",
+            "experiment": {
+                "value": "LDMX",
+                "short_name": "LDMX"
+            },
+            "description": "The constituents of dark matter are still unknown, and the viable possibilities span a very large mass range. Specific scenarios for the origin of dark matter sharpen the focus on a narrower range of masses:  the natural scenario where dark matter originates from thermal contact with familiar matter in the early Universe requires the DM mass to lie within about an MeV to 100 TeV. Considerable experimental attention has been given to exploring Weakly Interacting Massive Particles in the upper end of this range (few GeV \u2013 ~TeV), while the region ~MeV to ~GeV is largely unexplored. Most of the stable constituents of known matter have masses in this lower range, tantalizing hints for physics beyond the Standard Model have been found here, and a thermal origin for dark matter works in a simple and predictive manner in this mass range as well. It is therefore a priority to explore. If there is an interaction between light DM and ordinary matter, as there must be in the case of a thermal origin, then there necessarily is a production mechanism in accelerator-based experiments. The most sensitive way, (if the interaction is not electron-phobic) to search for this production is to use a primary electron beam to produce DM in \ufb01xed-target collisions. The Light Dark Matter eXperiment (LDMX) is a planned electron-beam fixed-target missing-momentum experiment that has unique sensitivity to light DM in the sub-GeV range.",
+            "legacy_name": "LDMX",
+            "institutions": [
+                {
+                    "value": "SLAC",
+                    "record": {
+                        "$ref": "https://inspirehep.net/api/institutions/903206"
+                    },
+                    "curated_relation": true
+                }
+            ],
+            "project_type": [
+                "experiment"
+            ],
+            "collaboration": {
+                "value": "LDMX",
+                "record": {
+                    "$ref": "https://inspirehep.net/api/experiments/1621547"
+                },
+                "curated_relation": true
+            },
+            "date_proposed": "2016",
+            "control_number": 1621547,
+            "legacy_version": "20190624160123.0",
+            "legacy_creation_date": "2017-09-05",
+            "inspire_classification": [
+                "Dark matter search experiments|Non-accelerator"
+            ]
+        },
+        "custom_data": {
+            "latitude": 37.41768202292807,
+            "longitude": -122.20107820557959,
+            "image": "/images/LDMX.png",
+            "inspire_id": "1621547",
+            "status": "proposed"
+        }
+    },
+    {
+        "inspire_data": {
+            "number_of_papers": 187,
+            "facet_inspire_classification": [
+                "Fixed Target|Lepton precision"
+            ],
+            "normalized_name_variants": [
+                "Muon g-2"
+            ],
+            "core": true,
+            "self": {
+                "$ref": "https://inspirehep.net/api/experiments/1108252"
+            },
+            "urls": [
+                {
+                    "value": "http://muon-g-2.fnal.gov/"
+                },
+                {
+                    "value": "https://en.wikipedia.org/wiki/Muon_g-2",
+                    "description": "Wikipedia"
+                }
+            ],
+            "$schema": "https://inspirehep.net/schemas/records/experiments.json",
+            "long_name": "Muon g-2 Experiment",
+            "accelerator": {
+                "value": "MCDR"
+            },
+            "description": "The goal of the E-989 muon g-2 experiment is to measure the muon anomalous magnetic moment to 0.14 ppm, a fourfold improvement over the previous Brookhaven E821 experiment. The muon anomaly is a fundamental quantity, which can be precisely measured and accurately computed within the Standard Model and a comparison of experiment to theory is a sensitive test of the completeness of the theory. The current comparison to the accepted theory shows a deviation of more than 3 standard deviations, which might be an indication of New Physics beyond the Standard Model. We will use the Fermilab beam complex to prepare a custom muon beam that will be injected into the relocated muon storage ring. Our goal is a factor of 20 increase in statistics and a significant reduction in systematic uncertainties compared to the BNL experiment.",
+            "legacy_name": "FNAL-E-0989",
+            "date_started": "2017-01-31",
+            "institutions": [
+                {
+                    "value": "Fermilab",
+                    "record": {
+                        "$ref": "https://inspirehep.net/api/institutions/902796"
+                    },
+                    "curated_relation": true
+                }
+            ],
+            "project_type": [
+                "experiment"
+            ],
+            "collaboration": {
+                "value": "Muon g-2",
+                "curated_relation": false
+            },
+            "date_approved": "2010-01",
+            "date_proposed": "2009-02",
+            "control_number": 1108252,
+            "legacy_version": "20210408171832.0",
+            "legacy_creation_date": "2012-04-13",
+            "inspire_classification": [
+                "Fixed Target Experiments|Lepton precision experiments"
+            ],
+            "external_system_identifiers": [
+                {
+                    "value": "EXPERIMENT-24562",
+                    "schema": "SPIRES"
+                }
+            ]
+        },
+        "custom_data": {
+            "latitude": 41.83589267585788,
+            "longitude": -88.26538650473557,
+            "image": "/images/Muon_gm2.png",
+            "inspire_id": "1108252",
+            "status": "active"
+        }
+    }
+]

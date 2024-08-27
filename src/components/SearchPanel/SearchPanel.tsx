@@ -1,8 +1,6 @@
 import * as React from 'react';
 import {useState, useRef, useCallback} from 'react';
-import {
-  ViewState
-} from 'react-map-gl';
+import {ViewState} from 'react-map-gl';
 
 
 function SearchPanel({data, viewState, setViewState, setContent} : {data: any, viewState: ViewState, setViewState: (viewState : ViewState) => void, setContent: (data : any) => void}) {
@@ -13,7 +11,7 @@ function SearchPanel({data, viewState, setViewState, setContent} : {data: any, v
 
   const searchFunction = (my_query : string): string[] => {
     // Object.entries(content.info).map(([mykey,value] : [string, any])
-    const result : any = Array.from(data["experiment_data"].values()).filter((item: any) => item.id.shortname.toLowerCase().includes(my_query.toLowerCase()));
+    const result : any = Array.from(data["experiment_data"].values()).filter((item: any) => item.inspire_data.normalized_name_variants[0].toLowerCase().includes(my_query.toLowerCase()));
     // data["experiment_data"].map((experiment: any, index: any) => {
     //   if (experiment.id.shortname === my_query) {
     //     console.log("found one!")
@@ -26,7 +24,7 @@ function SearchPanel({data, viewState, setViewState, setContent} : {data: any, v
 
   const onLinkClick = (experiment: any) => {
     console.log('onlinkclick')
-    setViewState({...viewState, 'latitude': experiment.id.latitude, 'longitude': experiment.id.longitude})
+    setViewState({...viewState, 'latitude': experiment.custom_data.latitude, 'longitude': experiment.custom_data.longitude})
     setActive(false)
     setQuery('Search experiment')
     setContent(experiment)
@@ -79,7 +77,7 @@ function SearchPanel({data, viewState, setViewState, setContent} : {data: any, v
         >
           
           {results.map((entry: any) => {
-            return (<li className="bg-white hover:bg-red-100 text-normal-text p-0 leading-4 dark:bg-background-dark-mode" key={entry.id.shortname}><a href="#" className="block h-full p-2 w-full" onClick={() => onLinkClick(entry)} >{entry.id.shortname}</a></li>)
+            return (<li className="bg-white hover:bg-red-100 text-normal-text p-0 leading-4 dark:bg-background-dark-mode" key={entry.inspire_data.normalized_name_variants[0]}><a href="#" className="block h-full p-2 w-full" onClick={() => onLinkClick(entry)} >{entry.inspire_data.normalized_name_variants[0]}</a></li>)
           })}
           {/* {results.map(({ key, }) => (
             <li className="bg-white text-normal-text mt-2 leading-4 last:mb-4" key={key}>

@@ -1,28 +1,19 @@
 import * as React from 'react';
 import {useState} from 'react'
 
-type VisibilityType = { [key: string]: boolean }
-// interface VisibilityType {
-//   proposed: boolean,
-//   planned: boolean,
-//   active: boolean,
-//   concluded: boolean
-// }
+import { VisibilityType, VisibilityProps } from '@/types/interfaces';
 
-export interface VisibilityProps {
-  visibility : VisibilityType,
-  setVisibility : (visibility : VisibilityType) => void,
-}
 
 function ControlPanel({visibility, setVisibility} : VisibilityProps) {
-  const categories = ['proposed', 'planned', 'active', 'concluded'];
-  const colors : {[key: string]: string}= {
+  const categories = ['proposed', 'planned', 'active', 'completed'];
+  const colors : {[key: string]: string} = {
     'proposed': 'magenta',
     'planned': 'blue',
     'active': 'red',
-    'concluded': 'green'
+    'completed': 'green'
   };
   const onVisibilityChange = (name : string, value : boolean) => {
+    console.log(name + " " + value);
     setVisibility({...visibility, [name]: value});
   };
   const [bar, setBar] = useState({ isHidden: true });
