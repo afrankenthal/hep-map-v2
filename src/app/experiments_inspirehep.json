@@ -99,7 +99,7 @@
             "longitude": 6.07654,
             "image": "/images/CMS.png",
             "inspire_id": "1108642",
-            "status": "active"
+            "status": "started"
         }
     },
     {
@@ -214,7 +214,7 @@
             "longitude": 6.05584227299961,
             "image": "/images/ATLAS.png",
             "inspire_id": "1108541",
-            "status": "active"
+            "status": "started"
         }
     },
     {
@@ -277,7 +277,7 @@
             "longitude": 12.672461166797758,
             "image": "/images/PADME.png",
             "inspire_id": "1597054",
-            "status": "active"
+            "status": "started"
         }
     },
     {
@@ -489,7 +489,7 @@
             "longitude": -88.26538650473557,
             "image": "/images/Muon_gm2.png",
             "inspire_id": "1108252",
-            "status": "active"
+            "status": "started"
         }
     }
 ]

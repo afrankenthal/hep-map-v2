@@ -1,6 +1,7 @@
 'use client'
 
-import {useState, useMemo, useRef, useCallback} from 'react';
+import { useState, useMemo, useRef, useCallback, useEffect } from 'react';
+import { useMediaQuery } from "react-responsive";
 import * as React from 'react';
 import Map, {NavigationControl, FullscreenControl, ScaleControl, GeolocateControl, ViewState} from 'react-map-gl';
 
@@ -16,6 +17,25 @@ const TOKEN = process.env.NEXT_PUBLIC_MY_MAPBOX_API_TOKEN;
 
 function FullMap({ EXPERIMENTS } : any) {
 
+  const systemPrefersDark = useMediaQuery(
+    {
+      query: "(prefers-color-scheme: dark)"
+    },
+    undefined,
+    prefersDark => {
+      setIsDark(prefersDark);
+    }
+  );
+  const [isDark, setIsDark] = useState(systemPrefersDark); // true light, false dark
+
+  useEffect(() => {
+      if (isDark)
+        document.documentElement.classList.add("dark")
+      else
+        document.documentElement.classList.remove("dark")
+    }, [isDark]
+  );
+  
   const [viewState, setViewState] = useState<ViewState>({
       latitude: 80,
       longitude: -100,
@@ -28,7 +48,7 @@ function FullMap({ EXPERIMENTS } : any) {
   const [visibility, setVisibility] = useState<VisibilityType>({
       "proposed": true,
       "planned": true,
-      "active": true,
+      "started": true,
       "completed": true
   });
   // const [visibility, setVisibility] = useState(true);
@@ -73,7 +93,7 @@ function FullMap({ EXPERIMENTS } : any) {
         onMove={evt => setViewState(evt.viewState)}
         {...viewState}
         {...settings}
-        mapStyle="mapbox://styles/mapbox/dark-v9"
+        mapStyle={isDark == true ? "mapbox://styles/mapbox/dark-v9" : "mapbox://styles/mapbox/light-v9"}//</>="mapbox://styles/mapbox/light-v9"
         mapboxAccessToken={TOKEN}
       >
         <GeolocateControl position="top-left" />
@@ -89,7 +109,7 @@ function FullMap({ EXPERIMENTS } : any) {
         {/* Only draw popup if 'content' is defined (not null) */}
         {content && <MyPopup content={content} setContent={setContent} />}
       </Map>
-      <ControlPanel visibility={visibility} setVisibility={setVisibility} />
+      <ControlPanel visibility={visibility} setVisibility={setVisibility} isDark={isDark} setIsDark={setIsDark} />
       <SearchPanel data={EXPERIMENTS} viewState={viewState} setViewState={setViewState} setContent={setContent} />
       <WelcomePanel />
     </>

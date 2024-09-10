@@ -1,0 +1,27 @@
+
+.search-panel {
+    font-family: "UberMove";
+    font-size: 18px;
+    line-height: 15px;
+    /* width: 400px; */
+    /* height: 40px; */
+    /* background: #fff; */
+    /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.15); */
+    /* margin: 24px; */
+    margin-top: 10px;
+    /* padding: 5px 24px; */
+    /* position: absolute; */
+    /* top: 0px; */
+    /* left: 40px; */
+    outline: none;
+    cursor: auto;
+  }
+  .search-panel .ul {
+    background-color: white;
+  }
+  .search-panel .li {
+    background-color: white;
+  }
+  .search-panel .a {
+    background-color: white;
+  }

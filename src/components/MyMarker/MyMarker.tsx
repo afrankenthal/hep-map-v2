@@ -1,6 +1,7 @@
-import {Marker} from 'react-map-gl';
+import { Marker } from 'react-map-gl';
 import MyPin from '../MyPin/MyPin';
-import {memo} from 'react';
+import { memo } from 'react';
+import { StatusColors } from '@/types/interfaces';
 
 function MyMarker(props) {
     //{experiment, setContent, index} : {experiment: any, setContent: (data : any) => void, index: any}) {
@@ -19,17 +20,9 @@ function MyMarker(props) {
                 setContent(experiment);
             }}
             >
-            {(() => {
-                switch (experiment.custom_data.status) {
-                    case "active":   return <MyPin fill={"red"} />;
-                    case "completed":   return <MyPin fill={"chartreuse"} />;
-                    case "planned":   return <MyPin fill={"aqua"} />;
-                    case "proposed":   return <MyPin fill={"fuchsia"} />;
-                    default:      return <MyPin fill={"gray"} />;
-                }
-            })()}
-            </Marker>
-        );
+                <MyPin fill={StatusColors[experiment.custom_data.status]} />
+        </Marker>
+    );
 }
 
 export default memo(MyMarker);

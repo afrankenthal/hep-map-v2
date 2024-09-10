@@ -37,7 +37,7 @@ def determine_expt_status(expt_data):
     if "date_completed" in expt_data.keys() and expt_data["date_completed"] != "9999":
         return "completed"
     if "date_started" in expt_data.keys() and expt_data["date_started"] != "9999":
-        return "active"
+        return "started"
     if "date_approved" in expt_data.keys() and expt_data["date_approved"] != "9999":
         return "planned"
     if "date_proposed" in expt_data.keys() and expt_data["date_proposed"] != "9999":
