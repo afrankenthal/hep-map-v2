@@ -1,5 +1,11 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react'
+import { FaChevronDown, FaChevronRight } from 'react-icons/fa';
+import { FaRegMoon, FaRegSun } from "react-icons/fa";
+
+import { Checkbox } from "@/components/ui/checkbox"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+
 
 import './ControlPanel.css'
 import { VisibilityProps, StatusColors, StatusCategories, MapStyleProps } from '@/types/interfaces';
@@ -28,30 +34,59 @@ function ControlPanel({visibility, setVisibility, isDark, setIsDark}) {
       setBar({ isHidden: !bar.isHidden });
   }
   // const style = { display: bar.isHidden ? 'none' : 'flex' };
-  const myClassName = "px-2 md:w-1/4 flex-row md:justify-center " + (bar.isHidden ? "hidden md:flex" : "flex");
+  // const myClassName = "px-2 md:w-1/4 flex-row md:justify-center " + (bar.isHidden ? "hidden md:flex" : "flex");
+  const myClassName = "space-x-2"; // + (bar.isHidden ? "hidden md:flex" : "flex");
   
   return (
-    <div className="control-panel-ctrl top-28 md:top-0 mx-auto w-2/5 md:w-1/3 inset-x-0 bg-slate-200 dark:bg-slate-800 flex flex-col md:flex-row flex-wrap justify-between absolute shadow-xl rounded-m">
-      <button className="md:hidden" onClick={() => {toggleHidden()}}>Filters <i className={bar.isHidden ? "arrow right" : "arrow down"}></i></button>
-      <label className="switch">
+    <div className="control-panel-ctrl top-28 md:top-0 mx-auto w-2/5 md:w-1/3 inset-x-0 flex flex-col md:flex-row flex-wrap justify-between absolute shadow-xl rounded-m">
+      {/* <label className="switch">
         <input type="checkbox" checked={isDark} onChange={() => setIsDark(!isDark)} />
         <span className="slider round"></span>
-      </label>
-      {StatusCategories.map(status => (
+      </label> */}
+      <div onClick={() => setIsDark(!isDark)}>
+        <input type="checkbox" checked={isDark} className="checkbox" id="checkbox" />
+          <label className="checkbox-label">
+            <FaRegMoon className="fa-moon" />
+            <FaRegSun className="fa-sun" />
+            {/* <i className="fas fa-moon"></i> */}
+            {/* <i className="fas fa-sun"></i> */}
+            <span className="ball"></span>
+          </label>
+      </div>
+
+      {/* <button className="" onClick={() => {toggleHidden()}}>Filters <i className={bar.isHidden ? "arrow right" : "arrow down"}></i></button> */}
+      <Popover onOpenChange={() => toggleHidden()}>
+        <PopoverTrigger>
+          Experiment status{bar.isHidden ? <FaChevronRight className='ml-1 inline'/> : <FaChevronDown className='ml-1 inline'/>}
+        </PopoverTrigger>
+        <PopoverContent className="w-40">
+        {StatusCategories.map(status => (
+          <div key={status} className={myClassName} style={Object.assign({}, {color: StatusColors[status]}, {})}>
+            {/* // <label className='text-sm md:text-[1vw] pl-2 my-1 align-middle capitalize' > */}
+            {/* <input className="pr-2 my-1 align-middle" */}
+              <Checkbox className='align-middle'
+                // type="checkbox"
+                checked={visibility[status]}
+                // onChange={evt => setVisibility(evt.target.checked)}
+                onCheckedChange={evt => onVisibilityChange(status, evt ? true : false)}
+              />
+            <label className='capitalize align-middle'>{status}
+            </label>
+          </div>
+        ))}
+        </PopoverContent>
+      </Popover>
+      {/* {StatusCategories.map(status => (
         <div key={status} className={myClassName} style={Object.assign({}, {color: StatusColors[status]}, {})}>
           <label className='capitalize display-block align-middle'>
-          {/* // <label className='text-sm md:text-[1vw] pl-2 my-1 align-middle capitalize' > */}
-          {/* <input className="pr-2 my-1 align-middle" */}
-            <input className='align-middle display-block'
-              type="checkbox"
+            <Checkbox className='align-middle display-block'
               checked={visibility[status]}
-              // onChange={evt => setVisibility(evt.target.checked)}
-              onChange={evt => onVisibilityChange(status, evt.target.checked)}
+              onCheckedChange={evt => onVisibilityChange(status, evt ? true : false)}
             />
             <span className='align-middle pl-2'>{status}</span>
           </label>
         </div>
-      ))}
+      ))} */}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {useState} from 'react'
+import { FaChevronRight, FaChevronDown } from "react-icons/fa";
 
 import './WelcomePanel.css'
 
@@ -14,8 +15,10 @@ function WelcomePanel() {
     <div className="px-0 md:px-6 py-1 welcome-panel mx-auto my-2 inset-x-0 md:left-2/3 w-4/6 md:w-1/4 top-1 md:top-0 absolute shadow-xl rounded-m">
       <h3 className="hidden md:block text-center font-bold">Welcome to HEP-MAP!</h3>
       <button className="block md:hidden align-center w-full" onClick={() => {toggleHidden()}}>
-        <h3 className="text-center font-bold">Welcome to HEP-MAP! <i className={bar.isHidden ? "arrow right" : "arrow down"}></i>
-        </h3></button>
+        <h3 className="text-center font-bold">
+          Welcome to HEP-MAP! {bar.isHidden ? <FaChevronRight className="inline align-top"/> : <FaChevronDown className="inline align-top" />}
+        </h3>
+      </button>
       <p className={myClassName}>
         See the location of various particle physics experiments around the world! Click on a marker to learn
         more about each experiment. Please report any feedback <a className="source-link" href="mailto:afrankenthal@gmail.com">here</a>.
