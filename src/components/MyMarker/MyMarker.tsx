@@ -1,9 +1,9 @@
 import { Marker } from 'react-map-gl';
 import MyPin from '../MyPin/MyPin';
 import { memo } from 'react';
-import { StatusColors } from '@/types/interfaces';
+import { StatusColors, MyMarkerProps } from '@/types/interfaces';
 
-function MyMarker(props) {
+function MyMarker(props: MyMarkerProps) {
     //{experiment, setContent, index} : {experiment: any, setContent: (data : any) => void, index: any}) {
     const {experiment, setContent, index} = props;
 

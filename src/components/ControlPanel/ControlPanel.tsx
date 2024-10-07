@@ -8,10 +8,10 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 
 
 import './ControlPanel.css'
-import { VisibilityProps, StatusColors, StatusCategories, MapStyleProps } from '@/types/interfaces';
+import { ControlPanelProps, StatusColors, StatusCategories } from '@/types/interfaces';
 
 // function ControlPanel({visibility, setVisibility} : VisibilityProps, {toggleMapStyle, setToggleMapStyle} : MapStyleProps ) {
-function ControlPanel({visibility, setVisibility, isDark, setIsDark}) {
+function ControlPanel({visibility, setVisibility, isDark, setIsDark} : ControlPanelProps) {
 
   useEffect(() => {
     if (isDark) {

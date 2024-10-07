@@ -14,6 +14,19 @@ export interface MapStyleProps {
     setToggleMapStyle : (toggleMapStyle : boolean) => void
 }
 
+export interface ControlPanelProps {
+    visibility : VisibilityType,
+    setVisibility : (visibility : VisibilityType) => void,
+    isDark: boolean,
+    setIsDark: (isDark : boolean) => void
+  };
+
+export interface MyMarkerProps {
+    experiment: any,
+    setContent: (experiment : any) => void,
+    index: number
+};
+
 export const StatusCategories = ['proposed', 'planned', 'started', 'completed'];
 
 export const StatusColors : {[key: string]: string} = {

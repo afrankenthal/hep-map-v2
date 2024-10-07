@@ -14,10 +14,10 @@ import { StatusColors, StatusCategories } from '@/types/interfaces';
 function MyPopup({content, setContent}: {content: any, setContent: (data : any) => void}) {
     const list_fields = ['status', 'classification', 'accelerator'];
 
-    const makeTableRows = (data : any): string[] => {
+    const makeTableRows = (data : any): React.ReactNode => {
       return Object.entries(data).map(([mykey,value] : [string, any]): React.ReactNode => {
         if (list_fields.includes(mykey)) {
-          if (typeof value !== 'object' && typeof value !== 'array') {
+          if (typeof value !== 'object' && !Array.isArray(value)) {
               return (
                 <TableRow key={mykey}>
                   <TableCell className="p-2">
