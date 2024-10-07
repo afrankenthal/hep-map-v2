@@ -1,0 +1,324 @@
+[
+    {
+        "custom_data": {
+            "status": "started",
+            "inspire_id": 1108642,
+            "classification": [
+                "Collider Experiments",
+                "Hadrons",
+                "p p"
+            ],
+            "latitude": 46.3105,
+            "longitude": 6.07654,
+            "image_path": "/images/CMS.png"
+        },
+        "inspire_data": {
+            "number_of_papers": 13991,
+            "long_name": "CMS: The Compact Muon Solenoid",
+            "accelerator": {
+                "value": "LHC"
+            },
+            "urls": [
+                {
+                    "value": "https://cms.cern/",
+                    "description": "home page"
+                },
+                {
+                    "value": "https://twitter.com/CMSexperiment",
+                    "description": "TWITTER"
+                },
+                {
+                    "value": "https://en.wikipedia.org/wiki/Compact_Muon_Solenoid",
+                    "description": "Wikipedia"
+                }
+            ],
+            "description": "The 27-km Large Hadron Collider (LHC) is the largest and most powerful particle accelerator ever built. It accelerates protons to nearly the velocity of light -- in clockwise and anti-clockwise directions -- and then collides them at four locations around its ring. At these points, the energy of the particle collisions gets transformed into mass, spraying particles in all directions. The Compact Muon Solenoid (or CMS) detector sits at one of these four collision points. It is a general-purpose detector; that is, it is designed to observe any new physics phenomena that the LHC might reveal. CMS acts as a giant, high-speed camera, taking 3D \u201cphotographs\u201d of particle collisions from all directions up to 40 million times each second. Although most of the particles produced in the collisions are \u201cunstable\u201d, they transform rapidly into stable particles that can be detected by CMS. By identifying (nearly) all the stable particles produced in each collision, measuring their momenta and energies, and then piecing together the information of all these particles like putting together the pieces of a puzzle, the detector can recreate an \u201cimage\u201d of the collision for further analysis.",
+            "legacy_name": "CERN-LHC-CMS",
+            "date_started": "2009-11-23",
+            "date_approved": "1996-01-31",
+            "date_proposed": "1992-10-01",
+            "date_completed": "9999",
+            "inspire_classification": [
+                "Collider Experiments|Hadrons|p p"
+            ],
+            "institutions": [
+                {
+                    "value": "CERN",
+                    "record": {
+                        "$ref": "https://inspirehep.net/api/institutions/902725"
+                    },
+                    "curated_relation": true
+                }
+            ],
+            "project_type": [
+                "experiment"
+            ],
+            "name_variants": [
+                "CMS",
+                "CERN-CMS"
+            ]
+        }
+    },
+    {
+        "custom_data": {
+            "status": "started",
+            "inspire_id": 1108541,
+            "classification": [
+                "Collider Experiments",
+                "Hadrons",
+                "p p"
+            ],
+            "latitude": 46.2354,
+            "longitude": 6.0558,
+            "image_path": "/images/ATLAS.png"
+        },
+        "inspire_data": {
+            "number_of_papers": 17628,
+            "long_name": "{ATLAS}",
+            "accelerator": {
+                "value": "LHC"
+            },
+            "urls": [
+                {
+                    "value": "https://atlas.cern",
+                    "description": "home page"
+                },
+                {
+                    "value": "https://twitter.com/ATLASexperiment",
+                    "description": "TWITTER"
+                },
+                {
+                    "value": "https://en.wikipedia.org/wiki/ATLAS_experiment",
+                    "description": "Wikipedia"
+                }
+            ],
+            "description": "ATLAS is one of the four major experiments at the Large Hadron Collider (LHC) at CERN. It is a general-purpose particle physics experiment run by an international collaboration and, together with CMS, is designed to exploit the full discovery potential and the huge range of physics opportunities that the LHC provides. ATLAS' scientific exploration uses precision measurement to push the frontiers of knowledge by seeking answers to fundamental questions such as: What are the basic building blocks of matter? What are the fundamental forces of nature? Could there be a greater underlying symmetry to our universe? ATLAS physicists test the predictions of the Standard Model, which encapsulates our current understanding of what the building blocks of matter are and how they interact. These studies can lead to ground-breaking discoveries, such as that of the Higgs boson, physics beyond the Standard Model and the development of new theories to better describe our universe.",
+            "legacy_name": "CERN-LHC-ATLAS",
+            "date_started": "2009-11-23",
+            "date_approved": "1996-01-31",
+            "date_proposed": "1992-10-01",
+            "date_completed": "9999",
+            "inspire_classification": [
+                "Collider Experiments|Hadrons|p p"
+            ],
+            "institutions": [
+                {
+                    "value": "CERN",
+                    "record": {
+                        "$ref": "https://inspirehep.net/api/institutions/902725"
+                    },
+                    "curated_relation": true
+                }
+            ],
+            "project_type": [
+                "experiment"
+            ],
+            "name_variants": [
+                "ATLAS",
+                "CERN-ATLAS"
+            ]
+        }
+    },
+    {
+        "custom_data": {
+            "status": "started",
+            "inspire_id": 1597054,
+            "classification": [
+                "Dark matter search experiments",
+                "Dark Forces"
+            ],
+            "latitude": 41.8243,
+            "longitude": 12.6724,
+            "image_path": "/images/PADME.png"
+        },
+        "inspire_data": {
+            "number_of_papers": 73,
+            "long_name": "Positron Annihilation into Dark Matter Experiment",
+            "accelerator": {
+                "value": "DAFNE"
+            },
+            "urls": [
+                {
+                    "value": "http://www.lnf.infn.it/acceleratori/padme/index.html",
+                    "description": "home page"
+                }
+            ],
+            "description": "The long standing problem of reconciling the cosmological evidence of the existence of dark matter with the lack of any clear experimental observation of it, has recently revived the idea that the new particles are not directly connected with the Standard Model gauge fields, but only through mediator fields or \u201cportals\u201d, connecting our world with new \u201csecluded\u201d or \u201chidden\u201d sectors. One of the simplest models just adds an additional U(1) symmetry, with its corresponding vector boson A'. All SM particles will be neutral under this symmetry, while the new field will couple to the charged particles of the SM with an effective charge \u03f5e, so that this new particle is often called \u201cdark photon\". Additional interest arises from the observation that A' in the mass range 1 MeV/ c 2 to 1 GeV/ c 2 and coupling \u03f5\u223c10\u22123, would justify the discrepancy between theory and observation for the muon anomalous magnetic moment, (g \u2212 2)\u03bc. This possibility has been recently disproved in the hypothesis that the A' decays to SM particles only, on the contrary if A' decays to dark sector particles, almost all of the available experimental constraints can be evaded and the dark photon is still a valuable explanation for the muon (g-2) anomaly. Due to the weak experimental signature, the search for invisibly decaying A' requires carefully designed dedicated experiment. At the end of 2015 INFN has formally approved a new experiment, PADME, to search for invisible decays of the A' at the DAFNE Linac in Frascati. The experiment is designed to detect dark photon produced in positron on fixed target annihilation ( e +e \u2212\u2192\u03b3 A \u2032) decaying to dark matter by measuring the final state missing mass. The collaboration aims to complete the design and construction of the experiment by the end of 2017 and to collect \u223c10^13 positron on target by the end of 2018, thus allowing to reach the \u03f5\u223c10^\u22123 sensitivity up to a dark photon mass of \u223c23.6 MeV/c^2",
+            "legacy_name": "PADME",
+            "date_started": "2018",
+            "date_approved": "2015",
+            "date_proposed": "2014",
+            "inspire_classification": [
+                "Dark matter search experiments|Dark Forces"
+            ],
+            "institutions": [
+                {
+                    "value": "Frascati",
+                    "record": {
+                        "$ref": "https://inspirehep.net/api/institutions/902807"
+                    },
+                    "curated_relation": true
+                }
+            ],
+            "project_type": [
+                "experiment"
+            ],
+            "name_variants": [
+                "PADME"
+            ]
+        }
+    },
+    {
+        "custom_data": {
+            "status": "proposed",
+            "inspire_id": 1346343,
+            "classification": [
+                "Neutrino (flavor) experiments",
+                "Accelerator",
+                "long-baseline"
+            ],
+            "latitude": 44.3516,
+            "longitude": -103.7512,
+            "image_path": "/images/DUNE.jpeg"
+        },
+        "inspire_data": {
+            "number_of_papers": 249,
+            "long_name": "DUNE: Deep Underground Neutrino Experiment",
+            "accelerator": {
+                "value": "MI"
+            },
+            "urls": [
+                {
+                    "value": "http://www.dunescience.org/",
+                    "description": "home page"
+                },
+                {
+                    "value": "https://www.facebook.com/DUNEscience",
+                    "description": "FACEBOOK"
+                },
+                {
+                    "value": "https://twitter.com/dunescience",
+                    "description": "TWITTER"
+                }
+            ],
+            "description": "The international neutrino physics community has come together to develop the Deep Underground Neutrino Experiment (DUNE), a leading-edge experiment for neutrino science and proton decay studies. This experiment, together with the facility that will support it, the Long-Baseline Neutrino Facility (LBNF), will be an internationally designed, coordinated and funded program, hosted at the Fermi National Accelerator Laboratory (Fermilab) in Batavia, Illinois. DUNE represents the convergence of several formerly independent worldwide efforts around the opportunity provided by the megawatt neutrino beam facility planned at Fermilab and by the new significant expansion at the Sanford Underground Research Facility (Sanford Lab). DUNE will develop detectors to install at both sites, a fine-grained near neutrino detector to be installed 600 m downstream of the Fermilab beamline, and a 40,000 metric ton cryogenic liquid argon detector deployed deep underground at Sanford Lab, located 800 miles (1,300 km) downstream in Lead, South Dakota. The DUNE experiment is expected to achieve transformative discoveries about neutrinos, making definitive determinations of neutrino properties, the dynamics of the supernovae that produced the heavy elements necessary for life, and the possibility of proton decay. The 1,300 km separation between the neutrino source and the far detector is optimal for the symmetry violation studies planned for DUNE and measuring other neutrino properties that may shed light on the origins of the universe.",
+            "legacy_name": "DUNE",
+            "date_proposed": "2015",
+            "inspire_classification": [
+                "Neutrino (flavor) experiments|Accelerator|long-baseline"
+            ],
+            "institutions": [
+                {
+                    "value": "Fermilab",
+                    "record": {
+                        "$ref": "https://inspirehep.net/api/institutions/902796"
+                    },
+                    "curated_relation": true
+                }
+            ],
+            "project_type": [
+                "experiment"
+            ],
+            "name_variants": [
+                "ELBNF",
+                "FNAL-E-1071"
+            ]
+        }
+    },
+    {
+        "custom_data": {
+            "status": "proposed",
+            "inspire_id": 1621547,
+            "classification": [
+                "Dark matter search experiments",
+                "Non-accelerator"
+            ],
+            "latitude": 37.4176,
+            "longitude": -122.201,
+            "image_path": "/images/LDMX.png"
+        },
+        "inspire_data": {
+            "number_of_papers": 14,
+            "long_name": "LDMX: Light Dark Matter eXperiment",
+            "urls": [
+                {
+                    "value": "https://confluence.slac.stanford.edu/display/MME/Light+Dark+Matter+Experiment",
+                    "description": "home page"
+                }
+            ],
+            "description": "The constituents of dark matter are still unknown, and the viable possibilities span a very large mass range. Specific scenarios for the origin of dark matter sharpen the focus on a narrower range of masses:  the natural scenario where dark matter originates from thermal contact with familiar matter in the early Universe requires the DM mass to lie within about an MeV to 100 TeV. Considerable experimental attention has been given to exploring Weakly Interacting Massive Particles in the upper end of this range (few GeV \u2013 ~TeV), while the region ~MeV to ~GeV is largely unexplored. Most of the stable constituents of known matter have masses in this lower range, tantalizing hints for physics beyond the Standard Model have been found here, and a thermal origin for dark matter works in a simple and predictive manner in this mass range as well. It is therefore a priority to explore. If there is an interaction between light DM and ordinary matter, as there must be in the case of a thermal origin, then there necessarily is a production mechanism in accelerator-based experiments. The most sensitive way, (if the interaction is not electron-phobic) to search for this production is to use a primary electron beam to produce DM in \ufb01xed-target collisions. The Light Dark Matter eXperiment (LDMX) is a planned electron-beam fixed-target missing-momentum experiment that has unique sensitivity to light DM in the sub-GeV range.",
+            "legacy_name": "LDMX",
+            "date_proposed": "2016",
+            "inspire_classification": [
+                "Dark matter search experiments|Non-accelerator"
+            ],
+            "institutions": [
+                {
+                    "value": "SLAC",
+                    "record": {
+                        "$ref": "https://inspirehep.net/api/institutions/903206"
+                    },
+                    "curated_relation": true
+                }
+            ],
+            "project_type": [
+                "experiment"
+            ],
+            "name_variants": [
+                "LDMX"
+            ]
+        }
+    },
+    {
+        "custom_data": {
+            "status": "started",
+            "inspire_id": 1108252,
+            "classification": [
+                "Fixed Target Experiments",
+                "Lepton precision experiments"
+            ],
+            "latitude": 41.8358,
+            "longitude": -88.2653,
+            "image_path": "/images/Muon_gm2.png"
+        },
+        "inspire_data": {
+            "number_of_papers": 188,
+            "long_name": "Muon g-2 Experiment",
+            "accelerator": {
+                "value": "MCDR"
+            },
+            "urls": [
+                {
+                    "value": "http://muon-g-2.fnal.gov/"
+                },
+                {
+                    "value": "https://en.wikipedia.org/wiki/Muon_g-2",
+                    "description": "Wikipedia"
+                }
+            ],
+            "description": "The goal of the E-989 muon g-2 experiment is to measure the muon anomalous magnetic moment to 0.14 ppm, a fourfold improvement over the previous Brookhaven E821 experiment. The muon anomaly is a fundamental quantity, which can be precisely measured and accurately computed within the Standard Model and a comparison of experiment to theory is a sensitive test of the completeness of the theory. The current comparison to the accepted theory shows a deviation of more than 3 standard deviations, which might be an indication of New Physics beyond the Standard Model. We will use the Fermilab beam complex to prepare a custom muon beam that will be injected into the relocated muon storage ring. Our goal is a factor of 20 increase in statistics and a significant reduction in systematic uncertainties compared to the BNL experiment.",
+            "legacy_name": "FNAL-E-0989",
+            "date_started": "2017-01-31",
+            "date_approved": "2010-01",
+            "date_proposed": "2009-02",
+            "inspire_classification": [
+                "Fixed Target Experiments|Lepton precision experiments"
+            ],
+            "institutions": [
+                {
+                    "value": "Fermilab",
+                    "record": {
+                        "$ref": "https://inspirehep.net/api/institutions/902796"
+                    },
+                    "curated_relation": true
+                }
+            ],
+            "project_type": [
+                "experiment"
+            ],
+            "name_variants": [
+                "FNAL-E-0989"
+            ]
+        }
+    }
+]

@@ -1,0 +1,8 @@
+{
+    "CMS": {"id": 1108642, "latitude": 46.3105, "longitude": 6.07654, "image_path": "/images/CMS.png"},
+    "ATLAS": {"id": 1108541, "latitude": 46.2354, "longitude": 6.0558, "image_path": "/images/ATLAS.png"},
+    "PADME": {"id": 1597054, "latitude": 41.8243, "longitude": 12.6724, "image_path": "/images/PADME.png"},
+    "DUNE": {"id": 1346343, "latitude": 44.3516, "longitude": -103.7512, "image_path": "/images/DUNE.png"},
+    "LDMX": {"id": 1621547, "latitude": 37.4176, "longitude": -122.2010, "image_path": "/images/LDMX.png"},
+    "Muon_g-2": {"id": 1108252, "latitude": 41.8358, "longitude": -88.2653, "image_path": "/images/Muon_gm2.png"}
+}

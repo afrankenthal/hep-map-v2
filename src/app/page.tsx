@@ -6,7 +6,7 @@ import FullMap from './map'
 // Load data from local file manually
 // import EXPERIMENT from './experiments.json';
 // Load data from local file using inspirehep database
-import EXPERIMENT from './experiments_inspirehep.json';
+import EXPERIMENT from './experiments_inspirehep_test.json';
 
 // Load data from MongoDB
 import clientPromise from '../lib/mongodb'

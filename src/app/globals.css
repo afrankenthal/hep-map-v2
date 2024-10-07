@@ -167,26 +167,6 @@ body,
   font-display: swap;
 }
 
-@media only screen and (max-width: 480px) {
-  .mapboxgl-popup-content {
-      max-width: 300px;
-  }
-  .mapboxgl-popup-content div {
-      padding:0.15em;
-  }
-  .mapboxgl-popup-content p {
-      margin: 0.5em 0.5em;
-  }
-}
-.mapboxgl-popup-content {
-  /* font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', sans-serif; */
-  width: 400px;
-  padding: 15px;
-}
-.mapboxgl-popup-close-button {
-  padding: 1px 6px;
-}
-
 .arrow {
   border: solid black;
   border-width: 0 2px 2px 0;
