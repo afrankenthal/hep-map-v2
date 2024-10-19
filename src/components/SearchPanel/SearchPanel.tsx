@@ -52,9 +52,9 @@ function SearchPanel({data, viewState, setViewState, setContent} : {data: any, v
   }, [])
 
   return (
-    <div className="p-0 mx-auto inset-x-0 md:mx-5 search-panel w-3/5 md:w-1/4 h-10 right-2 md:left-10 top-14 md:top-0 absolute shadow-xl rounded-m" ref={searchRef}>
+    <div className="p-0 mx-auto inset-x-0 md:mx-5 search-panel w-3/5 md:w-1/4 h-10 right-2 md:left-10 top-14 my-2 md:top-0 absolute shadow-xl rounded-m" ref={searchRef}>
         <input 
-            className="focus:outline-none border border-gray-300 border-solid box-border w-full text-m p-2 text-slate-600"
+            className="focus:outline-none border border-gray-300 border-solid box-border w-full text-m px-2 h-10 text-slate-600"
             type="text"
             value={query}
             onChange={onChange}

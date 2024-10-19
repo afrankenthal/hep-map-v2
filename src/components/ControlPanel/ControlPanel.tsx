@@ -38,7 +38,7 @@ function ControlPanel({visibility, setVisibility, isDark, setIsDark} : ControlPa
   const myClassName = "space-x-2"; // + (bar.isHidden ? "hidden md:flex" : "flex");
   
   return (
-    <div className="control-panel-ctrl top-28 md:top-0 mx-auto w-2/5 md:w-1/3 inset-x-0 flex flex-col md:flex-row flex-wrap justify-between absolute shadow-xl rounded-m">
+    <div className="control-panel-ctrl items-center top-28 md:top-0 mx-auto w-2/5 md:w-1/3 inset-x-0 flex flex-col md:flex-row flex-wrap justify-between absolute shadow-xl rounded-m">
       {/* <label className="switch">
         <input type="checkbox" checked={isDark} onChange={() => setIsDark(!isDark)} />
         <span className="slider round"></span>
