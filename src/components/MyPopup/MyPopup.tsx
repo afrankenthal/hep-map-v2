@@ -62,7 +62,7 @@ function MyPopup({content, setContent}: {content: any, setContent: (data : any) 
               <CardTitle className="text-center m-1 p-0">{content.inspire_data.legacy_name}</CardTitle>
               <CardDescription className="text-center p-0 m-1">{content.inspire_data.long_name}</CardDescription>
             </CardHeader>
-            <CardContent className="flex flex-wrap flex-col md:flex-row p-1 m-1 justify-center items-center">
+            <CardContent className="flex flex-wrap flex-col md:flex-row p-1 ml-1 mt-1 mr-1 mb-0 justify-center items-center">
               <div className='w-full md:w-1/2 pr-2'>
               <Table>
                 <TableBody>
