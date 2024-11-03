@@ -49,6 +49,7 @@ function SearchPanel({data, viewState, setViewState, setContent} : {data: any, v
     } else {
       setResults([])
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

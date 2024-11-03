@@ -82,6 +82,7 @@ function FullMap({ EXPERIMENTS } : any) {
         if (visibility[experiment.custom_data.status])
           return (<MyMarker experiment={experiment} setContent={setContent} index={index} />)
       }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
 
