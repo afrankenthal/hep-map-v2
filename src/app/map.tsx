@@ -80,7 +80,7 @@ function FullMap({ EXPERIMENTS } : any) {
   const pins = useMemo( () =>
       EXPERIMENTS["experiment_data"].map((experiment: any, index: any) => {
         if (visibility[experiment.custom_data.status])
-          return (<MyMarker experiment={experiment} setContent={setContent} index={index} />)
+          return (<MyMarker experiment={experiment} setContent={setContent} index={index} key={index} />)
       }),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
@@ -105,7 +105,7 @@ function FullMap({ EXPERIMENTS } : any) {
         {/* {pins} */}
         {EXPERIMENTS["experiment_data"].map((experiment: any, index: any) => {
           if (visibility[experiment.custom_data.status])
-            return (<MyMarker experiment={experiment} setContent={setContent} index={index} />)
+            return (<MyMarker experiment={experiment} setContent={setContent} index={index} key={index} />)
         })}
         {/* Only draw popup if 'content' is defined (not null) */}
         {content && <MyPopup content={content} setContent={setContent} />}
