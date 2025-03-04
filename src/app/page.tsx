@@ -9,22 +9,22 @@ import FullMap from './map'
 import EXPERIMENT from './experiments_inspirehep_test.json';
 
 // Load data from MongoDB
-import clientPromise from '../lib/mongodb'
-async function getData() {
-  try {
-      const client = await clientPromise;
-      const db = client.db("hepmap-db");
-      const experiment_data = await db
-          .collection("experiments")
-          .find({})
-          .toArray();
-      return {
-          experiment_data: JSON.parse(JSON.stringify(experiment_data)),
-      };
-  } catch (e) {
-      console.error(e);
-  }
-}
+// import clientPromise from '../lib/mongodb'
+// async function getData() {
+//   try {
+//       const client = await clientPromise;
+//       const db = client.db("hepmap-db");
+//       const experiment_data = await db
+//           .collection("experiments")
+//           .find({})
+//           .toArray();
+//       return {
+//           experiment_data: JSON.parse(JSON.stringify(experiment_data)),
+//       };
+//   } catch (e) {
+//       console.error(e);
+//   }
+// }
 
 export default async function Home() {
 
