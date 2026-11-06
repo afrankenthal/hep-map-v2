@@ -1,12 +1,9 @@
-import 'mapbox-gl/dist/mapbox-gl.css';
+import 'maplibre-gl/dist/maplibre-gl.css';
 import './globals.css'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'HEPMAP',
-  description: 'A map and history of particle physics',
+  title: 'Particle Map — A world of particle physics',
+  description: 'Explore particle physics experiments, follow discovery journeys, and meet the big questions behind the smallest particles.',
 }
 
 export default function RootLayout({
@@ -16,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   )
 }

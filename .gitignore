@@ -36,3 +36,5 @@ next-env.d.ts
 
 # Update db script
 update_db.sh
+# Generated from the locked MapLibre dependency before dev/build
+/public/maplibre/
