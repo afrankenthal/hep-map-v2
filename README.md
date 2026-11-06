@@ -20,7 +20,7 @@ Open http://localhost:3000. For a production preview, run `npm run build` follow
 - Switch between all particle physics, accelerator research, and underground/rare-event views. Open Coverage to inspect known missing records and exclusions.
 - Follow sourced research connections between experiments and optionally display their schematic map links.
 - Explore the 17-cell Standard Model table and follow proposal/evidence/discovery histories to their experimental sites.
-- Follow three guided journeys, or open the historical milestone timeline. Milestones are selected events, not a complete historical reconstruction.
+- Follow five guided journeys, including dated neutrino and quark discovery trails with supporting evidence at each stop, or open the historical milestone timeline. Milestones are selected events, not a complete historical reconstruction.
 - Copy a link from an experiment panel to share its selection, filters, or journey stop. Back/forward navigation restores supported URL parameters.
 - For DUNE, optionally show the planned source-to-detector connection. This is a schematic surface projection, not surveyed beam geometry.
 - On a keyboard, press `/` or `Ctrl/Cmd+K` to search, and `Esc` to close the selection. The list provides an alternative to map interaction. Reduced-motion preferences are respected.
@@ -39,7 +39,7 @@ Research connections identify shared laboratories, detector technologies, relate
 
 ## Content and sources
 
-The displayed catalogue lives in `src/lib/catalogue.ts` and `src/lib/additional-catalogue.ts`. It contains 127 mapped experiment/programme/phase records, primary-source links, occasional attributed fun facts, typed research connections, three journeys, 25 historical milestones, and all 17 Standard Model particle types with sourced discovery histories. The original raw INSPIRE snapshots and importer remain in `src/app/` as reference material; they are not automatically published into the curated catalogue.
+The displayed catalogue lives in `src/lib/catalogue.ts` and `src/lib/additional-catalogue.ts`. It contains 127 mapped experiment/programme/phase records, primary-source links, occasional attributed fun facts, typed research connections, five journeys, 25 historical milestones, and all 17 Standard Model particle types with sourced discovery histories. The original raw INSPIRE snapshots and importer remain in `src/app/` as reference material; they are not automatically published into the curated catalogue.
 
 Programme stages describe maturity and do not indicate live beam or detector status. Dates and summaries were reviewed on 6 November 2026. Coordinates are approximate detector/host-site locations, not surveyed boundaries. The original six coordinates come from the upstream catalogue; subsequent entries use approximate experimental or host-site positions. DUNE marks its far-detector site and LDMX its proposed host site. Future schedules are not inferred from elapsed dates.
 
@@ -70,3 +70,7 @@ This branch needs no map API token or database credentials. Vercel’s Next.js f
 MapLibre’s matching module worker and shared module are copied from the locked dependency into `public/maplibre/` by `predev`/`prebuild`. These generated files are ignored by Git and served from the same origin.
 
 Foundational historical experiments (including the nuclear atom and neutron) are included because of their impact on particle physics; this does not extend the catalogue to all nuclear-science experiments. Historical impact summaries live in `src/lib/history.ts`. Particle discovery records live in `src/lib/particles.ts`; proposals and evidence are distinguished, and several discoveries have multiple experimental sites. Timeline URLs use stable event keys while preserving the original five numeric milestone links.
+
+## Contributions
+
+Use **Suggest an experiment** in the explorer footer or About dialog, or **Suggest a correction** in an experiment’s details. Add an explanation and an HTTPS source to prepare an editable GitHub issue draft; correction drafts preserve the stable record ID and current references. The destination is the original project’s issue tracker (`afrankenthal/hep-map-v2`), since this development fork has issues disabled. The dialog names the destination before opening it. No issue is submitted automatically. A copy-draft option also supports sharing directly with a maintainer. Change `CONTRIBUTION_REPOSITORY` in `src/lib/contributions.ts` if issue handling moves.

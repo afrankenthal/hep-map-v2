@@ -8,6 +8,7 @@ setWorkerUrl('/maplibre/maplibre-gl-worker.mjs');
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, Atom, BookOpen, Check, Compass, ExternalLink, Globe2, Layers3, Lightbulb, MapPin, Moon, Network, Search, Share2, Sun, X } from 'lucide-react';
 import { PARTICLES } from '@/lib/particles.ts';
 import ParticleExplorer from '@/components/ParticleExplorer';
+import ContributionForm from '@/components/ContributionForm';
 import CatalogueCoverage from '@/components/CatalogueCoverage';
 import { CONNECTION_KINDS, connectionsFor, mapCoordinates, MAP_VIEWS, RESEARCH, EXPERIMENTS, MILESTONES, REVIEW_DATE, STORIES, STAGES, TOPICS, filterExperiments, readSharedView, writeSharedView, type Experiment, type MapView, type SharedView, type Topic } from '@/lib/catalogue';
 
@@ -45,8 +46,16 @@ export default function FullMap() {
   const [clusters, setClusters] = useState<{ id: number; coordinates: [number, number]; count: number }[]>([]);
   const map = useRef<MapRef>(null);
   const search = useRef<HTMLInputElement>(null);
+  const journeyStops = useRef<HTMLDivElement>(null);
   const about = useRef<HTMLDialogElement>(null);
   const coverage = useRef<HTMLDialogElement>(null);
+  const contribution = useRef<HTMLDialogElement>(null);
+  const [contributionRecord, setContributionRecord] = useState<Experiment | undefined>();
+  const [contributionSession, setContributionSession] = useState(0);
+  const openContribution = (record?: Experiment) => {
+    setContributionRecord(record); setContributionSession(value => value + 1);
+    contribution.current?.showModal();
+  };
   const details = useRef<HTMLDivElement>(null);
   const mapArea = useRef<HTMLElement>(null);
   const visible = useMemo(() => {
@@ -70,6 +79,14 @@ export default function FullMap() {
   const story = STORIES.find(s => s.id === view.story);
   const milestone = view.milestone === null ? null : MILESTONES[view.milestone];
   const countries = new Set(EXPERIMENTS.map(e => e.country)).size;
+
+  useEffect(() => {
+    const strip = journeyStops.current;
+    const active = strip?.querySelector<HTMLElement>('[aria-current="step"]');
+    if (strip && active && window.matchMedia('(max-width: 760px)').matches) {
+      strip.scrollTo({ left: active.offsetLeft - (strip.clientWidth - active.clientWidth) / 2, behavior: 'auto' });
+    }
+  }, [view.story, view.stop, tab]);
 
   useEffect(() => {
     const restore = () => {
@@ -102,7 +119,7 @@ export default function FullMap() {
     const onKey = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement;
       const editing = ['INPUT', 'TEXTAREA', 'SELECT'].includes(target.tagName) || target.isContentEditable;
-      if (about.current?.open || coverage.current?.open) return;
+      if (about.current?.open || coverage.current?.open || contribution.current?.open) return;
       if ((event.key === '/' && !editing) || ((event.metaKey || event.ctrlKey) && event.key === 'k')) {
         event.preventDefault();
         setTab('explore');
@@ -269,9 +286,9 @@ export default function FullMap() {
           setView({ ...INITIAL_VIEW, particle: id, experiment });
         }} onExperiment={id => setView(v => ({ ...v, experiment: id }))} /></section>
         <section id="journeys-panel" role="tabpanel" aria-labelledby="journeys-tab" hidden={tab !== 'journeys'}>
-          {story ? <div className="active-journey"><button className="text-button" onClick={() => setView({ ...INITIAL_VIEW })}><ArrowLeft size={14} /> All journeys</button><span className="eyebrow">A GUIDED EXPLORATION</span><h2>{story.title}</h2><p>{story.subtitle}</p><div className="journey-stops">{story.stops.map((stop, i) => <button className={view.stop === i ? 'active' : ''} key={stop.experiment} onClick={() => startStory(story.id, i)}><span>{i + 1}</span><div><strong>{stop.title}</strong><small>{EXPERIMENTS.find(e => e.id === stop.experiment)?.name}</small></div></button>)}</div><div className="journey-note"><BookOpen size={17} /><p>Follow an idea across experiments. Each stop connects a question to a real place.</p></div></div> : <div className="journey-list"><p className="journey-intro">A few stops. A different way to see the universe.</p>{STORIES.map((s, i) => <button key={s.id} className="journey-card" onClick={() => startStory(s.id)}><span className="journey-meta">JOURNEY {String(i + 1).padStart(2, '0')} <span>{s.stops.length} stops</span></span><TopicMark topic={s.topic} /><h2>{s.title}</h2><p>{s.subtitle}</p><span className="text-button">Start exploring <ArrowRight size={16} /></span></button>)}</div>}
+          {story ? <div className="active-journey"><button className="text-button" onClick={() => setView({ ...INITIAL_VIEW })}><ArrowLeft size={14} /> All journeys</button><span className="eyebrow">A GUIDED EXPLORATION</span><h2>{story.title}</h2><p>{story.subtitle}</p><p className="trail-progress" role="status">Stop {view.stop + 1} of {story.stops.length}</p><progress className="trail-progress-bar" aria-label="Discovery trail progress" value={view.stop + 1} max={story.stops.length} /><div className="journey-stops" ref={journeyStops}>{story.stops.map((stop, i) => <button className={view.stop === i ? 'active' : ''} aria-current={view.stop === i ? 'step' : undefined} key={stop.experiment} onClick={() => startStory(story.id, i)}><span>{i + 1}</span><div><strong>{stop.title}</strong><small>{stop.date ? `${stop.date} · ` : ''}{EXPERIMENTS.find(e => e.id === stop.experiment)?.name}</small></div></button>)}</div><div className="journey-note"><BookOpen size={17} /><p>Follow an idea across experiments. Each stop connects a question to a real place.</p></div></div> : <div className="journey-list"><p className="journey-intro">A few stops. A different way to see the universe.</p>{STORIES.map((s, i) => <button key={s.id} className="journey-card" onClick={() => startStory(s.id)}><span className="journey-meta">JOURNEY {String(i + 1).padStart(2, '0')} <span>{s.stops.length} stops</span></span><TopicMark topic={s.topic} /><h2>{s.title}</h2><p>{s.subtitle}</p><span className="text-button">Start exploring <ArrowRight size={16} /></span></button>)}</div>}
         </section>
-        <footer className="explorer-footer"><span><Globe2 size={13} /> {EXPERIMENTS.length} experiments · {countries} countries & regions</span><button onClick={() => coverage.current?.showModal()}>Coverage & sources <ArrowUpRight size={12} /></button></footer>
+        <footer className="explorer-footer"><span><Globe2 size={13} /> {EXPERIMENTS.length} experiments · {countries} countries & regions</span><button onClick={() => coverage.current?.showModal()}>Coverage & sources <ArrowUpRight size={12} /></button><button onClick={() => openContribution()}>Suggest an experiment <ArrowUpRight size={12} /></button></footer>
       </aside>
 
       <section ref={mapArea} className={`map-section ${selected ? 'has-selection' : ''} ${showTimeline ? 'with-timeline' : ''}`} aria-label="World map of particle physics experiments">
@@ -305,7 +322,7 @@ export default function FullMap() {
           <div className="detail-place"><MapPin size={14} /><span>{selected.place}<small>{selected.laboratory}</small></span></div>
           <div className="record-tags"><span className="stage-badge"><span />{selected.stage}</span><span>{RESEARCH[selected.id].recordKind}</span><span>{RESEARCH[selected.id].setting}</span></div>
           {related.length > 0 && <button className="connection-toggle" aria-pressed={showConnections} onClick={() => { setShowConnections(!showConnections); if (!showConnections) frameConnections(); else flyTo(selected); }}><Network size={14} />{showConnections ? 'Hide map connections' : `Show ${related.length} research connections`}<ArrowUpRight size={13} /></button>}
-          {story && <div className="story-excerpt"><span className="eyebrow">STOP {view.stop + 1} / {story.stops.length}</span><h3>{story.stops[view.stop].title}</h3><p>{story.stops[view.stop].text}</p><div className="story-controls"><button aria-label="Previous journey stop" disabled={view.stop === 0} onClick={() => startStory(story.id, view.stop - 1)}><ArrowLeft size={15} /> Back</button><button disabled={view.stop === story.stops.length - 1} onClick={() => startStory(story.id, view.stop + 1)}>Next stop <ArrowRight size={15} /></button></div></div>}
+          {story && <div className="story-excerpt"><span className="eyebrow">STOP {view.stop + 1} / {story.stops.length}</span><h3>{story.stops[view.stop].title}</h3>{story.stops[view.stop].date && <strong className="trail-date">{story.stops[view.stop].date}</strong>}<p>{story.stops[view.stop].text}</p>{story.stops[view.stop].source && <a className="trail-source" href={story.stops[view.stop].source} target="_blank" rel="noreferrer">Evidence for this stop <ExternalLink size={12} /></a>}<div className="story-controls"><button aria-label="Previous journey stop" disabled={view.stop === 0} onClick={() => startStory(story.id, view.stop - 1)}><ArrowLeft size={15} /> Back</button><button disabled={view.stop === story.stops.length - 1} onClick={() => startStory(story.id, view.stop + 1)}>Next stop <ArrowRight size={15} /></button></div></div>}
           <div className="detail-section"><h3>{selected.question}</h3><p>{selected.summary}</p></div>
           {selected.impact && <div className="historical-impact"><span className="eyebrow">WHY IT MATTERED</span><p>{selected.impact}</p></div>}
           {selected.fact && <div className="key-fact"><strong>{selected.fact[0]}</strong><span>{selected.fact[1]}</span></div>}
@@ -314,7 +331,7 @@ export default function FullMap() {
           {selected.id === 'dune' && <div className="beam-control"><button className={`secondary-button ${showBeam ? 'active' : ''}`} aria-pressed={showBeam} onClick={() => { setShowBeam(!showBeam); flyTo(selected, !showBeam); }}>{showBeam ? <Check size={16} /> : <ArrowUpRight size={16} />}{showBeam ? 'Hide planned beam' : 'Show planned beam'}</button><p>Source-to-detector connection; schematic surface projection, not a surveyed beam path.</p></div>}
           {selected.locationNote && <p className="location-note">{selected.locationNote}</p>}
           {related.length > 0 && <section className="related-experiments" aria-label="Related experiments"><h3>Follow the connections</h3>{related.map(link => <div className="related-record" key={link.experiment.id}><span>{CONNECTION_KINDS[link.kind]}</span><button onClick={() => followConnection(link.experiment.id)}><strong>{link.experiment.name}</strong><ArrowRight size={14} /></button><p>{link.label}. {link.note}</p><details><summary>Evidence</summary>{link.sourceUrls.map((url, i) => <a href={url} key={url} target="_blank" rel="noreferrer">Primary source {i + 1}<ExternalLink size={11} /></a>)}</details></div>)}</section>}
-          <div className="detail-sources"><span className="eyebrow">GO DEEPER · PRIMARY SOURCES</span>{selected.sources.map(s => <a key={s.url} href={s.url} target="_blank" rel="noreferrer">{s.label}<ExternalLink size={13} /></a>)}<small>Editorial review · {REVIEW_DATE}<br />Programme stage is not live detector status.</small></div>
+          <div className="detail-sources"><span className="eyebrow">GO DEEPER · PRIMARY SOURCES</span>{selected.sources.map(s => <a key={s.url} href={s.url} target="_blank" rel="noreferrer">{s.label}<ExternalLink size={13} /></a>)}<button className="text-button report-correction" onClick={() => openContribution(selected)}>Suggest a correction <ArrowUpRight size={12} /></button><small>Editorial review · {REVIEW_DATE}<br />Programme stage is not live detector status.</small></div>
         </article>}
 
         <div className="map-legend" aria-label="Map legend">{TOPIC_KEYS.map(t => <span key={t}><i style={{ background: TOPICS[t].color }} />{TOPICS[t].label}</span>)}<small>Numbers group nearby experiments</small></div>
@@ -323,7 +340,8 @@ export default function FullMap() {
       </section>
     </div>
     {notice && <div className="toast" role="status"><Check size={16} /><span>{notice}</span><button onClick={() => setNotice('')} aria-label="Dismiss notification"><X size={14} /></button></div>}
-    <dialog className="about-dialog" ref={about} aria-labelledby="about-title"><button className="icon-button dialog-close" aria-label="Close about" onClick={() => about.current?.close()}><X size={20} /></button><span className="eyebrow">CURIOSITY HAS NO BORDERS</span><h2 id="about-title">A map for the<br />particle-physics curious.</h2><p>Particle Map connects big scientific questions to the places and people exploring them. Start with an experiment, or follow a short journey across an idea.</p><h3>What is particle physics?</h3><p>Particle physics studies the fundamental constituents of matter and radiation, and their interactions. Researchers use accelerators and particles from natural sources, along with low-background detectors, to test these ideas. High-energy physics is a common name for the field; underground research belongs within this broader picture. <a href="https://home.cern/science/physics" target="_blank" rel="noreferrer">Read CERN’s introduction</a>.</p><h3>Built on a shared idea</h3><p>Based on <a href="https://github.com/afrankenthal/hep-map-v2" target="_blank" rel="noreferrer">Andre Frankenthal’s HEP Map</a>. The journeys and milestones take inspiration from the exploratory approach of <a href="https://github.com/DeanChensj/jiangshan-map" target="_blank" rel="noreferrer">Jiangshan Map</a>.</p><h3>A curated starting point</h3><p>These {EXPERIMENTS.length} experiments are a selection, not a complete directory. Descriptions link to primary sources and were reviewed on {REVIEW_DATE}. Locations are approximate; proposed host sites and DUNE’s far site are labelled in their details. Programme stages are editorial categories, not live beam or detector status.</p><button className="text-button" onClick={() => { about.current?.close(); coverage.current?.showModal(); }}>See known coverage gaps <ArrowUpRight size={14} /></button><h3>Map & navigation</h3><p>Rendered with MapLibre and OpenStreetMap tiles. Use the list as a keyboard-accessible alternative to map pins. Press <kbd>/</kbd> to search and <kbd>Esc</kbd> to close a selection. Your theme preference stays in this browser.</p><button className="primary-button" onClick={() => about.current?.close()}>Back to exploring <ArrowRight size={16} /></button></dialog>
+    <dialog className="about-dialog" ref={about} aria-labelledby="about-title"><button className="icon-button dialog-close" aria-label="Close about" onClick={() => about.current?.close()}><X size={20} /></button><span className="eyebrow">CURIOSITY HAS NO BORDERS</span><h2 id="about-title">A map for the<br />particle-physics curious.</h2><p>Particle Map connects big scientific questions to the places and people exploring them. Start with an experiment, or follow a short journey across an idea.</p><h3>What is particle physics?</h3><p>Particle physics studies the fundamental constituents of matter and radiation, and their interactions. Researchers use accelerators and particles from natural sources, along with low-background detectors, to test these ideas. High-energy physics is a common name for the field; underground research belongs within this broader picture. <a href="https://home.cern/science/physics" target="_blank" rel="noreferrer">Read CERN’s introduction</a>.</p><h3>Built on a shared idea</h3><p>Based on <a href="https://github.com/afrankenthal/hep-map-v2" target="_blank" rel="noreferrer">Andre Frankenthal’s HEP Map</a>. The journeys and milestones take inspiration from the exploratory approach of <a href="https://github.com/DeanChensj/jiangshan-map" target="_blank" rel="noreferrer">Jiangshan Map</a>.</p><h3>A curated starting point</h3><p>These {EXPERIMENTS.length} experiments are a selection, not a complete directory. Descriptions link to primary sources and were reviewed on {REVIEW_DATE}. Locations are approximate; proposed host sites and DUNE’s far site are labelled in their details. Programme stages are editorial categories, not live beam or detector status.</p><button className="text-button" onClick={() => { about.current?.close(); coverage.current?.showModal(); }}>See known coverage gaps <ArrowUpRight size={14} /></button><h3>Help the map grow</h3><p>Missing a site or spotted a mistake? Prepare a source-backed contribution for the project’s GitHub issue tracker.</p><button className="text-button" onClick={() => { about.current?.close(); openContribution(); }}>Suggest an experiment <ArrowUpRight size={14} /></button><h3>Map & navigation</h3><p>Rendered with MapLibre and OpenStreetMap tiles. Use the list as a keyboard-accessible alternative to map pins. Press <kbd>/</kbd> to search and <kbd>Esc</kbd> to close a selection. Your theme preference stays in this browser.</p><button className="primary-button" onClick={() => about.current?.close()}>Back to exploring <ArrowRight size={16} /></button></dialog>
+    <dialog className="about-dialog contribution-dialog" ref={contribution} aria-labelledby="contribution-title"><button className="icon-button dialog-close" aria-label="Close contribution" onClick={() => contribution.current?.close()}><X size={20} /></button><ContributionForm key={contributionSession} context={contributionRecord} /></dialog>
     <dialog className="about-dialog coverage-dialog" ref={coverage} aria-labelledby="coverage-title"><button className="icon-button dialog-close" aria-label="Close coverage" onClick={() => coverage.current?.close()}><X size={20} /></button><CatalogueCoverage onSelect={id => { coverage.current?.close(); setTab('explore'); setView({ ...INITIAL_VIEW, experiment: id }); }} /></dialog>
   </main>;
 }
