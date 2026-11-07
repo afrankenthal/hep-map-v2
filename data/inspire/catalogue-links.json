@@ -2667,7 +2667,7 @@
       "linkScope": "identity",
       "identityReview": null,
       "reviewNote": {
-        "reviewedOn": "2026-11-06",
+        "reviewedOn": "2026-11-07",
         "reviewMethod": "AI-assisted source comparison",
         "kind": "no-match-in-snapshot",
         "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
@@ -2677,7 +2677,7 @@
           "SLAC-MIT"
         ],
         "evidenceUrls": [
-          "https://cern-courier.web.cern.ch/a/back-to-the-future/"
+          "https://doi.org/10.1103/PhysRevLett.23.935"
         ],
         "relatedRecords": [],
         "searchEvidence": [
@@ -2884,7 +2884,7 @@
       "linkScope": "identity",
       "identityReview": null,
       "reviewNote": {
-        "reviewedOn": "2026-11-06",
+        "reviewedOn": "2026-11-07",
         "reviewMethod": "AI-assisted source comparison",
         "kind": "no-match-in-snapshot",
         "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
@@ -2893,7 +2893,7 @@
           "X-ray scattering"
         ],
         "evidenceUrls": [
-          "https://www.iucr.org/what-we-do/awards-and-prizes/nobel-prize/compton"
+          "https://doi.org/10.1103/PhysRev.21.483"
         ],
         "relatedRecords": [],
         "searchEvidence": [
@@ -3242,12 +3242,12 @@
       "linkScope": "identity",
       "identityReview": null,
       "reviewNote": {
-        "reviewedOn": "2026-11-06",
+        "reviewedOn": "2026-11-07",
         "reviewMethod": "AI-assisted source comparison",
         "kind": "scope-difference",
         "reason": "Gargamelle was an apparatus used by multiple studies. The snapshot contains later Gargamelle studies; none is selected as the identity of the 1973 discovery entry.",
         "evidenceUrls": [
-          "https://cern-courier.web.cern.ch/a/neutral-currents-a-perfect-experimental-discovery/"
+          "https://repository.cern/records/jf228-xjn13"
         ],
         "relatedRecords": [
           {

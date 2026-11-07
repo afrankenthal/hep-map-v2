@@ -417,7 +417,7 @@ export function connectionsFor(id: string) {
   return [...curated, ...grouped];
 }
 
-export interface DiscoveryStop { experiment: string; title: string; text: string; date?: string; source?: string; }
+export interface DiscoveryStop { experiment: string; title: string; text: string; date?: string; source: string; }
 export interface DiscoveryStory { id: string; title: string; subtitle: string; topic: Topic; stops: DiscoveryStop[]; }
 export const STORIES: DiscoveryStory[] = [
   { id: 'neutrino-discovery', title: 'How neutrinos changed physics', subtitle: 'From a reactor signal to the mystery of changing flavours.', topic: 'neutrinos', stops: [
@@ -428,22 +428,22 @@ export const STORIES: DiscoveryStory[] = [
     { experiment: 'sno', date: '2001–2002', title: 'The missing flavours turn up', text: 'Heavy water let SNO compare electron-neutrino interactions with reactions sensitive to all active flavours. The solar deficit reflected flavour change rather than a failure of the Sun to produce neutrinos.', source: 'https://arxiv.org/abs/nucl-ex/0204008' },
   ] },
   { id: 'quark-discovery', title: 'Following the quarks', subtitle: 'Scattering clues, unexpected resonances, and the final quark.', topic: 'colliders', stops: [
-    { experiment: 'slac-dis', date: '1968–1969', title: 'Look inside the proton', text: 'Electron scattering at SLAC revealed point-like constituents inside nucleons. These observations helped turn the quark picture into an experimental description of matter.', source: 'https://cern-courier.web.cern.ch/a/back-to-the-future/' },
+    { experiment: 'slac-dis', date: '1968–1969', title: 'Look inside the proton', text: 'Electron scattering at SLAC revealed point-like constituents inside nucleons. These observations helped turn the quark picture into an experimental description of matter.', source: 'https://doi.org/10.1103/PhysRevLett.23.935' },
     { experiment: 'mark-i', date: '1974', title: 'A resonance changes the picture', text: 'SLAC’s Mark I and Brookhaven’s E598 independently observed the J/ψ. Its interpretation as charm–anticharm bound matter brought a new quark flavour into focus.', source: 'https://www.fnal.gov/pub/science/historical-results/' },
     { experiment: 'e288', date: '1977', title: 'Evidence for bottom', text: 'Fermilab’s E288 found the upsilon resonance in muon pairs. The new bound state supplied evidence for the bottom quark and another generation of matter.', source: 'https://www.fnal.gov/pub/science/historical-results/' },
     { experiment: 'cdf', date: '1995', title: 'Complete the quark family', text: 'CDF and DØ independently established the top quark at the Tevatron. The result completed the six-quark family of the Standard Model.', source: 'https://www.fnal.gov/pub/science/historical-results/' },
   ] },
   { id: 'higgs', title: 'Two views of the Higgs', subtitle: 'One discovery. Two independent detectors.', topic: 'colliders' as Topic, stops: [
-    { experiment: 'cms', title: 'A solenoid and a question', text: 'At CMS, layers of detectors reconstruct the products of proton collisions. The Higgs search relied on recognising rare decay patterns among an enormous background.' },
-    { experiment: 'atlas', title: 'Independent evidence', text: 'Across the LHC ring, ATLAS uses a different detector design. On 4 July 2012, the two collaborations announced a new particle consistent with the Higgs boson.' },
+    { experiment: 'cms', title: 'A solenoid and a question', text: 'At CMS, layers of detectors reconstruct the products of proton collisions. The Higgs search relied on recognising rare decay patterns among an enormous background.', source: 'https://arxiv.org/abs/1207.7235' },
+    { experiment: 'atlas', title: 'Independent evidence', text: 'Across the LHC ring, ATLAS uses a different detector design. On 4 July 2012, the two collaborations announced a new particle consistent with the Higgs boson.', source: 'https://arxiv.org/abs/1207.7214' },
   ] },
   { id: 'neutrinos', title: 'The changing neutrino', subtitle: 'From a mountain in Japan to a journey through Earth.', topic: 'neutrinos' as Topic, stops: [
-    { experiment: 'super-k', title: 'A clue beneath a mountain', text: 'In 1998, Super-Kamiokande found that atmospheric muon neutrinos behaved differently depending on the distance they travelled: compelling evidence for oscillations.' },
-    { experiment: 'dune', title: 'The next long journey', text: 'DUNE will compare neutrinos and antineutrinos across a 1,300 km baseline. Show the planned beam connection to see how its near and far sites fit together.' },
+    { experiment: 'super-k', title: 'A clue beneath a mountain', text: 'In 1998, Super-Kamiokande found that atmospheric muon neutrinos behaved differently depending on the distance they travelled: compelling evidence for oscillations.', source: 'https://www-sk.icrr.u-tokyo.ac.jp/en/about/history/' },
+    { experiment: 'dune', title: 'The next long journey', text: 'DUNE will compare neutrinos and antineutrinos across a 1,300 km baseline. Show the planned beam connection to see how its near and far sites fit together.', source: 'https://arxiv.org/abs/2002.03005' },
   ] },
   { id: 'invisible', title: 'Looking for the invisible', subtitle: 'Two ways to search for a hidden sector.', topic: 'dark' as Topic, stops: [
-    { experiment: 'padme', title: 'Account for the missing mass', text: 'PADME uses positrons and a thin target to search for dark photons. The key is to measure what is visible well enough to infer what might be missing.' },
-    { experiment: 'ldmx', title: 'Account for the missing momentum', text: 'The proposed LDMX experiment takes a different approach with electrons. A momentum imbalance could flag an invisible interaction, provided ordinary explanations can be excluded.' },
+    { experiment: 'padme', title: 'Account for the missing mass', text: 'PADME uses positrons and a thin target to search for dark photons. The key is to measure what is visible well enough to infer what might be missing.', source: 'https://w3.lnf.infn.it/ricerca/fisica-delle-particelle/padme/' },
+    { experiment: 'ldmx', title: 'Account for the missing momentum', text: 'The proposed LDMX experiment takes a different approach with electrons. A momentum imbalance could flag an invisible interaction, provided ordinary explanations can be excluded.', source: 'https://arxiv.org/abs/2508.11833' },
   ] },
 ];
 

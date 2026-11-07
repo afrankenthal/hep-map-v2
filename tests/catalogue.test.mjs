@@ -49,6 +49,7 @@ test('catalogue records, stories, and milestones form a valid linked collection'
   const ids = new Set(EXPERIMENTS.map(e => e.id));
   assert.equal(ids.size, EXPERIMENTS.length);
   for (const e of EXPERIMENTS) {
+    for (const field of ['name', 'fullName', 'laboratory', 'place', 'country', 'question', 'summary']) assert.ok(typeof e[field] === 'string' && e[field].trim(), `${e.id}: missing ${field}`);
     assert.ok(Object.hasOwn(TOPICS, e.topic));
     assert.ok(STAGES.includes(e.stage));
     assert.ok(Math.abs(e.coordinates[0]) <= 180 && Math.abs(e.coordinates[1]) <= 90);
@@ -181,4 +182,11 @@ test('historical expansion preserves legacy milestone URLs and stable new event 
   const recent = readSharedView('?event=1964-cp-violation');
   assert.equal(MILESTONES[recent.milestone].experiment, 'cp-violation');
   assert.equal(readSharedView(writeSharedView(recent)).milestone, recent.milestone);
+});
+
+test('every journey stop has its own explicit HTTPS source', () => {
+  for (const story of STORIES) for (const stop of story.stops) {
+    assert.ok(stop.source, `${story.id}: ${stop.experiment} needs a source`);
+    assert.equal(new URL(stop.source).protocol, 'https:');
+  }
 });

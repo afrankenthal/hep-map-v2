@@ -14,7 +14,17 @@ npm run dev
 
 Open http://localhost:3000. For a production preview, run `npm run build` followed by `npm run start`.
 
+## v1 release scope
+
+HEPMAP v1 is a curated educational map: find an experiment, understand its purpose, and follow its sources and discovery history. The release baseline is 127 experiment/programme/phase records, 17 Standard Model particle types, five journeys (15 sourced stops), and 25 selected milestones. Global completeness is not a release claim.
+
+Feature development is frozen for v1. Comparison views, quizzes, accounts, automatic AI publication, and a photograph for every record are outside scope. Existing fun facts and connections stay optional. Future catalogue corrections and source refreshes are maintenance.
+
+The release is finished when the map and search are immediately usable on desktop and mobile; the baseline content and unresolved identity notes have been reviewed; navigation and shared links pass the checks below; the maintainer accepts the PR; and the resulting upstream commit is verified live in **afrankenthal’s projects**. A successful local build or GitHub CI run is a release candidate, not proof of deployment. Vercel authorization is the final external gate after implementation and review.
+
 ## Explore
+
+Search and the experiment list are the default view. **Filters** expands research views (including underground), physics topics, and programme stages. **Discover** groups particle discoveries, guided journeys, Through time, and Surprise me; **Browse experiments** returns to the directory. Coverage contains the detailed source audits.
 
 - Search names, aliases, laboratories, places, countries, and physics questions. Combine searches with topic and programme-stage filters.
 - Choose an experiment from the list or map. Nearby experiments form numbered clusters; click a cluster to zoom in.
@@ -22,7 +32,7 @@ Open http://localhost:3000. For a production preview, run `npm run build` follow
 - Follow sourced research connections between experiments and optionally display their schematic map links.
 - Explore the 17-cell Standard Model table and follow proposal/evidence/discovery histories to their experimental sites.
 - Choose **Surprise me** for an experiment, a sourced fun fact, or a discovery milestone from the whole catalogue. It clears filters and skips the currently selected experiment. Shared links preserve the chosen record or milestone.
-- Follow five guided journeys, including dated neutrino and quark discovery trails with supporting evidence at each stop, or use **Through time**: a keyboard-accessible slider through 25 sourced milestones, with sites appearing cumulatively. The timeline shows selected events, not historical operating status. Milestones are selected events, not a complete historical reconstruction.
+- Follow five guided journeys, including neutrino and quark discovery trails, with a dedicated source at every stop across all five journeys, or use **Through time**: a keyboard-accessible slider through 25 sourced milestones, with sites appearing cumulatively. The timeline shows selected events, not historical operating status. Milestones are selected events, not a complete historical reconstruction.
 - Copy a link from an experiment panel to share its selection, filters, or journey stop. Back/forward navigation restores supported URL parameters.
 - For DUNE, optionally show the planned source-to-detector connection. This is a schematic surface projection, not surveyed beam geometry.
 - On a keyboard, press `/` or `Ctrl/Cmd+K` to search, and `Esc` to close the selection. The list provides an alternative to map interaction. Reduced-motion preferences are respected.
@@ -43,7 +53,7 @@ Research connections identify shared laboratories, detector technologies, relate
 
 The displayed catalogue lives in `src/lib/catalogue.ts` and `src/lib/additional-catalogue.ts`. It contains 127 mapped experiment/programme/phase records, primary-source links, occasional attributed fun facts, typed research connections, five journeys, 25 historical milestones, and all 17 Standard Model particle types with sourced discovery histories. The original raw INSPIRE snapshots and legacy importer remain in `src/app/` as reference material. The maintained INSPIRE pipeline is described below. Imported scientific summaries and coordinates never replace reviewed content automatically.
 
-Programme stages describe maturity and do not indicate live beam or detector status. Dates and summaries were reviewed on 6 November 2026. Coordinates are approximate detector/host-site locations, not surveyed boundaries. The original six coordinates come from the upstream catalogue; subsequent entries use approximate experimental or host-site positions. DUNE marks its far-detector site and LDMX its proposed host site. Future schedules are not inferred from elapsed dates.
+Programme stages describe maturity and do not indicate live beam or detector status. The catalogue’s editorial review date is 6 November 2026. The v1 finishing pass on 7 November 2026 added explicit sources to all journey stops and corrected the SLAC scattering, Compton, Gargamelle, and KamLAND citations. These targeted checks do not constitute a new independent human review of every catalogue claim. Coordinates are approximate detector/host-site locations, not surveyed boundaries. The original six coordinates come from the upstream catalogue; subsequent entries use approximate experimental or host-site positions. DUNE marks its far-detector site and LDMX its proposed host site. Future schedules are not inferred from elapsed dates.
 
 When adding an experiment, give it a stable ID, coordinates, topic, programme stage, aliases, plain-language question and summary, method, explanatory fact, and primary sources. Verify all factual changes against those sources and update the review date. Do not overwrite reviewed text with raw imported descriptions. Extend the catalogue validation tests for new fields or relationships.
 

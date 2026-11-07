@@ -32,10 +32,6 @@ button { border: 0; }
 .eyebrow { font-size: 9px; font-weight: 600; letter-spacing: .4px; line-height: 1.6; }
 h1 { font-size: 25px; font-weight: 650; letter-spacing: -.7px; line-height: 1.25; margin: 0 0 12px; }
 .explorer-intro p { font-size: 11px; color: var(--muted); line-height: 1.65; margin: 0; }
-.explorer-tabs { margin: 0 25px; display: flex; border-bottom: 1px solid var(--line); gap: 24px; }
-.explorer-tabs button { background: transparent; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 1px 13px; color: var(--muted); font-size: 12px; border-bottom: 2px solid transparent; }
-.explorer-tabs button[aria-selected=true] { border-color: var(--accent); color: var(--ink); }
-.explorer-tabs button span { font-size: 9px; background: var(--tint); padding: 2px 5px; border-radius: 3px; }
 .search-field { margin: 23px 25px 17px; height: 42px; display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--line); border-radius: 5px; padding: 0 11px; color: var(--muted); }
 .search-field:focus-within { border-color: var(--accent); }
 .search-field input { background: transparent; border: 0; width: 100%; min-width: 0; outline: none; font-size: 10px; color: var(--ink); }
@@ -190,7 +186,6 @@ kbd { font-family: inherit; font-size: 10px; padding: 2px 5px; border: 1px solid
   .workspace { grid-template-columns: 305px minmax(0, 1fr); }
   .explorer-intro, .active-journey { padding-left: 20px; padding-right: 20px; }
   h1 { font-size: 28px; }
-  .explorer-tabs, .topic-filters, .search-field, .results-toolbar { margin-left: 20px; margin-right: 20px; }
   .map-heading { left: 20px; }
   .map-heading h2 { font-size: 24px; }
   .detail-panel { width: 290px; right: 14px; padding-left: 20px; padding-right: 20px; top: 181px; }
@@ -215,8 +210,6 @@ kbd { font-family: inherit; font-size: 10px; padding: 2px 5px; border: 1px solid
   h1 br { display: none; }
   h1 em { display: block; }
   .explorer-intro p { font-size: 10px; }
-  .explorer-tabs { margin: 0 22px; gap: 27px; }
-  .explorer-tabs button { font-size: 11px; padding: 8px 0 11px; }
   .search-field { margin: 17px 22px 13px; height: 41px; }
   .search-field input { font-size: 11px; }
   .topic-filters { margin: 0 22px 15px; gap: 6px; }
@@ -347,8 +340,6 @@ kbd { font-family: inherit; font-size: 10px; padding: 2px 5px; border: 1px solid
   .connection-caption { top: 157px; left: 22px; font-size: 8px; }
   .fun-fact p { font-size: 12px; }
 }
-.explorer-tabs { gap: 18px; }
-.explorer-tabs button { font-size: 11px; gap: 6px; }
 .particle-explorer { padding: 24px 25px; }
 .particle-explorer > .eyebrow { font-size: 8px; color: var(--muted); }
 .particle-explorer > h2 { font-size: 27px; font-weight: 600; letter-spacing: -.7px; line-height: 1.25; margin: 12px 0; }
@@ -424,8 +415,6 @@ kbd { font-family: inherit; font-size: 10px; padding: 2px 5px; border: 1px solid
 .inspire-search-evidence { margin: 12px 0; font-size: 10px; color: var(--muted); }
 .inspire-search-evidence ul { padding-left: 17px; }
 
-.surprise-button { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; margin: 0 24px 18px; padding: 10px 12px; width: calc(100% - 48px); border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); font-size: 12px; text-align: left; }
-.surprise-button span { width: 100%; padding-left: 22px; color: var(--muted); font-size: 10px; }
 .surprise-pick { padding: 14px; margin: 0 0 18px; border-left: 2px solid var(--accent); background: var(--surface); }
 .surprise-pick h3 { font-size: 13px; margin: 10px 0; }
 .surprise-pick p { font-size: 12px; line-height: 1.7; margin: 10px 0; }
@@ -448,4 +437,46 @@ kbd { font-family: inherit; font-size: 10px; padding: 2px 5px; border: 1px solid
   .time-controls label { font-size: 22px; gap: 8px; }
   .time-controls label span { font-size: 11px; }
   .milestone-tray { max-height: calc(100% - 175px); }
+}
+
+/* v1: search and the map lead; optional exploration stays under Discover. */
+.explorer-intro { padding: 20px 25px 12px; }
+.explorer-intro h1 { font-size: 22px; margin-bottom: 4px; }
+.explorer-intro .scope-note { margin-top: 6px; }
+.search-field { margin-top: 4px; margin-bottom: 10px; }
+.search-field input { font-size: 12px; }
+.filters-panel { margin: 0 25px 8px; }
+.filters-panel > summary { display: flex; align-items: center; gap: 8px; cursor: pointer; padding: 8px 0; font-size: 12px; list-style: none; }
+.filters-panel > summary::-webkit-details-marker, .discover-menu > summary::-webkit-details-marker { display: none; }
+.filters-panel > summary span { margin-left: auto; font-size: 10px; color: var(--muted); }
+.filters-panel[open] > summary > svg, .discover-menu[open] > summary > svg { transform: rotate(180deg); }
+.filters-panel .scope-selector { margin: 10px 0 16px; }
+.filters-panel .topic-filters { margin: 0 0 16px; }
+.stage-filter { display: grid; gap: 8px; font-size: 11px; margin-bottom: 12px; }
+.stage-filter select { padding: 9px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); width: 100%; }
+.results-toolbar { padding: 9px 0; }
+.results-toolbar .text-button { font-size: 10px; }
+.back-to-map { margin-top: 10px; }
+.discover-menu { position: relative; }
+.discover-menu > summary { display: flex; align-items: center; gap: 6px; padding: 10px 0; font-size: 12px; cursor: pointer; list-style: none; }
+.discover-menu nav { position: absolute; right: 0; top: 100%; width: 220px; padding: 6px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); box-shadow: 0 8px 20px #0001; }
+.discover-menu nav button { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; background: transparent; padding: 12px 10px; border-radius: 3px; font-size: 12px; }
+.discover-menu nav button:hover { background: var(--hover); }
+@media (max-width: 760px) {
+  .site-header { padding: 0 14px; }
+  .header-actions { gap: 12px; }
+  .brand small { display: none; }
+  .brand { font-size: 19px; gap: 7px; }
+  .brand-symbol { width: 30px; height: 30px; }
+  .header-actions > .coverage-button { display: none; }
+  .header-actions > .icon-button { width: 28px; }
+  .explorer-intro { padding: 13px 18px 7px; }
+  .explorer-intro h1 { font-size: 20px; margin: 0 0 3px; }
+  .search-field { margin: 2px 18px 5px; }
+  .search-field input { font-size: 12px; }
+  .filters-panel { margin: 0 18px 3px; }
+  .results-toolbar { margin: 0 18px; padding: 6px 0; }
+  .experiment-list { padding: 7px 18px 10px; }
+  .experiment-row { min-width: 170px; width: 170px; padding: 9px; }
+  .discover-menu nav { right: -70px; }
 }
