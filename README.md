@@ -22,7 +22,7 @@ Open http://localhost:3000. For a production preview, run `npm run build` follow
 - Follow sourced research connections between experiments and optionally display their schematic map links.
 - Explore the 17-cell Standard Model table and follow proposal/evidence/discovery histories to their experimental sites.
 - Choose **Surprise me** for an experiment, a sourced fun fact, or a discovery milestone from the whole catalogue. It clears filters and skips the currently selected experiment. Shared links preserve the chosen record or milestone.
-- Follow five guided journeys, including dated neutrino and quark discovery trails with supporting evidence at each stop, or open the historical milestone timeline. Milestones are selected events, not a complete historical reconstruction.
+- Follow five guided journeys, including dated neutrino and quark discovery trails with supporting evidence at each stop, or use **Through time**: a keyboard-accessible slider through 25 sourced milestones, with sites appearing cumulatively. The timeline shows selected events, not historical operating status. Milestones are selected events, not a complete historical reconstruction.
 - Copy a link from an experiment panel to share its selection, filters, or journey stop. Back/forward navigation restores supported URL parameters.
 - For DUNE, optionally show the planned source-to-detector connection. This is a schematic surface projection, not surveyed beam geometry.
 - On a keyboard, press `/` or `Ctrl/Cmd+K` to search, and `Esc` to close the selection. The list provides an alternative to map interaction. Reduced-motion preferences are respected.

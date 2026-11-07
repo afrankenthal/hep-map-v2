@@ -431,3 +431,21 @@ kbd { font-family: inherit; font-size: 10px; padding: 2px 5px; border: 1px solid
 .surprise-pick p { font-size: 12px; line-height: 1.7; margin: 10px 0; }
 .surprise-pick a, .surprise-pick button { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink); }
 .surprise-pick button { margin-top: 14px; padding: 7px 0; background: transparent; border: 0; text-decoration: underline; text-underline-offset: 3px; }
+
+.time-controls { display: flex; align-items: center; gap: 14px; margin: 12px 0 4px; }
+.time-controls > div { flex: 1; min-width: 0; }
+.time-controls > button { display: grid; place-items: center; width: 36px; height: 36px; flex-shrink: 0; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); }
+.time-controls label { display: flex; align-items: baseline; gap: 12px; font-size: 24px; font-weight: 600; }
+.time-controls label span { font-size: 12px; font-weight: 400; }
+.time-controls input { display: block; width: 100%; accent-color: #216c59; margin: 8px 0 0; cursor: pointer; min-height: 24px; }
+.time-endpoints { display: flex; justify-content: space-between; font-size: 9px; color: #727b72; }
+.time-scope { font-size: 10px; line-height: 1.5; color: #727b72; margin: 8px 0 12px; }
+.time-explore { margin-top: 10px; font-size: 11px; }
+.milestone-tray { max-height: calc(100% - 190px); overflow-y: auto; }
+.milestone-years { position: relative; }
+@media (max-width: 760px) {
+  .time-controls { gap: 8px; }
+  .time-controls label { font-size: 22px; gap: 8px; }
+  .time-controls label span { font-size: 11px; }
+  .milestone-tray { max-height: calc(100% - 175px); }
+}

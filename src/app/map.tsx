@@ -12,6 +12,8 @@ import { PARTICLES } from '@/lib/particles.ts';
 import ParticleExplorer from '@/components/ParticleExplorer';
 import ContributionForm from '@/components/ContributionForm';
 import CatalogueCoverage from '@/components/CatalogueCoverage';
+import DiscoveryTimeline from '@/components/DiscoveryTimeline';
+import { milestoneSitesThrough } from '@/lib/timeline';
 import { CONNECTION_KINDS, connectionsFor, mapCoordinates, MAP_VIEWS, RESEARCH, EXPERIMENTS, MILESTONES, REVIEW_DATE, STORIES, STAGES, TOPICS, filterExperiments, readSharedView, writeSharedView, type Experiment, type MapView, type SharedView, type Topic } from '@/lib/catalogue';
 
 const BASEMAP: StyleSpecification = {
@@ -63,10 +65,11 @@ export default function FullMap() {
   const details = useRef<HTMLDivElement>(null);
   const mapArea = useRef<HTMLElement>(null);
   const visible = useMemo(() => {
-    const found = filterExperiments(view);
+    const historySites = showTimeline ? milestoneSitesThrough(view.milestone ?? 0) : null;
+    const found = filterExperiments(view).filter(e => !historySites || historySites.has(e.id));
     const story = STORIES.find(s => s.id === view.story);
     return story ? found.filter(e => story.stops.some(s => s.experiment === e.id)) : found;
-  }, [view]);
+  }, [view, showTimeline]);
   const selected = visible.find(e => e.id === view.experiment);
   const selectedInspire = selected ? inspireLinks(selected.id) : [];
   const related = useMemo(() => selected ? connectionsFor(selected.id) : [], [selected]);
@@ -155,21 +158,21 @@ export default function FullMap() {
   }, []);
 
   useEffect(() => {
-    if (ready && selected) {
+    if (ready && selected && !showTimeline) {
       flyTo(selected);
       if (window.matchMedia('(max-width: 760px)').matches) mapArea.current?.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     }
-  }, [ready, selected, flyTo]);
+  }, [ready, selected, flyTo, showTimeline]);
 
   const resetMap = useCallback(() => {
     const points = visible.length ? visible : EXPERIMENTS;
     const longitudes = points.map(e => mapCoordinates(e)[0]);
     const latitudes = points.map(e => mapCoordinates(e)[1]);
     map.current?.fitBounds([[Math.min(...longitudes), Math.min(...latitudes)], [Math.max(...longitudes), Math.max(...latitudes)]],
-      { padding: { top: 175, bottom: 120, left: 30, right: 30 }, maxZoom: 9, duration: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 800 });
-  }, [visible]);
+      { absolutePadding: true, padding: { top: showTimeline ? 130 : 175, bottom: showTimeline ? Math.min(390, map.current.getContainer().clientHeight * 0.55) : 120, left: 30, right: 30 }, maxZoom: showTimeline ? 6 : 9, duration: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 800 });
+  }, [visible, showTimeline]);
 
-  useEffect(() => { if (ready && !selected) resetMap(); }, [ready, selected, resetMap]);
+  useEffect(() => { if (ready && (!selected || showTimeline)) resetMap(); }, [ready, selected, resetMap, showTimeline]);
 
   const select = (id: string) => {
     setSurprise(null);
@@ -284,13 +287,15 @@ export default function FullMap() {
           const index = modes.indexOf(tab);
           const next = event.key === 'Home' ? 'explore' : event.key === 'End' ? 'journeys' : modes[(index + (event.key === 'ArrowLeft' ? 2 : 1)) % 3];
           setTab(next);
+          setShowTimeline(false);
+          setView(v => ({ ...v, milestone: null }));
           if (next !== 'journeys' && story) setView(v => ({ ...v, story: null }));
           if (next !== 'particles' && activeParticle) setView(v => ({ ...v, particle: null }));
           document.getElementById(`${next}-tab`)?.focus();
         }}>
-          <button id="explore-tab" role="tab" tabIndex={tab === 'explore' ? 0 : -1} aria-selected={tab === 'explore'} aria-controls="explore-panel" onClick={() => { setTab('explore'); setView(v => ({ ...v, story: null, particle: null })); }}><Compass size={16} /> Explore</button>
-          <button id="particles-tab" role="tab" tabIndex={tab === 'particles' ? 0 : -1} aria-selected={tab === 'particles'} aria-controls="particles-panel" onClick={() => { setTab('particles'); if (story) setView(v => ({ ...v, story: null })); }}><Atom size={15} /> Particles</button>
-          <button id="journeys-tab" role="tab" tabIndex={tab === 'journeys' ? 0 : -1} aria-selected={tab === 'journeys'} aria-controls="journeys-panel" onClick={() => { setTab('journeys'); setView(v => ({ ...v, particle: null })); }}><BookOpen size={16} /> Journeys <span>{STORIES.length}</span></button>
+          <button id="explore-tab" role="tab" tabIndex={tab === 'explore' ? 0 : -1} aria-selected={tab === 'explore'} aria-controls="explore-panel" onClick={() => { setTab('explore'); setShowTimeline(false); setView(v => ({ ...v, milestone: null })); setView(v => ({ ...v, story: null, particle: null })); }}><Compass size={16} /> Explore</button>
+          <button id="particles-tab" role="tab" tabIndex={tab === 'particles' ? 0 : -1} aria-selected={tab === 'particles'} aria-controls="particles-panel" onClick={() => { setTab('particles'); setShowTimeline(false); setView(v => ({ ...v, milestone: null })); if (story) setView(v => ({ ...v, story: null })); }}><Atom size={15} /> Particles</button>
+          <button id="journeys-tab" role="tab" tabIndex={tab === 'journeys' ? 0 : -1} aria-selected={tab === 'journeys'} aria-controls="journeys-panel" onClick={() => { setTab('journeys'); setShowTimeline(false); setView(v => ({ ...v, milestone: null })); setView(v => ({ ...v, particle: null })); }}><BookOpen size={16} /> Journeys <span>{STORIES.length}</span></button>
         </div>
 
         <section id="explore-panel" role="tabpanel" aria-labelledby="explore-tab" hidden={tab !== 'explore'}>
@@ -303,6 +308,7 @@ export default function FullMap() {
         </section>
 
         <section id="particles-panel" role="tabpanel" aria-labelledby="particles-tab" hidden={tab !== 'particles'}><ParticleExplorer selected={activeParticle} onChoose={id => {
+          setShowTimeline(false);
           const particle = PARTICLES.find(p => p.id === id)!;
           const experiment = particle.history.find(moment => moment.experiments.length)?.experiments[0] || null;
           setView({ ...INITIAL_VIEW, particle: id, experiment });
@@ -316,7 +322,7 @@ export default function FullMap() {
       <section ref={mapArea} className={`map-section ${selected ? 'has-selection' : ''} ${showTimeline ? 'with-timeline' : ''}`} aria-label="World map of particle physics experiments">
         <Map ref={map} initialViewState={{ longitude: 12, latitude: 37, zoom: 1.4 }} minZoom={-1} maxZoom={19} mapStyle={BASEMAP} dragRotate={false} touchPitch={false} attributionControl={false} interactiveLayerIds={['clusters', 'experiment-points']} onClick={clickMap}
           onMouseMove={e => { if (map.current) map.current.getCanvas().style.cursor = e.features?.length ? 'pointer' : ''; }}
-          onResize={() => { if (ready) { if (showConnections) frameConnections(); else if (selected) flyTo(selected, showBeam); else resetMap(); } }}
+          onResize={() => { if (ready) { if (showTimeline) resetMap(); else if (showConnections) frameConnections(); else if (selected) flyTo(selected, showBeam); else resetMap(); } }}
           onLoad={() => { map.current?.getMap().keyboard.disableRotation(); map.current?.getMap().touchZoomRotate.disableRotation(); setReady(true); }} onRender={refreshClusters} onError={() => setMapError(true)}>
           <NavigationControl position="top-right" showCompass={false} /><ScaleControl position="bottom-left" /><AttributionControl compact={false} />
           {showConnections && selected && <Source id="research-connections" type="geojson" data={connectionFeatures}><Layer id="research-links" type="line" paint={{ 'line-color': '#4d7165', 'line-width': 1.8, 'line-dasharray': [2, 3], 'line-opacity': 0.85 }} /></Source>}
@@ -332,12 +338,12 @@ export default function FullMap() {
           </Source>}
           {showBeam && selected?.id === 'dune' && <Marker longitude={-88.2653} latitude={41.8358} anchor="bottom" offset={[0, -13]}><span className="beam-label">Fermilab · planned source</span></Marker>}
         </Map>
-        <div className="map-heading"><h2>{activeParticle ? `The ${activeParticle.name.toLowerCase()} discovery trail` : story ? story.title : 'Experiment map'}</h2><p>{activeParticle ? 'Proposal, evidence, and discovery · choose a historical site' : story ? `Journey · stop ${view.stop + 1} of ${story.stops.length}` : `${visible.length} ${visible.length === 1 ? 'record' : 'records'} shown · select a marker or use the list`}</p></div>
-        <div className="map-tools"><button onClick={resetMap} title="Fit visible experiments"><Globe2 size={16} /><span>World view</span></button><button onClick={() => { setShowTimeline(!showTimeline); if (showTimeline) setView(v => ({ ...v, milestone: null })); }} aria-pressed={showTimeline}><Layers3 size={16} /><span>Milestones</span></button></div>
+        <div className="map-heading"><h2>{showTimeline ? `History through ${milestone?.year ?? MILESTONES[0].year}` : activeParticle ? `The ${activeParticle.name.toLowerCase()} discovery trail` : story ? story.title : 'Experiment map'}</h2><p>{showTimeline ? `${visible.length} mapped ${visible.length === 1 ? 'record' : 'records'} · cumulative selected milestones` : activeParticle ? 'Proposal, evidence, and discovery · choose a historical site' : story ? `Journey · stop ${view.stop + 1} of ${story.stops.length}` : `${visible.length} ${visible.length === 1 ? 'record' : 'records'} shown · select a marker or use the list`}</p></div>
+        <div className="map-tools"><button onClick={resetMap} title="Fit visible experiments"><Globe2 size={16} /><span>World view</span></button><button onClick={() => { if (showTimeline) { setShowTimeline(false); setView(v => ({ ...v, milestone: null })); } else chooseMilestone(0); }} aria-pressed={showTimeline}><Layers3 size={16} /><span>Through time</span></button></div>
         {showConnections && <span className="connection-caption"><Network size={13} />Research connections · schematic, not beam paths</span>}
         {mapError && <div className="map-error" role="status">Some map tiles could not load. You can still explore the experiment list.</div>}
 
-        {selected && <article className="detail-panel" aria-label={`${selected.name} details`} ref={details} tabIndex={-1}>
+        {selected && !showTimeline && <article className="detail-panel" aria-label={`${selected.name} details`} ref={details} tabIndex={-1}>
           <div className="detail-top"><span className="eyebrow" style={{ color: TOPICS[selected.topic].color }}>{TOPICS[selected.topic].label}</span><div><button className="icon-button" onClick={share} aria-label="Copy link to this experiment"><Share2 size={16} /></button><button className="icon-button" aria-label="Close experiment details" onClick={() => setView(v => ({ ...v, experiment: null, particle: null, story: null, milestone: null }))}><X size={18} /></button></div></div>
           <div className="detail-title"><TopicMark topic={selected.topic} /><h2>{selected.name}</h2>{selected.fullName !== selected.name && <p>{selected.fullName}</p>}</div>
           {activeSurprise && <aside className="surprise-pick" role="status"><span className="eyebrow">{activeSurprise.kind === 'fact' ? 'A fun fact' : activeSurprise.kind === 'milestone' ? 'A discovery milestone' : 'An experiment to explore'}</span>{activeSurprise.kind === 'fact' && selected.funFact ? <><p>{selected.funFact.text}</p><a href={selected.funFact.sourceUrl} target="_blank" rel="noreferrer">Read the source <ExternalLink size={12} /></a></> : activeSurprise.kind === 'milestone' && milestone ? <><h3>{milestone.year} · {milestone.title}</h3><p>{milestone.text}</p><a href={milestone.url} target="_blank" rel="noreferrer">Read the source <ExternalLink size={12} /></a></> : <p>{selected.question}</p>}<button onClick={surpriseMe}><Shuffle size={13} />Another surprise</button></aside>}
@@ -357,7 +363,7 @@ export default function FullMap() {
         </article>}
 
         <div className="map-legend" aria-label="Map legend">{TOPIC_KEYS.map(t => <span key={t}><i style={{ background: TOPICS[t].color }} />{TOPICS[t].label}</span>)}<small>Numbers group nearby experiments</small></div>
-        {showTimeline && <section className="milestone-tray" aria-label="Discovery milestones"><div className="milestone-heading"><span className="eyebrow">Selected milestones</span><button aria-label="Close milestones" className="icon-button" onClick={() => { setShowTimeline(false); setView(v => ({ ...v, milestone: null })); }}><X size={15} /></button></div><div className="milestone-years">{MILESTONES.map((m, i) => <button key={`${m.year}-${m.experiment}`} aria-pressed={view.milestone === i} className={view.milestone === i ? 'active' : ''} onClick={() => chooseMilestone(i)}><span>{m.year}</span><i /><small>{m.title}</small></button>)}</div>{milestone && <div className="milestone-description"><p><strong>{milestone.date}</strong> · {milestone.text}</p><a href={milestone.url} target="_blank" rel="noreferrer">Read the source <ArrowUpRight size={13} /></a></div>}</section>}
+        {showTimeline && <DiscoveryTimeline index={view.milestone ?? 0} onChoose={chooseMilestone} onExplore={select} onClose={() => { setShowTimeline(false); setView(v => ({ ...v, milestone: null })); }} />}
         <span className="map-caption">Host sites approximate · Polar sites projected at map edge</span>
       </section>
     </div>
