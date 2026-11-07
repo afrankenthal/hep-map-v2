@@ -1,8 +1,263 @@
 {
-  "cms": { "inspireId": "1108642", "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (CMS)." },
-  "atlas": { "inspireId": "1108541", "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (ATLAS)." },
-  "padme": { "inspireId": "1597054", "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (PADME)." },
-  "dune": { "inspireId": "1346343", "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (DUNE)." },
-  "ldmx": { "inspireId": "1621547", "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (LDMX)." },
-  "muon-g2": { "inspireId": "1108252", "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (Muon_g-2)." }
+  "cms": {
+    "inspireId": "1108642",
+    "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (CMS).",
+    "origin": "upstream-legacy"
+  },
+  "atlas": {
+    "inspireId": "1108541",
+    "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (ATLAS).",
+    "origin": "upstream-legacy"
+  },
+  "padme": {
+    "inspireId": "1597054",
+    "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (PADME).",
+    "origin": "upstream-legacy"
+  },
+  "dune": {
+    "inspireId": "1346343",
+    "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (DUNE).",
+    "origin": "upstream-legacy"
+  },
+  "ldmx": {
+    "inspireId": "1621547",
+    "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (LDMX).",
+    "origin": "upstream-legacy"
+  },
+  "muon-g2": {
+    "inspireId": "1108252",
+    "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (Muon_g-2).",
+    "origin": "upstream-legacy"
+  },
+  "alice": {
+    "inspireId": "1110642",
+    "reason": "CERN-LHC-ALICE is the ALICE heavy-ion experiment at the LHC; the laboratory and research purpose agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110642",
+      "https://home.cern/science/experiments/alice"
+    ]
+  },
+  "lhcb": {
+    "inspireId": "1110643",
+    "reason": "CERN-LHC-LHCb is the LHCb experiment at CERN; the collaboration identity and LHC setting agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110643",
+      "https://home.cern/science/experiments/lhcb"
+    ]
+  },
+  "belle-ii": {
+    "inspireId": "1108235",
+    "reason": "KEK-BF-BELLE-II identifies Belle-II at SuperKEKB, distinct from the earlier Belle record 1108579.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108235",
+      "https://www.belle2.org/about_us/"
+    ]
+  },
+  "supercdms": {
+    "inspireId": "1357671",
+    "reason": "The local record is at SNOLAB. Select SuperCDMS-SNOLAB rather than the earlier SuperCDMS-Soudan record 1298909.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1357671",
+      "https://www.snolab.ca/experiment/supercdms/"
+    ]
+  },
+  "pico": {
+    "inspireId": "1357660",
+    "reason": "This is the SNOLAB dark-matter programme. NASA-PICO 1685522 is a space-mission proposal and is a different project.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1357660",
+      "https://www.snolab.ca/experiment/pico/"
+    ]
+  },
+  "alpha": {
+    "inspireId": "1108206",
+    "reason": "Select CERN-ALPHA at the Antiproton Decelerator, studying antihydrogen. ALPHA 2644467 is an axion plasma haloscope.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108206",
+      "https://home.cern/science/experiments/alpha"
+    ]
+  },
+  "ace": {
+    "inspireId": "1479791",
+    "reason": "The local record concerns CERN antiproton research. Select CERN-ACE (AD-4), not the Advanced Composition Explorer spacecraft (1110552).",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1479791",
+      "https://home.cern/science/experiments/ace"
+    ]
+  },
+  "na62": {
+    "inspireId": "1275752",
+    "reason": "CERN-NA-062 has collaboration NA62 and a rare charged-kaon decay programme at the SPS, matching the local experiment.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1275752",
+      "https://home.cern/science/experiments/na62/"
+    ]
+  },
+  "na61": {
+    "inspireId": "1108234",
+    "reason": "CERN-NA-061 is the SPS Heavy Ion and Neutrino Experiment, with collaboration NA61/SHINE.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108234",
+      "https://home.cern/science/experiments/na61shine/"
+    ]
+  },
+  "argoneut": {
+    "inspireId": "1108255",
+    "reason": "FNAL-T-0962 is ArgoNeuT, the liquid-argon TPC exposed to the NuMI beam; it is distinct from LArIAT.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108255",
+      "https://neutrinophysics.fnal.gov/experiments/"
+    ]
+  },
+  "mu2e": {
+    "inspireId": "1108209",
+    "reason": "FNAL-E-0973 is the Mu2e muon-to-electron conversion experiment at Fermilab.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108209",
+      "https://mu2e.fnal.gov/"
+    ]
+  },
+  "sno": {
+    "inspireId": "1109110",
+    "reason": "SNO identifies the heavy-water solar-neutrino experiment, not its scintillator successor SNO+.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1109110",
+      "https://www.snolab.ca/experiment/sno-2/"
+    ]
+  },
+  "sno-plus": {
+    "inspireId": "1108233",
+    "reason": "SNO+ identifies the scintillator successor to SNO. Shared detector infrastructure does not make the two records identical.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108233",
+      "https://www.snolab.ca/experiment/sno/"
+    ]
+  },
+  "homestake": {
+    "inspireId": "1110247",
+    "reason": "Select HOMESTAKE-CHLORINE for the historical radiochemical solar-neutrino experiment, not HOMESTAKE-IODINE (1108629). Source dates remain unmerged into the reviewed history.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110247",
+      "https://www.bnl.gov/science/neutrinos.php"
+    ]
+  },
+  "bnl-e598": {
+    "inspireId": "1110618",
+    "reason": "BNL-E-0598 is titled The Discovery of the J Particle and uses Brookhaven AGS; this is the local J-particle discovery experiment.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110618",
+      "https://www.bnl.gov/bnlweb/history/nobel/1976.php"
+    ]
+  },
+  "e288": {
+    "inspireId": "1109836",
+    "reason": "FNAL-E-0288 is the Fermilab dilepton-production experiment associated with the upsilon discovery.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1109836",
+      "https://www.fnal.gov/pub/science/historical-results/"
+    ]
+  },
+  "tasso": {
+    "inspireId": "1109815",
+    "reason": "DESY-PETRA-TASSO identifies the TASSO detector at PETRA in the gluon discovery history.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1109815",
+      "https://www.desy.de/news/news_search/index_eng.html?openDirectAnchor=1643&two_columns=0"
+    ]
+  },
+  "jade": {
+    "inspireId": "1110380",
+    "reason": "DESY-PETRA-JADE identifies the JADE detector at PETRA, one of the four experiments in the gluon history.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110380",
+      "https://www.desy.de/news/news_search/index_eng.html?openDirectAnchor=1643&two_columns=0"
+    ]
+  },
+  "mark-j": {
+    "inspireId": "1109816",
+    "reason": "DESY-PETRA-MARK-J identifies Mark J at PETRA, distinct from Mark I at SLAC.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1109816",
+      "https://www.desy.de/news/news_search/index_eng.html?openDirectAnchor=1643&two_columns=0"
+    ]
+  },
+  "pluto": {
+    "inspireId": "1109820",
+    "reason": "The local gluon-history entry refers to PLUTO at PETRA. Select DESY-PETRA-PLUTO, not the earlier DORIS configuration or the later PLUTO-2 two-photon study.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1109820",
+      "https://www.desy.de/news/news_search/index_eng.html?openDirectAnchor=1643&two_columns=0"
+    ]
+  },
+  "l3": {
+    "inspireId": "1109313",
+    "reason": "CERN-LEP-L3 is the L3 experiment at LEP. Its two-character name was intentionally excluded from automatic name matching.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1109313",
+      "https://archives.web.cern.ch/CERN_archive/guide/accelerators/LEP/isalep/"
+    ]
+  }
 }

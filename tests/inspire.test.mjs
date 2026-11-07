@@ -86,3 +86,38 @@ test('invalid links and duplicate explicit assignments cannot silently merge det
   assert.deepEqual(report.conflicts[0].localIds, ['a', 'b']);
   assert.throws(() => publicAudit(report), /before publishing/);
 });
+
+test('source-comparison links preserve evidence and cannot omit review provenance', () => {
+  const source = snapshot([record(1, 'A')]);
+  const base = { inspireId: '1', reason: 'Compared identities', origin: 'source-comparison' };
+  assert.throws(() => reconcile([local('a', 'A')], source, { a: base }), /requires a date/);
+  const reviewed = { ...base, reviewedOn: '2026-11-06', reviewMethod: 'AI-assisted source comparison', evidenceUrls: ['https://example.org/experiment'] };
+  const report = reconcile([local('a', 'A')], source, { a: reviewed });
+  assert.equal(report.counts.sourceCompared, 1);
+  assert.deepEqual(publicAudit(report).entries[0].identityReview.evidenceUrls, reviewed.evidenceUrls);
+  assert.throws(() => reconcile([local('a', 'A')], source, { a: { ...reviewed, evidenceUrls: ['javascript:alert(1)'] } }), /HTTPS evidence/);
+});
+
+test('programme and run relationships remain scope notes rather than identity links', () => {
+  const source = snapshot([record(1, 'Parent programme')]);
+  const note = { reason: 'The local phase is narrower than the programme.', reviewedOn: '2026-11-06', reviewMethod: 'AI-assisted source comparison', evidenceUrls: ['https://example.org/experiment'], relatedRecords: [{ inspireId: '1', relationship: 'parent programme' }] };
+  const report = reconcile([local('phase', 'Phase 1')], source, {}, { phase: note });
+  assert.equal(report.entries[0].status, 'unmatched');
+  assert.equal(report.entries[0].identityReview, null);
+  assert.equal(report.counts.linked, 0);
+  assert.equal(publicAudit(report).entries[0].reviewNote.relatedRecords[0].url, 'https://inspirehep.net/experiments/1');
+  assert.throws(() => reconcile([local('phase', 'Phase 1')], source, {}, { phase: { ...note, relatedRecords: [{ inspireId: '99', relationship: 'parent' }] } }), /Invalid related/);
+});
+
+test('reviewed acronym collisions point to the correct laboratory and experimental context', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const links = JSON.parse(await readFile(new URL('../data/inspire/links.json', import.meta.url)));
+  const raw = JSON.parse(await readFile(new URL('../data/inspire/snapshot.json', import.meta.url)));
+  const source = new Map(raw.records.map(record => [record.id, record.metadata]));
+  assert.ok(source.get(links.pico.inspireId).institutions.some(i => i.value.includes('SNOLAB')));
+  assert.equal(source.get(links.alpha.inspireId).accelerator.value, 'AD');
+  assert.equal(source.get(links.ace.inspireId).experiment.value, 'AD-4');
+  assert.equal(source.get(links.supercdms.inspireId).legacy_name, 'SuperCDMS-SNOLAB');
+  assert.equal(source.get(links.homestake.inspireId).legacy_name, 'HOMESTAKE-CHLORINE');
+  assert.notEqual(links.sno.inspireId, links['sno-plus'].inspireId);
+});

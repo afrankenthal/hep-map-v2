@@ -4,17 +4,27 @@
   "counts": {
     "local": 127,
     "source": 4008,
-    "linked": 6,
-    "candidate": 77,
-    "ambiguous": 4,
-    "unmatched": 40,
-    "conflictingLinks": 0
+    "linked": 27,
+    "candidate": 73,
+    "ambiguous": 1,
+    "unmatched": 26,
+    "conflictingLinks": 0,
+    "sourceCompared": 21,
+    "scopeNotes": 4
   },
   "entries": [
     {
       "localId": "cms",
       "name": "CMS",
       "status": "linked",
+      "identityReview": {
+        "origin": "upstream-legacy",
+        "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (CMS).",
+        "reviewedOn": null,
+        "reviewMethod": null,
+        "evidenceUrls": []
+      },
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108642",
@@ -27,6 +37,14 @@
       "localId": "atlas",
       "name": "ATLAS",
       "status": "linked",
+      "identityReview": {
+        "origin": "upstream-legacy",
+        "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (ATLAS).",
+        "reviewedOn": null,
+        "reviewMethod": null,
+        "evidenceUrls": []
+      },
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108541",
@@ -38,7 +56,18 @@
     {
       "localId": "alice",
       "name": "ALICE",
-      "status": "candidate",
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "CERN-LHC-ALICE is the ALICE heavy-ion experiment at the LHC; the laboratory and research purpose agree.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1110642",
+          "https://home.cern/science/experiments/alice"
+        ]
+      },
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1110642",
@@ -50,7 +79,18 @@
     {
       "localId": "lhcb",
       "name": "LHCb",
-      "status": "candidate",
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "CERN-LHC-LHCb is the LHCb experiment at CERN; the collaboration identity and LHC setting agree.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1110643",
+          "https://home.cern/science/experiments/lhcb"
+        ]
+      },
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1110643",
@@ -62,13 +102,32 @@
     {
       "localId": "belle-ii",
       "name": "Belle II",
-      "status": "unmatched",
-      "candidates": []
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "KEK-BF-BELLE-II identifies Belle-II at SuperKEKB, distinct from the earlier Belle record 1108579.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1108235",
+          "https://www.belle2.org/about_us/"
+        ]
+      },
+      "reviewNote": null,
+      "candidates": [
+        {
+          "inspireId": "1108235",
+          "name": "KEK-BF-BELLE-II",
+          "url": "https://inspirehep.net/experiments/1108235"
+        }
+      ]
     },
     {
       "localId": "super-k",
       "name": "Super-Kamiokande",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1109022",
@@ -81,6 +140,14 @@
       "localId": "dune",
       "name": "DUNE",
       "status": "linked",
+      "identityReview": {
+        "origin": "upstream-legacy",
+        "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (DUNE).",
+        "reviewedOn": null,
+        "reviewMethod": null,
+        "evidenceUrls": []
+      },
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1346343",
@@ -93,6 +160,14 @@
       "localId": "padme",
       "name": "PADME",
       "status": "linked",
+      "identityReview": {
+        "origin": "upstream-legacy",
+        "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (PADME).",
+        "reviewedOn": null,
+        "reviewMethod": null,
+        "evidenceUrls": []
+      },
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1597054",
@@ -105,6 +180,14 @@
       "localId": "ldmx",
       "name": "LDMX",
       "status": "linked",
+      "identityReview": {
+        "origin": "upstream-legacy",
+        "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (LDMX).",
+        "reviewedOn": null,
+        "reviewMethod": null,
+        "evidenceUrls": []
+      },
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1621547",
@@ -117,6 +200,14 @@
       "localId": "muon-g2",
       "name": "Muon g−2",
       "status": "linked",
+      "identityReview": {
+        "origin": "upstream-legacy",
+        "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (Muon_g-2).",
+        "reviewedOn": null,
+        "reviewMethod": null,
+        "evidenceUrls": []
+      },
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108252",
@@ -129,6 +220,8 @@
       "localId": "lz",
       "name": "LZ",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1262631",
@@ -141,6 +234,8 @@
       "localId": "xenonnt",
       "name": "XENONnT",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1807876",
@@ -153,6 +248,8 @@
       "localId": "cuore",
       "name": "CUORE",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108343",
@@ -164,7 +261,18 @@
     {
       "localId": "sno-plus",
       "name": "SNO+",
-      "status": "candidate",
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "SNO+ identifies the scintillator successor to SNO. Shared detector infrastructure does not make the two records identical.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1108233",
+          "https://www.snolab.ca/experiment/sno/"
+        ]
+      },
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108233",
@@ -176,30 +284,55 @@
     {
       "localId": "pico",
       "name": "PICO",
-      "status": "ambiguous",
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "This is the SNOLAB dark-matter programme. NASA-PICO 1685522 is a space-mission proposal and is a different project.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1357660",
+          "https://www.snolab.ca/experiment/pico/"
+        ]
+      },
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1357660",
           "name": "PICO",
           "url": "https://inspirehep.net/experiments/1357660"
-        },
-        {
-          "inspireId": "1685522",
-          "name": "NASA-PICO",
-          "url": "https://inspirehep.net/experiments/1685522"
         }
       ]
     },
     {
       "localId": "supercdms",
       "name": "SuperCDMS",
-      "status": "unmatched",
-      "candidates": []
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "The local record is at SNOLAB. Select SuperCDMS-SNOLAB rather than the earlier SuperCDMS-Soudan record 1298909.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1357671",
+          "https://www.snolab.ca/experiment/supercdms/"
+        ]
+      },
+      "reviewNote": null,
+      "candidates": [
+        {
+          "inspireId": "1357671",
+          "name": "SuperCDMS-SNOLAB",
+          "url": "https://inspirehep.net/experiments/1357671"
+        }
+      ]
     },
     {
       "localId": "juno",
       "name": "JUNO",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1288789",
@@ -212,6 +345,8 @@
       "localId": "pandax-4t",
       "name": "PandaX-4T",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1677151",
@@ -224,6 +359,8 @@
       "localId": "deap-3600",
       "name": "DEAP-3600",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108195",
@@ -236,6 +373,8 @@
       "localId": "damic",
       "name": "DAMIC",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1401315",
@@ -248,6 +387,8 @@
       "localId": "halo",
       "name": "HALO",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "2863703",
@@ -260,6 +401,8 @@
       "localId": "news-g",
       "name": "NEWS-G",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1606020",
@@ -272,6 +415,8 @@
       "localId": "sensei",
       "name": "SENSEI",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1662255",
@@ -284,6 +429,8 @@
       "localId": "miniclean",
       "name": "MiniCLEAN",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1287309",
@@ -295,7 +442,18 @@
     {
       "localId": "sno",
       "name": "SNO",
-      "status": "candidate",
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "SNO identifies the heavy-water solar-neutrino experiment, not its scintillator successor SNO+.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1109110",
+          "https://www.snolab.ca/experiment/sno-2/"
+        ]
+      },
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1109110",
@@ -308,6 +466,8 @@
       "localId": "picasso",
       "name": "PICASSO",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108500",
@@ -320,12 +480,16 @@
       "localId": "deap-1",
       "name": "DEAP-1",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "borexino",
       "name": "Borexino",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1110446",
@@ -338,6 +502,8 @@
       "localId": "cobra",
       "name": "COBRA",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108217",
@@ -350,6 +516,8 @@
       "localId": "cosinus",
       "name": "COSINUS",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1976027",
@@ -362,6 +530,8 @@
       "localId": "cupid",
       "name": "CUPID",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1634682",
@@ -374,6 +544,8 @@
       "localId": "cresst",
       "name": "CRESST",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1401310",
@@ -386,18 +558,24 @@
       "localId": "dama-libra",
       "name": "DAMA/LIBRA",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "darkside-50",
       "name": "DarkSide-50",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "darkside-20k",
       "name": "DarkSide-20k",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1830577",
@@ -410,18 +588,39 @@
       "localId": "legend-200",
       "name": "LEGEND-200",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": {
+        "reason": "The INSPIRE record is for the broader LEGEND programme. The local LEGEND-200 detector phase must not be equated with the whole programme.",
+        "evidenceUrls": [
+          "https://legend-exp.org/"
+        ],
+        "relatedRecords": [
+          {
+            "inspireId": "1628041",
+            "relationship": "parent programme: LEGEND",
+            "name": "LEGEND",
+            "url": "https://inspirehep.net/experiments/1628041"
+          }
+        ],
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison"
+      },
       "candidates": []
     },
     {
       "localId": "lime-cygnus",
       "name": "LIME/CYGNUS",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "lvd",
       "name": "LVD",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1109176",
@@ -434,6 +633,8 @@
       "localId": "newsdm",
       "name": "NEWSdm",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "2660829",
@@ -446,6 +647,8 @@
       "localId": "sabre",
       "name": "SABRE",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1679757",
@@ -458,6 +661,8 @@
       "localId": "vip",
       "name": "VIP",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1416761",
@@ -469,13 +674,32 @@
     {
       "localId": "na62",
       "name": "NA62",
-      "status": "unmatched",
-      "candidates": []
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "CERN-NA-062 has collaboration NA62 and a rare charged-kaon decay programme at the SPS, matching the local experiment.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1275752",
+          "https://home.cern/science/experiments/na62/"
+        ]
+      },
+      "reviewNote": null,
+      "candidates": [
+        {
+          "inspireId": "1275752",
+          "name": "CERN-NA-062",
+          "url": "https://inspirehep.net/experiments/1275752"
+        }
+      ]
     },
     {
       "localId": "na64",
       "name": "NA64",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1479798",
@@ -487,13 +711,32 @@
     {
       "localId": "na61",
       "name": "NA61/SHINE",
-      "status": "unmatched",
-      "candidates": []
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "CERN-NA-061 is the SPS Heavy Ion and Neutrino Experiment, with collaboration NA61/SHINE.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1108234",
+          "https://home.cern/science/experiments/na61shine/"
+        ]
+      },
+      "reviewNote": null,
+      "candidates": [
+        {
+          "inspireId": "1108234",
+          "name": "CERN-NA-061",
+          "url": "https://inspirehep.net/experiments/1108234"
+        }
+      ]
     },
     {
       "localId": "faser",
       "name": "FASER",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1711193",
@@ -506,6 +749,8 @@
       "localId": "snd-lhc",
       "name": "SND@LHC",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "2032474",
@@ -518,6 +763,8 @@
       "localId": "totem",
       "name": "TOTEM",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1110567",
@@ -530,6 +777,8 @@
       "localId": "lhcf",
       "name": "LHCf",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1126263",
@@ -542,22 +791,30 @@
       "localId": "moedal",
       "name": "MoEDAL-MAPP",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "alpha",
       "name": "ALPHA",
-      "status": "ambiguous",
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "Select CERN-ALPHA at the Antiproton Decelerator, studying antihydrogen. ALPHA 2644467 is an axion plasma haloscope.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1108206",
+          "https://home.cern/science/experiments/alpha"
+        ]
+      },
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108206",
           "name": "CERN-ALPHA",
           "url": "https://inspirehep.net/experiments/1108206"
-        },
-        {
-          "inspireId": "2644467",
-          "name": "ALPHA",
-          "url": "https://inspirehep.net/experiments/2644467"
         }
       ]
     },
@@ -565,6 +822,8 @@
       "localId": "aegis",
       "name": "AEgIS",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1184411",
@@ -577,6 +836,8 @@
       "localId": "asacusa",
       "name": "ASACUSA",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1110478",
@@ -589,6 +850,8 @@
       "localId": "base",
       "name": "BASE",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1275753",
@@ -601,6 +864,8 @@
       "localId": "gbar",
       "name": "GBAR",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108191",
@@ -613,6 +878,8 @@
       "localId": "compass",
       "name": "COMPASS",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1110255",
@@ -625,6 +892,8 @@
       "localId": "na63",
       "name": "NA63",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1471570",
@@ -637,6 +906,8 @@
       "localId": "na65",
       "name": "NA65",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "2126008",
@@ -649,6 +920,8 @@
       "localId": "cast",
       "name": "CAST",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1110249",
@@ -661,6 +934,8 @@
       "localId": "osqar",
       "name": "OSQAR",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1478483",
@@ -673,6 +948,8 @@
       "localId": "amber",
       "name": "AMBER",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "2054557",
@@ -685,6 +962,8 @@
       "localId": "dirac",
       "name": "DIRAC",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1110258",
@@ -697,12 +976,16 @@
       "localId": "puma",
       "name": "PUMA",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "athena",
       "name": "ATHENA",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1110479",
@@ -715,6 +998,8 @@
       "localId": "atrap",
       "name": "ATRAP",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1110580",
@@ -726,13 +1011,19 @@
     {
       "localId": "ace",
       "name": "ACE",
-      "status": "ambiguous",
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "The local record concerns CERN antiproton research. Select CERN-ACE (AD-4), not the Advanced Composition Explorer spacecraft (1110552).",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1479791",
+          "https://home.cern/science/experiments/ace"
+        ]
+      },
+      "reviewNote": null,
       "candidates": [
-        {
-          "inspireId": "1110552",
-          "name": "ACE",
-          "url": "https://inspirehep.net/experiments/1110552"
-        },
         {
           "inspireId": "1479791",
           "name": "CERN-ACE",
@@ -744,6 +1035,8 @@
       "localId": "ams-02",
       "name": "AMS-02",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1401304",
@@ -756,6 +1049,8 @@
       "localId": "nova",
       "name": "NOvA",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108441",
@@ -768,6 +1063,8 @@
       "localId": "icarus",
       "name": "ICARUS",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1110271",
@@ -780,6 +1077,8 @@
       "localId": "annie",
       "name": "ANNIE",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1358349",
@@ -792,6 +1091,8 @@
       "localId": "sbnd",
       "name": "SBND",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1607955",
@@ -803,13 +1104,32 @@
     {
       "localId": "argoneut",
       "name": "ArgoNeuT",
-      "status": "unmatched",
-      "candidates": []
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "FNAL-T-0962 is ArgoNeuT, the liquid-argon TPC exposed to the NuMI beam; it is distinct from LArIAT.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1108255",
+          "https://neutrinophysics.fnal.gov/experiments/"
+        ]
+      },
+      "reviewNote": null,
+      "candidates": [
+        {
+          "inspireId": "1108255",
+          "name": "FNAL-T-0962",
+          "url": "https://inspirehep.net/experiments/1108255"
+        }
+      ]
     },
     {
       "localId": "lariat",
       "name": "LArIAT",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1297454",
@@ -822,6 +1142,8 @@
       "localId": "microboone",
       "name": "MicroBooNE",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108254",
@@ -834,6 +1156,8 @@
       "localId": "minerva",
       "name": "MINERvA",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108452",
@@ -846,6 +1170,35 @@
       "localId": "miniboone",
       "name": "MiniBooNE",
       "status": "ambiguous",
+      "identityReview": null,
+      "reviewNote": {
+        "reason": "The local entry covers MiniBooNE as a whole. INSPIRE has separate neutrino, antineutrino, and later operating-mode records; no one mode is assigned as the whole experiment.",
+        "evidenceUrls": [
+          "https://neutrinophysics.fnal.gov/experiments/"
+        ],
+        "relatedRecords": [
+          {
+            "inspireId": "1110641",
+            "relationship": "operating mode: neutrino",
+            "name": "FNAL-E-0898",
+            "url": "https://inspirehep.net/experiments/1110641"
+          },
+          {
+            "inspireId": "1108267",
+            "relationship": "operating mode: antineutrino",
+            "name": "FNAL-E-0944",
+            "url": "https://inspirehep.net/experiments/1108267"
+          },
+          {
+            "inspireId": "1670770",
+            "relationship": "later operating mode",
+            "name": "FNAL-E-1032",
+            "url": "https://inspirehep.net/experiments/1670770"
+          }
+        ],
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison"
+      },
       "candidates": [
         {
           "inspireId": "1108267",
@@ -868,12 +1221,37 @@
       "localId": "minos",
       "name": "MINOS / MINOS+",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": {
+        "reason": "The local entry groups MINOS and MINOS+. Keep their records separate. FNAL-E-0934 is a veto-shield subproject and is not the identity of the whole MINOS experiment.",
+        "evidenceUrls": [
+          "https://neutrinophysics.fnal.gov/experiments/"
+        ],
+        "relatedRecords": [
+          {
+            "inspireId": "1671995",
+            "relationship": "constituent experiment: MINOS",
+            "name": "FNAL-E-0875",
+            "url": "https://inspirehep.net/experiments/1671995"
+          },
+          {
+            "inspireId": "1297172",
+            "relationship": "successor phase: MINOS+",
+            "name": "FNAL-E-1016",
+            "url": "https://inspirehep.net/experiments/1297172"
+          }
+        ],
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison"
+      },
       "candidates": []
     },
     {
       "localId": "star",
       "name": "STAR",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108784",
@@ -886,6 +1264,8 @@
       "localId": "sphenix",
       "name": "sPHENIX",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1500624",
@@ -898,6 +1278,8 @@
       "localId": "besiii",
       "name": "BESIII",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1239436",
@@ -910,6 +1292,8 @@
       "localId": "t2k",
       "name": "T2K",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108444",
@@ -922,6 +1306,8 @@
       "localId": "hyper-k",
       "name": "Hyper-Kamiokande",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1340261",
@@ -934,6 +1320,8 @@
       "localId": "katrin",
       "name": "KATRIN",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108400",
@@ -946,6 +1334,8 @@
       "localId": "meg-ii",
       "name": "MEG II",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1679100",
@@ -958,6 +1348,8 @@
       "localId": "mu3e",
       "name": "Mu3e",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1114537",
@@ -970,6 +1362,8 @@
       "localId": "coherent",
       "name": "COHERENT",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1486780",
@@ -981,13 +1375,32 @@
     {
       "localId": "mu2e",
       "name": "Mu2e",
-      "status": "unmatched",
-      "candidates": []
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "FNAL-E-0973 is the Mu2e muon-to-electron conversion experiment at Fermilab.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1108209",
+          "https://mu2e.fnal.gov/"
+        ]
+      },
+      "reviewNote": null,
+      "candidates": [
+        {
+          "inspireId": "1108209",
+          "name": "FNAL-E-0973",
+          "url": "https://inspirehep.net/experiments/1108209"
+        }
+      ]
     },
     {
       "localId": "dayabay",
       "name": "Daya Bay",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108266",
@@ -1000,6 +1413,8 @@
       "localId": "kamland",
       "name": "KamLAND",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1110499",
@@ -1012,12 +1427,16 @@
       "localId": "pandax-i",
       "name": "PandaX-I",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "pandax-ii",
       "name": "PandaX-II",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1677150",
@@ -1030,12 +1449,16 @@
       "localId": "pandax-20t",
       "name": "PandaX-20T",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "icecube",
       "name": "IceCube",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108514",
@@ -1048,18 +1471,24 @@
       "localId": "km3net-arca",
       "name": "KM3NeT / ARCA",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "km3net-orca",
       "name": "KM3NeT / ORCA",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "auger",
       "name": "Pierre Auger Observatory",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1110614",
@@ -1072,54 +1501,102 @@
       "localId": "thomson-electron",
       "name": "Thomson cathode-ray experiment",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "muon-discovery",
       "name": "Anderson–Neddermeyer cosmic-ray study",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "reines-cowan",
       "name": "Cowan–Reines neutrino experiment",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "bnl-two-neutrino",
       "name": "Brookhaven two-neutrino experiment",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "slac-dis",
       "name": "SLAC–MIT deep-inelastic scattering",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "mark-i",
       "name": "Mark I / SLAC–LBL",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "bnl-e598",
       "name": "Brookhaven E598",
-      "status": "unmatched",
-      "candidates": []
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "BNL-E-0598 is titled The Discovery of the J Particle and uses Brookhaven AGS; this is the local J-particle discovery experiment.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1110618",
+          "https://www.bnl.gov/bnlweb/history/nobel/1976.php"
+        ]
+      },
+      "reviewNote": null,
+      "candidates": [
+        {
+          "inspireId": "1110618",
+          "name": "BNL-E-0598",
+          "url": "https://inspirehep.net/experiments/1110618"
+        }
+      ]
     },
     {
       "localId": "e288",
       "name": "Fermilab E288",
-      "status": "unmatched",
-      "candidates": []
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "FNAL-E-0288 is the Fermilab dilepton-production experiment associated with the upsilon discovery.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1109836",
+          "https://www.fnal.gov/pub/science/historical-results/"
+        ]
+      },
+      "reviewNote": null,
+      "candidates": [
+        {
+          "inspireId": "1109836",
+          "name": "FNAL-E-0288",
+          "url": "https://inspirehep.net/experiments/1109836"
+        }
+      ]
     },
     {
       "localId": "cdf",
       "name": "CDF",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1109361",
@@ -1132,12 +1609,37 @@
       "localId": "d0",
       "name": "DØ",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": {
+        "reason": "The local DØ entry describes the experiment across its history. INSPIRE has distinct Run I and Run II records, so a one-record identity would silently narrow its scope.",
+        "evidenceUrls": [
+          "https://www.fnal.gov/pub/science/historical-results/"
+        ],
+        "relatedRecords": [
+          {
+            "inspireId": "1109214",
+            "relationship": "detector run: Run I",
+            "name": "FNAL-E-0740",
+            "url": "https://inspirehep.net/experiments/1109214"
+          },
+          {
+            "inspireId": "1110315",
+            "relationship": "detector run: Run II",
+            "name": "FNAL-E-0823",
+            "url": "https://inspirehep.net/experiments/1110315"
+          }
+        ],
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison"
+      },
       "candidates": []
     },
     {
       "localId": "donut",
       "name": "DONUT",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108575",
@@ -1150,36 +1652,108 @@
       "localId": "compton-scattering",
       "name": "Compton X-ray scattering",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "tasso",
       "name": "TASSO",
-      "status": "unmatched",
-      "candidates": []
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "DESY-PETRA-TASSO identifies the TASSO detector at PETRA in the gluon discovery history.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1109815",
+          "https://www.desy.de/news/news_search/index_eng.html?openDirectAnchor=1643&two_columns=0"
+        ]
+      },
+      "reviewNote": null,
+      "candidates": [
+        {
+          "inspireId": "1109815",
+          "name": "DESY-PETRA-TASSO",
+          "url": "https://inspirehep.net/experiments/1109815"
+        }
+      ]
     },
     {
       "localId": "jade",
       "name": "JADE",
-      "status": "unmatched",
-      "candidates": []
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "DESY-PETRA-JADE identifies the JADE detector at PETRA, one of the four experiments in the gluon history.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1110380",
+          "https://www.desy.de/news/news_search/index_eng.html?openDirectAnchor=1643&two_columns=0"
+        ]
+      },
+      "reviewNote": null,
+      "candidates": [
+        {
+          "inspireId": "1110380",
+          "name": "DESY-PETRA-JADE",
+          "url": "https://inspirehep.net/experiments/1110380"
+        }
+      ]
     },
     {
       "localId": "mark-j",
       "name": "MARK J",
-      "status": "unmatched",
-      "candidates": []
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "DESY-PETRA-MARK-J identifies Mark J at PETRA, distinct from Mark I at SLAC.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1109816",
+          "https://www.desy.de/news/news_search/index_eng.html?openDirectAnchor=1643&two_columns=0"
+        ]
+      },
+      "reviewNote": null,
+      "candidates": [
+        {
+          "inspireId": "1109816",
+          "name": "DESY-PETRA-MARK-J",
+          "url": "https://inspirehep.net/experiments/1109816"
+        }
+      ]
     },
     {
       "localId": "pluto",
       "name": "PLUTO",
-      "status": "unmatched",
-      "candidates": []
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "The local gluon-history entry refers to PLUTO at PETRA. Select DESY-PETRA-PLUTO, not the earlier DORIS configuration or the later PLUTO-2 two-photon study.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1109820",
+          "https://www.desy.de/news/news_search/index_eng.html?openDirectAnchor=1643&two_columns=0"
+        ]
+      },
+      "reviewNote": null,
+      "candidates": [
+        {
+          "inspireId": "1109820",
+          "name": "DESY-PETRA-PLUTO",
+          "url": "https://inspirehep.net/experiments/1109820"
+        }
+      ]
     },
     {
       "localId": "ua1",
       "name": "UA1",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1109643",
@@ -1192,6 +1766,8 @@
       "localId": "ua2",
       "name": "UA2",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1109640",
@@ -1204,48 +1780,79 @@
       "localId": "gold-foil",
       "name": "Geiger–Marsden / Rutherford scattering",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "chadwick-neutron",
       "name": "Chadwick neutron experiment",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "anderson-positron",
       "name": "Anderson positron experiment",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "wu-parity",
       "name": "Wu–NBS parity experiment",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "cp-violation",
       "name": "Cronin–Fitch kaon experiment",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "gargamelle",
       "name": "Gargamelle",
       "status": "unmatched",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": []
     },
     {
       "localId": "homestake",
       "name": "Homestake solar-neutrino experiment",
-      "status": "unmatched",
-      "candidates": []
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "Select HOMESTAKE-CHLORINE for the historical radiochemical solar-neutrino experiment, not HOMESTAKE-IODINE (1108629). Source dates remain unmerged into the reviewed history.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1110247",
+          "https://www.bnl.gov/science/neutrinos.php"
+        ]
+      },
+      "reviewNote": null,
+      "candidates": [
+        {
+          "inspireId": "1110247",
+          "name": "HOMESTAKE-CHLORINE",
+          "url": "https://inspirehep.net/experiments/1110247"
+        }
+      ]
     },
     {
       "localId": "kamiokande",
       "name": "Kamiokande",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1110455",
@@ -1258,6 +1865,8 @@
       "localId": "aleph",
       "name": "ALEPH",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1109311",
@@ -1270,6 +1879,8 @@
       "localId": "delphi",
       "name": "DELPHI",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1109312",
@@ -1281,13 +1892,32 @@
     {
       "localId": "l3",
       "name": "L3",
-      "status": "unmatched",
-      "candidates": []
+      "status": "linked",
+      "identityReview": {
+        "origin": "source-comparison",
+        "reason": "CERN-LEP-L3 is the L3 experiment at LEP. Its two-character name was intentionally excluded from automatic name matching.",
+        "reviewedOn": "2026-11-06",
+        "reviewMethod": "AI-assisted source comparison",
+        "evidenceUrls": [
+          "https://inspirehep.net/experiments/1109313",
+          "https://archives.web.cern.ch/CERN_archive/guide/accelerators/LEP/isalep/"
+        ]
+      },
+      "reviewNote": null,
+      "candidates": [
+        {
+          "inspireId": "1109313",
+          "name": "CERN-LEP-L3",
+          "url": "https://inspirehep.net/experiments/1109313"
+        }
+      ]
     },
     {
       "localId": "opal",
       "name": "OPAL",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1109310",
@@ -1300,6 +1930,8 @@
       "localId": "babar",
       "name": "BaBar",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108553",
@@ -1312,6 +1944,8 @@
       "localId": "belle",
       "name": "Belle",
       "status": "candidate",
+      "identityReview": null,
+      "reviewNote": null,
       "candidates": [
         {
           "inspireId": "1108579",

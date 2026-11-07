@@ -406,7 +406,13 @@ kbd { font-family: inherit; font-size: 10px; padding: 2px 5px; border: 1px solid
 .contribution-actions .primary-button { margin-top: 0; }
 .contribution-dialog .contribution-actions a.primary-button { color: var(--paper); }
 
-.inspire-linked > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.inspire-linked > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
 .inspire-linked a, .inspire-candidate { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; }
 .inspire-disposition { margin-left: 9px; color: var(--muted); font-size: 10px; }
 .inspire-candidate { display: flex; margin-top: 5px; overflow-wrap: anywhere; }
+
+.identity-evidence { grid-column: 1 / -1; font-size: 10px; color: var(--muted); }
+.identity-evidence summary { cursor: pointer; }
+.identity-scope-note { border-left: 2px solid var(--line); padding-left: 10px; margin: 10px 0; }
+.identity-scope-note small { color: var(--muted); font-size: 9px; }
+.identity-scope-note .scope-note-caption { font-size: 10px; font-style: italic; }

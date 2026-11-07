@@ -1,0 +1,74 @@
+{
+  "miniboone": {
+    "reason": "The local entry covers MiniBooNE as a whole. INSPIRE has separate neutrino, antineutrino, and later operating-mode records; no one mode is assigned as the whole experiment.",
+    "evidenceUrls": [
+      "https://neutrinophysics.fnal.gov/experiments/"
+    ],
+    "relatedRecords": [
+      {
+        "inspireId": "1110641",
+        "relationship": "operating mode: neutrino"
+      },
+      {
+        "inspireId": "1108267",
+        "relationship": "operating mode: antineutrino"
+      },
+      {
+        "inspireId": "1670770",
+        "relationship": "later operating mode"
+      }
+    ],
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison"
+  },
+  "minos": {
+    "reason": "The local entry groups MINOS and MINOS+. Keep their records separate. FNAL-E-0934 is a veto-shield subproject and is not the identity of the whole MINOS experiment.",
+    "evidenceUrls": [
+      "https://neutrinophysics.fnal.gov/experiments/"
+    ],
+    "relatedRecords": [
+      {
+        "inspireId": "1671995",
+        "relationship": "constituent experiment: MINOS"
+      },
+      {
+        "inspireId": "1297172",
+        "relationship": "successor phase: MINOS+"
+      }
+    ],
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison"
+  },
+  "d0": {
+    "reason": "The local DØ entry describes the experiment across its history. INSPIRE has distinct Run I and Run II records, so a one-record identity would silently narrow its scope.",
+    "evidenceUrls": [
+      "https://www.fnal.gov/pub/science/historical-results/"
+    ],
+    "relatedRecords": [
+      {
+        "inspireId": "1109214",
+        "relationship": "detector run: Run I"
+      },
+      {
+        "inspireId": "1110315",
+        "relationship": "detector run: Run II"
+      }
+    ],
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison"
+  },
+  "legend-200": {
+    "reason": "The INSPIRE record is for the broader LEGEND programme. The local LEGEND-200 detector phase must not be equated with the whole programme.",
+    "evidenceUrls": [
+      "https://legend-exp.org/"
+    ],
+    "relatedRecords": [
+      {
+        "inspireId": "1628041",
+        "relationship": "parent programme: LEGEND"
+      }
+    ],
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison"
+  }
+}

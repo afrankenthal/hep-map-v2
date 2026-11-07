@@ -90,7 +90,7 @@ export function normalizeDate(value) {
   return value;
 }
 
-export function reconcile(catalogue, snapshot, links = {}) {
+export function reconcile(catalogue, snapshot, links = {}, notes = {}) {
   if (snapshot.schemaVersion !== 1 || !Array.isArray(snapshot.records) || snapshot.records.length !== snapshot.reportedTotal) throw new Error('Invalid or incomplete INSPIRE snapshot');
   const records = snapshot.records.map(validateRecord);
   const byId = new Map(records.map(record => [record.id, record]));
@@ -98,6 +98,12 @@ export function reconcile(catalogue, snapshot, links = {}) {
   const localIds = new Set(catalogue.map(record => record.id));
   if (localIds.size !== catalogue.length) throw new Error('Duplicate local catalogue IDs');
   for (const id of Object.keys(links)) if (!localIds.has(id)) throw new Error(`Link references missing local record: ${id}`);
+  const httpsSources = values => Array.isArray(values) && values.length > 0 && values.every(value => { try { return new URL(value).protocol === 'https:'; } catch { return false; } });
+  const validReview = review => review.reviewMethod === 'AI-assisted source comparison' && /^\d{4}-\d{2}-\d{2}$/.test(review.reviewedOn || '') && normalizeDate(review.reviewedOn) && httpsSources(review.evidenceUrls);
+  for (const [id, note] of Object.entries(notes)) {
+    if (!localIds.has(id) || links[id] || !note.reason || !validReview(note) || !Array.isArray(note.relatedRecords) || !note.relatedRecords.length) throw new Error(`Invalid scope review for ${id}`);
+    for (const related of note.relatedRecords) if (!byId.has(String(related.inspireId)) || !related.relationship) throw new Error(`Invalid related INSPIRE record for ${id}`);
+  }
   const index = new Map();
   for (const record of records) for (const name of recordNames(record)) {
     const key = normalizeName(name);
@@ -108,6 +114,8 @@ export function reconcile(catalogue, snapshot, links = {}) {
   const entries = catalogue.map(local => {
     const explicit = links[local.id];
     if (explicit && (!explicit.reason || !/^\d+$/.test(String(explicit.inspireId)))) throw new Error(`Invalid explicit link for ${local.id}`);
+    if (explicit?.origin === 'source-comparison' && !validReview(explicit)) throw new Error(`Source comparison for ${local.id} requires a date, method, and HTTPS evidence`);
+    if (explicit?.origin && !['source-comparison', 'upstream-legacy'].includes(explicit.origin)) throw new Error(`Invalid link origin for ${local.id}`);
     if (explicit && !byId.has(String(explicit.inspireId))) throw new Error(`Linked INSPIRE record ${explicit.inspireId} missing from snapshot`);
     // Research keywords in aliases (e.g. Higgs, proton) are not identities.
     const names = [local.name, local.fullName];
@@ -121,7 +129,10 @@ export function reconcile(catalogue, snapshot, links = {}) {
       const record = byId.get(id), m = record.metadata;
       return { inspireId: id, name: m.legacy_name || m.long_name || id, url: `https://inspirehep.net/experiments/${id}`, matchedNames: evidence.get(id) || [], sourceUpdatedAt: record.updated, sourceDates: { proposed: m.date_proposed ?? null, approved: m.date_approved ?? null, started: m.date_started ?? null, completed: m.date_completed ?? null }, displayDates: { proposed: normalizeDate(m.date_proposed), approved: normalizeDate(m.date_approved), started: normalizeDate(m.date_started), completed: normalizeDate(m.date_completed) } };
     });
-    return { localId: local.id, name: local.name, status: explicit ? 'linked' : candidates.length > 1 ? 'ambiguous' : candidates.length === 1 ? 'candidate' : 'unmatched', reason: explicit?.reason || (candidates.length ? 'Exact normalized identity match; manual review required, including programme/phase identity.' : 'No exact identity match. This does not establish absence from INSPIRE.'), candidates };
+    const identityReview = explicit ? { origin: explicit.origin || 'upstream-legacy', reason: explicit.reason, reviewedOn: explicit.reviewedOn || null, reviewMethod: explicit.reviewMethod || null, evidenceUrls: explicit.evidenceUrls || [] } : null;
+    const note = notes[local.id];
+    const reviewNote = note ? { ...note, relatedRecords: note.relatedRecords.map(related => ({ ...related, inspireId: String(related.inspireId), name: byId.get(String(related.inspireId)).metadata.legacy_name || related.inspireId, url: `https://inspirehep.net/experiments/${related.inspireId}` })) } : null;
+    return { localId: local.id, name: local.name, identityReview, reviewNote, status: explicit ? 'linked' : candidates.length > 1 ? 'ambiguous' : candidates.length === 1 ? 'candidate' : 'unmatched', reason: explicit?.reason || (candidates.length ? 'Exact normalized identity match; manual review required, including programme/phase identity.' : 'No exact identity match. This does not establish absence from INSPIRE.'), candidates };
   });
   const assignments = new Map();
   for (const entry of entries.filter(entry => entry.status === 'linked')) {
@@ -131,10 +142,10 @@ export function reconcile(catalogue, snapshot, links = {}) {
   }
   const conflicts = [...assignments].filter(([, ids]) => ids.length > 1).map(([inspireId, localIds]) => ({ inspireId, localIds }));
   const linkedIds = new Set(assignments.keys());
-  return { schemaVersion: 1, snapshotFetchedAt: snapshot.fetchedAt, source: snapshot.source, completeness: 'Not established. Unlinked INSPIRE records include out-of-scope programmes and phases requiring review.', counts: { local: entries.length, source: records.length, linked: entries.filter(e => e.status === 'linked').length, candidate: entries.filter(e => e.status === 'candidate').length, ambiguous: entries.filter(e => e.status === 'ambiguous').length, unmatched: entries.filter(e => e.status === 'unmatched').length, conflictingLinks: conflicts.length }, conflicts, entries, unlinkedSourceRecords: records.filter(record => !linkedIds.has(record.id)).map(record => ({ inspireId: record.id, name: record.metadata.legacy_name || record.metadata.long_name || record.id, url: `https://inspirehep.net/experiments/${record.id}` })) };
+  return { schemaVersion: 1, snapshotFetchedAt: snapshot.fetchedAt, source: snapshot.source, completeness: 'Not established. Unlinked INSPIRE records include out-of-scope programmes and phases requiring review.', counts: { local: entries.length, source: records.length, linked: entries.filter(e => e.status === 'linked').length, candidate: entries.filter(e => e.status === 'candidate').length, ambiguous: entries.filter(e => e.status === 'ambiguous').length, unmatched: entries.filter(e => e.status === 'unmatched').length, conflictingLinks: conflicts.length, sourceCompared: entries.filter(e => e.identityReview?.origin === 'source-comparison').length, scopeNotes: entries.filter(e => e.reviewNote).length }, conflicts, entries, unlinkedSourceRecords: records.filter(record => !linkedIds.has(record.id)).map(record => ({ inspireId: record.id, name: record.metadata.legacy_name || record.metadata.long_name || record.id, url: `https://inspirehep.net/experiments/${record.id}` })) };
 }
 
 export function publicAudit(report) {
   if (report.conflicts.length) throw new Error('Conflicting explicit links require review before publishing the compact audit.');
-  return { snapshotFetchedAt: report.snapshotFetchedAt, source: report.source, counts: report.counts, entries: report.entries.map(({ localId, name, status, candidates }) => ({ localId, name, status, candidates: candidates.map(({ inspireId, name, url }) => ({ inspireId, name, url })) })) };
+  return { snapshotFetchedAt: report.snapshotFetchedAt, source: report.source, counts: report.counts, entries: report.entries.map(({ localId, name, status, identityReview, reviewNote, candidates }) => ({ localId, name, status, identityReview, reviewNote, candidates: candidates.map(({ inspireId, name, url }) => ({ inspireId, name, url })) })) };
 }
