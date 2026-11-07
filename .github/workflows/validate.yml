@@ -21,5 +21,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - run: npm run inspire:report
+      - run: git diff --exit-code -- data/inspire/reconciliation.json data/inspire/catalogue-links.json
       # Next's production build also runs lint and TypeScript checks.
       - run: npm run build

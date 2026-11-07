@@ -6,6 +6,7 @@ import { setWorkerUrl, type GeoJSONSource, type StyleSpecification } from 'mapli
 
 setWorkerUrl('/maplibre/maplibre-gl-worker.mjs');
 import { ArrowLeft, ArrowRight, ArrowUpRight, Atom, BookOpen, Check, Compass, ExternalLink, Globe2, Layers3, Lightbulb, MapPin, Moon, Network, Search, Share2, Sun, X } from 'lucide-react';
+import { inspireLink } from '@/lib/inspire';
 import { PARTICLES } from '@/lib/particles.ts';
 import ParticleExplorer from '@/components/ParticleExplorer';
 import ContributionForm from '@/components/ContributionForm';
@@ -64,6 +65,7 @@ export default function FullMap() {
     return story ? found.filter(e => story.stops.some(s => s.experiment === e.id)) : found;
   }, [view]);
   const selected = visible.find(e => e.id === view.experiment);
+  const selectedInspire = selected ? inspireLink(selected.id) : undefined;
   const related = useMemo(() => selected ? connectionsFor(selected.id) : [], [selected]);
   const connectionFeatures = useMemo<GeoJSON.FeatureCollection>(() => ({ type: 'FeatureCollection', features: selected ? related.map(link => ({ type: 'Feature', properties: {}, geometry: { type: 'LineString', coordinates: [mapCoordinates(selected), mapCoordinates(link.experiment)] } })) : [] }), [selected, related]);
   const connectionGroups = useMemo(() => {
@@ -329,7 +331,7 @@ export default function FullMap() {
           {selected.id === 'dune' && <div className="beam-control"><button className={`secondary-button ${showBeam ? 'active' : ''}`} aria-pressed={showBeam} onClick={() => { setShowBeam(!showBeam); flyTo(selected, !showBeam); }}>{showBeam ? <Check size={16} /> : <ArrowUpRight size={16} />}{showBeam ? 'Hide planned beam' : 'Show planned beam'}</button><p>Source-to-detector connection; schematic surface projection, not a surveyed beam path.</p></div>}
           {selected.locationNote && <p className="location-note">{selected.locationNote}</p>}
           {related.length > 0 && <section className="related-experiments" aria-label="Related experiments"><h3>Follow the connections</h3>{related.map(link => <div className="related-record" key={link.experiment.id}><span>{CONNECTION_KINDS[link.kind]}</span><button onClick={() => followConnection(link.experiment.id)}><strong>{link.experiment.name}</strong><ArrowRight size={14} /></button><p>{link.label}. {link.note}</p><details><summary>Evidence</summary>{link.sourceUrls.map((url, i) => <a href={url} key={url} target="_blank" rel="noreferrer">Primary source {i + 1}<ExternalLink size={11} /></a>)}</details></div>)}</section>}
-          <div className="detail-sources"><span className="eyebrow">Sources</span>{selected.sources.map(s => <a key={s.url} href={s.url} target="_blank" rel="noreferrer">{s.label}<ExternalLink size={13} /></a>)}<button className="text-button report-correction" onClick={() => openContribution(selected)}>Suggest a correction <ArrowUpRight size={12} /></button><small>Editorial review · {REVIEW_DATE}<br />Programme stage is not live detector status.</small></div>
+          <div className="detail-sources"><span className="eyebrow">Sources</span>{selected.sources.map(s => <a key={s.url} href={s.url} target="_blank" rel="noreferrer">{s.label}<ExternalLink size={13} /></a>)}<>{selectedInspire && <a href={selectedInspire.url} target="_blank" rel="noreferrer">INSPIRE record {selectedInspire.inspireId}<ExternalLink size={13} /></a>}</><button className="text-button report-correction" onClick={() => openContribution(selected)}>Suggest a correction <ArrowUpRight size={12} /></button><small>Editorial review · {REVIEW_DATE}<br />Programme stage is not live detector status.</small></div>
         </article>}
 
         <div className="map-legend" aria-label="Map legend">{TOPIC_KEYS.map(t => <span key={t}><i style={{ background: TOPICS[t].color }} />{TOPICS[t].label}</span>)}<small>Numbers group nearby experiments</small></div>

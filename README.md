@@ -32,7 +32,7 @@ HEPMAP covers accelerator experiments, neutrino studies, dark-matter searches, r
 
 **Global completeness has not been established.** The visible Coverage panel exposes dated source snapshots, known omissions, exclusions, and pending audits. SNOLAB’s linked roster has been reconciled entry by entry: twelve mapped and four excluded (biology, test infrastructure, or engineering seismology). The linked Gran Sasso research table and Fermilab neutrino roster are also reconciled; other source reviews remain explicitly partial. Roster-level reconciliation does not establish coverage of every historical detector phase or every experiment at a laboratory.
 
-Run `npm run coverage:catalogue` for the same source dispositions as JSON. This report does not invent a global denominator or percentage. To expand coverage, reconcile INSPIRE and laboratory rosters, retain stable identities, record duplicate/phase relationships and exclusion reasons, and leave unresolved records visible. Source snapshots belong in version control. Only claim completeness against a named, dated inventory with an explicit scope.
+Run `npm run coverage:catalogue` for the same source dispositions as JSON. This report does not invent a global denominator or percentage. To expand coverage, review the INSPIRE reconciliation report and laboratory rosters, retain stable identities, record duplicate/phase relationships and exclusion reasons, and leave unresolved records visible. Source snapshots belong in version control. Only claim completeness against a named, dated inventory with an explicit scope.
 
 Programmes and detector phases are labelled separately. PICO is currently a programme record; PandaX-4T is a particular phase. SNO and SNO+ remain distinct identities. Shared host-site coordinates are not artificially separated. Use the list to select co-located experiments.
 
@@ -40,11 +40,39 @@ Research connections identify shared laboratories, detector technologies, relate
 
 ## Content and sources
 
-The displayed catalogue lives in `src/lib/catalogue.ts` and `src/lib/additional-catalogue.ts`. It contains 127 mapped experiment/programme/phase records, primary-source links, occasional attributed fun facts, typed research connections, five journeys, 25 historical milestones, and all 17 Standard Model particle types with sourced discovery histories. The original raw INSPIRE snapshots and importer remain in `src/app/` as reference material; they are not automatically published into the curated catalogue.
+The displayed catalogue lives in `src/lib/catalogue.ts` and `src/lib/additional-catalogue.ts`. It contains 127 mapped experiment/programme/phase records, primary-source links, occasional attributed fun facts, typed research connections, five journeys, 25 historical milestones, and all 17 Standard Model particle types with sourced discovery histories. The original raw INSPIRE snapshots and legacy importer remain in `src/app/` as reference material. The maintained INSPIRE pipeline is described below. Imported scientific summaries and coordinates never replace reviewed content automatically.
 
 Programme stages describe maturity and do not indicate live beam or detector status. Dates and summaries were reviewed on 6 November 2026. Coordinates are approximate detector/host-site locations, not surveyed boundaries. The original six coordinates come from the upstream catalogue; subsequent entries use approximate experimental or host-site positions. DUNE marks its far-detector site and LDMX its proposed host site. Future schedules are not inferred from elapsed dates.
 
 When adding an experiment, give it a stable ID, coordinates, topic, programme stage, aliases, plain-language question and summary, method, explanatory fact, and primary sources. Verify all factual changes against those sources and update the review date. Do not overwrite reviewed text with raw imported descriptions. Extend the catalogue validation tests for new fields or relationships.
+
+## INSPIRE import and identity review
+
+INSPIRE supplies the catalogue backbone. Reviewed local descriptions, locations, discoveries, and methods remain a separate layer. The website uses checked-in data and does not call INSPIRE at runtime or during deployment.
+
+```sh
+npm run inspire:sync   # network: fetch the complete experiments endpoint
+npm run inspire:report # offline: reconcile the snapshot against the local catalogue
+```
+
+The importer follows pagination until it reaches the API’s exact reported total. It retries transient transport/server failures and honors rate limits, including a minimum five-second pause after HTTP 429. Duplicate IDs, changed totals, truncated pagination, and malformed responses abort the import before replacing the previous snapshot. Review the Git diff before committing a refresh.
+
+Files:
+
+- `data/inspire/snapshot.json`: dated, field-selected source metadata with original record IDs and update timestamps. Descriptions, contact emails, and institution coordinates are not requested. This file is not bundled into the website.
+- `data/inspire/links.json`: explicit local-to-INSPIRE identities with a reason. The initial six retain IDs from the original project’s catalogue; this is provenance, not a new claim of independent review.
+- `data/inspire/reconciliation.json`: full offline report, including candidate matches, ambiguous identities, unresolved local entries, conflicting explicit links, source dates, and all source records not explicitly linked.
+- `data/inspire/catalogue-links.json`: compact generated audit used by Coverage. Only explicit links appear as INSPIRE sources in experiment details.
+
+A unique normalized name match is a **candidate**, never an approved identity. The matcher uses experiment names and full names, not research-keyword aliases or generic local slugs. It preserves `+` in identities such as SNO+ and avoids matching names shorter than three normalized characters. Manual review must distinguish programmes, detector phases, similarly named projects, and multiple historical sites. “No exact match” does not mean a record is absent from INSPIRE. “Unlinked source record” does not mean an in-scope experiment is missing from HEPMAP.
+
+To approve a candidate, check its INSPIRE record and primary sources, add its ID and rationale to `links.json`, regenerate the report, and review the diff. Duplicate explicit assignments fail the report command and CI so that a shared programme record cannot silently collapse detector phases. Source dates remain raw in the snapshot; `9999` is treated as unknown for display, without inferring that a detector is currently operating. Year-only and month-only dates retain their precision.
+
+GitHub Actions regenerates both report files offline and checks that they match the committed snapshot and links. A normal build never downloads a new inventory. The live snapshot is a paginated collection, not a transactional export; review source changes even when count checks pass.
+
+AI enrichment is **not enabled**. A future enrichment layer should retain its evidence, generation provenance, and review state, and must not overwrite source metadata or reviewed scientific content.
+
+API reference: [INSPIRE REST API](https://github.com/inspirehep/rest-api-doc). Most metadata is CC0, with exceptions described in [INSPIRE’s terms](https://help.inspirehep.net/knowledge-base/terms-of-use/); preserve source attribution and review licensing before adding other fields. API citation: Micha Moskovic, *The INSPIRE REST API* (2021), [doi:10.5281/zenodo.5788550](https://doi.org/10.5281/zenodo.5788550).
 
 ## Basemap
 

@@ -405,3 +405,8 @@ kbd { font-family: inherit; font-size: 10px; padding: 2px 5px; border: 1px solid
 @media (max-width: 760px) { .journey-stops { overflow-x: auto; padding-bottom: 8px; } .journey-stops button { min-width: 145px; flex: 0 0 145px; } .contribution-dialog { padding: 36px 24px; } }
 .contribution-actions .primary-button { margin-top: 0; }
 .contribution-dialog .contribution-actions a.primary-button { color: var(--paper); }
+
+.inspire-linked > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.inspire-linked a, .inspire-candidate { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; }
+.inspire-disposition { margin-left: 9px; color: var(--muted); font-size: 10px; }
+.inspire-candidate { display: flex; margin-top: 5px; overflow-wrap: anywhere; }

@@ -11,7 +11,9 @@
     "typecheck": "tsc --noEmit",
     "coverage:catalogue": "node --experimental-strip-types scripts/catalogue-coverage.mjs",
     "predev": "node scripts/prepare-map-worker.mjs",
-    "prebuild": "node scripts/prepare-map-worker.mjs"
+    "prebuild": "node scripts/prepare-map-worker.mjs",
+    "inspire:sync": "node scripts/sync-inspire.mjs",
+    "inspire:report": "node --experimental-strip-types scripts/reconcile-inspire.mjs"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.1",

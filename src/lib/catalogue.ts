@@ -363,7 +363,7 @@ export function coverageFor(source: CoverageSource) {
 }
 
 export const DISCOVERY_SOURCES = [
-  { name: 'INSPIRE · Experiments', url: 'https://inspirehep.net/experiments', note: 'Global seed catalogue; import, deduplication, and reconciliation pending.' },
+  { name: 'INSPIRE · Experiments', url: 'https://inspirehep.net/experiments', note: 'Metadata snapshot imported. Candidate identities, detector phases, and source-only records still need review.' },
   { name: 'Underground laboratory directory · Gran Sasso', url: 'https://www.lngs.infn.it/it/altri-laboratori-sotterranei', note: 'Find additional facilities; verify each laboratory and its roster independently.' },
   { name: 'CERN · Experiments', url: 'https://home.cern/science/experiments', note: 'Complete roster audit pending; the map currently includes a selection.' },
 ];

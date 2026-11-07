@@ -1,0 +1,8 @@
+{
+  "cms": { "inspireId": "1108642", "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (CMS)." },
+  "atlas": { "inspireId": "1108541", "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (ATLAS)." },
+  "padme": { "inspireId": "1597054", "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (PADME)." },
+  "dune": { "inspireId": "1346343", "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (DUNE)." },
+  "ldmx": { "inspireId": "1621547", "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (LDMX)." },
+  "muon-g2": { "inspireId": "1108252", "reason": "Retained explicit identity from the original src/app/my_experiment_data.json (Muon_g-2)." }
+}
