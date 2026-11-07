@@ -1,12 +1,13 @@
 # HEPMAP
 
-A particle physics explorer based on [Andre Frankenthal’s HEP Map](https://github.com/afrankenthal/hep-map-v2). Built with Next.js, React, and MapLibre; no map API token or database is required.
+An interactive map of particle physics experiments, their methods, and their discoveries. The upstream repository is [afrankenthal/hep-map-v2](https://github.com/afrankenthal/hep-map-v2); the production site is [hep-map-v2.vercel.app](https://hep-map-v2.vercel.app). Built with Next.js, React, and MapLibre. No map API token or database is required.
 
 ## Run locally
 
-Use Node.js 22.14 or newer (the tests use Node’s built-in TypeScript support).
+Use Node.js 22 (22.14 or newer within that major version). `.nvmrc` selects Node 22; `package.json` selects the same major version for Vercel. The tests use Node’s built-in TypeScript support.
 
 ```sh
+nvm use # if you use nvm
 npm ci
 npm run dev
 ```
@@ -27,7 +28,7 @@ Open http://localhost:3000. For a production preview, run `npm run build` follow
 
 ## Research scope and coverage
 
-HEPMAP covers accelerator experiments, neutrino studies, dark-matter searches, rare processes, and particle astrophysics. The research-view switch supports all particle physics, accelerator experiments, underground/rare-event research, cosmic/natural sources, and precision/rare processes. The last two overlap: DUNE and Super-Kamiokande belong to both. An underground collider cavern does not by itself classify an experiment as a low-background underground search.
+HEPMAP covers accelerator experiments, neutrino studies, dark-matter searches, rare processes, and particle astrophysics. Research views cover accelerator and non-accelerator experiments, underground/rare-event research, cosmic/natural sources, and precision/rare processes. These views overlap: DUNE and Super-Kamiokande are both accelerator and underground experiments. An underground collider cavern does not by itself classify an experiment as a low-background underground search.
 
 **Global completeness has not been established.** The visible Coverage panel exposes dated source snapshots, known omissions, exclusions, and pending audits. SNOLAB’s linked roster has been reconciled entry by entry: twelve mapped and four excluded (biology, test infrastructure, or engineering seismology). The linked Gran Sasso research table and Fermilab neutrino roster are also reconciled; other source reviews remain explicitly partial. Roster-level reconciliation does not establish coverage of every historical detector phase or every experiment at a laboratory.
 
@@ -59,13 +60,41 @@ npm run build
 
 Before opening a PR, review the desktop and mobile layouts, search/filter combinations, clustered markers, experiment details, journey navigation, milestone selection, DUNE’s beam overlay, direct shared links, keyboard controls, and sources/credits dialog. Review dependency audit findings separately before publishing.
 
-Develop on a separate branch and open a PR into the maintainer’s intended deployment branch. Confirm the Vercel production branch before merging; merging may automatically deploy the site. Review a Vercel preview deployment when available. Local development does not update the published website.
+The `Validate HEPMAP` GitHub Actions workflow runs a clean `npm ci`, the tests, and the production build on pushes and pull requests. The build includes lint and TypeScript checks. A green build verifies the code; Vercel deployment authorization is a separate check.
 
-## Show the design to a collaborator
+## Production deployment: afrankenthal’s projects
 
-A localhost URL is only reachable on your own computer. For an interactive review, import your GitHub fork into your own Vercel project and deploy the `codex/hep-map` branch. If the fork is already connected to Vercel, check the branch commit’s deployment/check links for a preview URL. Review the preview’s sharing/access settings before sending the link. The original maintainer’s production site is a separate deployment.
+Deploy the upstream repository into the existing **afrankenthal’s projects** Vercel team (`afrankenthals-projects`). Contributor forks are development copies; they do not replace or transfer the production project.
 
-This branch needs no map API token or database credentials. Vercel’s Next.js framework preset, `npm run build`, and automatic output-directory detection are sufficient. See [Vercel Git deployments](https://vercel.com/docs/git). Use a pull request into the original repository when the maintainer is ready to review the implementation.
+The intended production configuration is:
+
+- Git repository: `afrankenthal/hep-map-v2`.
+- Production branch: `main` (confirm this in the existing Vercel project’s Git settings).
+- Root directory: repository root.
+- Framework: Next.js.
+- Node.js: `22.x`, selected by `package.json`.
+- Install command: `npm ci`.
+- Build command: `npm run build`.
+- Output directory: Next.js default; leave any custom override unset.
+- Environment variables: none required by the current map.
+
+`vercel.json` declares the framework, install, and build commands. The public map worker assets are generated during `prebuild`; do not replace the build command with a command that skips that step. Do not commit `.vercel/` project links or team credentials.
+
+### Fork pull requests and authorization
+
+Vercel can require a team member to authorize a deployment from a fork. At the 6 November 2026 review, [PR #8](https://github.com/afrankenthal/hep-map-v2/pull/8) reported **“Authorization required to deploy.”** This was an authorization gate, not evidence of a failed build.
+
+Andre or an authorized member of **afrankenthal’s projects** should open the current Vercel check’s Details link and approve the reviewed deployment. For a commit-author access error, follow [Vercel’s collaboration troubleshooting](https://vercel.com/docs/deployments/troubleshoot-project-collaboration) and check the author’s linked GitHub identity and legitimate project/team access. Keep the actual contributor identity on commits.
+
+### Verify a release
+
+1. Review the PR’s GitHub Actions result and authorize its Vercel preview when requested.
+2. Wait for the preview to report **Ready**. Check the map, a particle history, mobile navigation, and source links there.
+3. Have Andre or an authorized maintainer merge the reviewed changes into upstream `main` using their own account.
+4. In the existing team project, confirm the production deployment uses the resulting merge commit and reports **Ready**. If no deployment starts, check the connected repository, production branch, authorization status, and any ignored-build settings.
+5. Open [the production site](https://hep-map-v2.vercel.app), reload it, and verify the map tiles, markers, and discovery trails. Local build success alone does not verify this deployment.
+
+A localhost URL is only reachable on the developer’s computer. Share the Vercel preview linked from the PR for remote review, subject to the team’s preview-access settings. See [Vercel Git deployments](https://vercel.com/docs/git) and [supported Node versions](https://vercel.com/docs/functions/runtimes/node-js/node-js-versions).
 
 MapLibre’s matching module worker and shared module are copied from the locked dependency into `public/maplibre/` by `predev`/`prebuild`. These generated files are ignored by Git and served from the same origin.
 
@@ -73,4 +102,4 @@ Foundational historical experiments (including the nuclear atom and neutron) are
 
 ## Contributions
 
-Use **Suggest an experiment** in the explorer footer or About dialog, or **Suggest a correction** in an experiment’s details. Add an explanation and an HTTPS source to prepare an editable GitHub issue draft; correction drafts preserve the stable record ID and current references. The destination is the original project’s issue tracker (`afrankenthal/hep-map-v2`), since this development fork has issues disabled. The dialog names the destination before opening it. No issue is submitted automatically. A copy-draft option also supports sharing directly with a maintainer. Change `CONTRIBUTION_REPOSITORY` in `src/lib/contributions.ts` if issue handling moves.
+Use **Suggest an experiment** in the explorer footer or About dialog, or **Suggest a correction** in an experiment’s details. Add an explanation and an HTTPS source to prepare an editable GitHub issue draft; correction drafts preserve the stable record ID and current references. The destination is the original project’s issue tracker (`afrankenthal/hep-map-v2`), where project contributions are reviewed. The dialog names the destination before opening it. No issue is submitted automatically. A copy-draft option also supports sharing directly with a maintainer. Change `CONTRIBUTION_REPOSITORY` in `src/lib/contributions.ts` if issue handling moves.
