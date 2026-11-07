@@ -11,6 +11,351 @@
       }
     ],
     "reviewedOn": "2026-11-06",
-    "reviewMethod": "AI-assisted source comparison"
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "scope-difference"
+  },
+  "besiii": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "metadata-conflict",
+    "reason": "The name candidate BEPC-BES-III has date_started=1991 and a tau-mass measurement title. IHEP documents first BEPCII/BESIII collisions in 2008. Keep the candidate unresolved pending clarification of the record metadata and historical scope; do not replace the reviewed BESIII dates.",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1239436",
+      "https://english.ihep.cas.cn/nw/han/ym/200906/t20090611_296095.html"
+    ],
+    "relatedRecords": [
+      {
+        "inspireId": "1239436",
+        "relationship": "candidate with conflicting chronology"
+      }
+    ]
+  },
+  "dama-libra": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "scope-difference",
+    "reason": "The snapshot identifies DAMA broadly, not an explicit DAMA/LIBRA detector phase.",
+    "evidenceUrls": [
+      "https://www.lngs.infn.it/it/ricerca/"
+    ],
+    "relatedRecords": [
+      {
+        "inspireId": "1401121",
+        "relationship": "broader DAMA programme"
+      }
+    ]
+  },
+  "darkside-50": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "scope-difference",
+    "reason": "The snapshot record DARKSIDE is broader in name than the local DarkSide-50 phase; keep programme and phase distinct.",
+    "evidenceUrls": [
+      "https://www.lngs.infn.it/it/ricerca/"
+    ],
+    "relatedRecords": [
+      {
+        "inspireId": "1108199",
+        "relationship": "broader DarkSide programme"
+      }
+    ]
+  },
+  "lime-cygnus": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "scope-difference",
+    "reason": "The local LNGS LIME/CYGNUS entry is not automatically identical to either the CYGNO project or the broader CYGNUS network.",
+    "evidenceUrls": [
+      "https://www.lngs.infn.it/it/ricerca/"
+    ],
+    "relatedRecords": [
+      {
+        "inspireId": "1709985",
+        "relationship": "related CYGNO project"
+      },
+      {
+        "inspireId": "2091141",
+        "relationship": "broader CYGNUS collaboration"
+      }
+    ]
+  },
+  "moedal": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "scope-difference",
+    "reason": "The local record covers MoEDAL-MAPP. The snapshot names MoEDAL; extension and programme scope need confirmation before selecting it as an identity.",
+    "evidenceUrls": [
+      "https://home.cern/science/experiments/moedal-mapp"
+    ],
+    "relatedRecords": [
+      {
+        "inspireId": "1110581",
+        "relationship": "MoEDAL record requiring extension-scope review"
+      }
+    ]
+  },
+  "pandax-i": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "scope-difference",
+    "reason": "The snapshot has a broad PandaX record, but its metadata does not explicitly identify the PandaX-I detector phase. Retain the phase distinction.",
+    "evidenceUrls": [
+      "https://pandax.sjtu.edu.cn/"
+    ],
+    "relatedRecords": [
+      {
+        "inspireId": "1221671",
+        "relationship": "broader PandaX programme"
+      }
+    ]
+  },
+  "km3net-arca": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "scope-difference",
+    "reason": "ARCA is a specific KM3NeT detector. The snapshot contains the shared KM3NeT programme record; it must not become the identity of both ARCA and ORCA.",
+    "evidenceUrls": [
+      "https://www.km3net.org/research/detector/arca-and-orca-detector/"
+    ],
+    "relatedRecords": [
+      {
+        "inspireId": "1108236",
+        "relationship": "parent KM3NeT programme"
+      }
+    ]
+  },
+  "km3net-orca": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "scope-difference",
+    "reason": "ORCA is a specific KM3NeT detector. The snapshot contains the shared KM3NeT programme record; it must not become the identity of both ARCA and ORCA.",
+    "evidenceUrls": [
+      "https://www.km3net.org/research/detector/arca-and-orca-detector/"
+    ],
+    "relatedRecords": [
+      {
+        "inspireId": "1108236",
+        "relationship": "parent KM3NeT programme"
+      }
+    ]
+  },
+  "gargamelle": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "scope-difference",
+    "reason": "Gargamelle was an apparatus used by multiple studies. The snapshot contains later Gargamelle studies; none is selected as the identity of the 1973 discovery entry.",
+    "evidenceUrls": [
+      "https://cern-courier.web.cern.ch/a/neutral-currents-a-perfect-experimental-discovery/"
+    ],
+    "relatedRecords": [
+      {
+        "inspireId": "1109898",
+        "relationship": "Gargamelle wide-band study"
+      },
+      {
+        "inspireId": "1471591",
+        "relationship": "Gargamelle neutral-current study requiring historical-scope review"
+      }
+    ]
+  },
+  "deap-1": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "no-match-in-snapshot",
+    "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
+    "searchTerms": [
+      "DEAP-1",
+      "DEAP 1"
+    ],
+    "evidenceUrls": [
+      "https://www.snolab.ca/science/experiments/"
+    ],
+    "relatedRecords": []
+  },
+  "puma": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "no-match-in-snapshot",
+    "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
+    "searchTerms": [
+      "PUMA",
+      "unstable matter annihilation"
+    ],
+    "evidenceUrls": [
+      "https://home.cern/science/experiments"
+    ],
+    "relatedRecords": []
+  },
+  "pandax-20t": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "no-match-in-snapshot",
+    "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
+    "searchTerms": [
+      "PandaX-20T",
+      "PandaX-xT"
+    ],
+    "evidenceUrls": [
+      "https://pandax.sjtu.edu.cn/"
+    ],
+    "relatedRecords": []
+  },
+  "thomson-electron": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "no-match-in-snapshot",
+    "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
+    "searchTerms": [
+      "Thomson",
+      "cathode ray"
+    ],
+    "evidenceUrls": [
+      "https://www.nobelprize.org/prizes/physics/1906/thomson/facts/"
+    ],
+    "relatedRecords": []
+  },
+  "muon-discovery": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "no-match-in-snapshot",
+    "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
+    "searchTerms": [
+      "Neddermeyer",
+      "Anderson muon"
+    ],
+    "evidenceUrls": [
+      "https://muoncollider.web.cern.ch/history-muon-0"
+    ],
+    "relatedRecords": []
+  },
+  "reines-cowan": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "no-match-in-snapshot",
+    "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
+    "searchTerms": [
+      "Cowan",
+      "Reines",
+      "Savannah"
+    ],
+    "evidenceUrls": [
+      "https://www.fnal.gov/pub/science/particle-physics-101/worldwide-discoveries.html"
+    ],
+    "relatedRecords": []
+  },
+  "bnl-two-neutrino": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "no-match-in-snapshot",
+    "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
+    "searchTerms": [
+      "two-neutrino",
+      "Brookhaven two neutrino"
+    ],
+    "evidenceUrls": [
+      "https://www.bnl.gov/science/neutrinos.php"
+    ],
+    "relatedRecords": []
+  },
+  "slac-dis": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "no-match-in-snapshot",
+    "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
+    "searchTerms": [
+      "SLAC-E-049",
+      "SLAC-E-061",
+      "SLAC-MIT"
+    ],
+    "evidenceUrls": [
+      "https://cern-courier.web.cern.ch/a/back-to-the-future/"
+    ],
+    "relatedRecords": []
+  },
+  "compton-scattering": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "no-match-in-snapshot",
+    "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
+    "searchTerms": [
+      "Compton",
+      "X-ray scattering"
+    ],
+    "evidenceUrls": [
+      "https://www.iucr.org/what-we-do/awards-and-prizes/nobel-prize/compton"
+    ],
+    "relatedRecords": []
+  },
+  "gold-foil": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "no-match-in-snapshot",
+    "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
+    "searchTerms": [
+      "Geiger",
+      "Marsden",
+      "Rutherford"
+    ],
+    "evidenceUrls": [
+      "https://history.aip.org/exhibits/rutherford/sections/alpha-particles-atom.html"
+    ],
+    "relatedRecords": []
+  },
+  "chadwick-neutron": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "no-match-in-snapshot",
+    "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
+    "searchTerms": [
+      "Chadwick"
+    ],
+    "evidenceUrls": [
+      "https://www.nature.com/articles/129312a0"
+    ],
+    "relatedRecords": []
+  },
+  "anderson-positron": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "no-match-in-snapshot",
+    "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
+    "searchTerms": [
+      "Anderson positron",
+      "positron discovery"
+    ],
+    "evidenceUrls": [
+      "https://digital.archives.caltech.edu/collections/Images/1.2-7/"
+    ],
+    "relatedRecords": []
+  },
+  "wu-parity": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "no-match-in-snapshot",
+    "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
+    "searchTerms": [
+      "Wu",
+      "cobalt",
+      "parity violation"
+    ],
+    "evidenceUrls": [
+      "https://www.nist.gov/blogs/taking-measure/forever-stamp-and-discovery-changed-physics-forever"
+    ],
+    "relatedRecords": []
+  },
+  "cp-violation": {
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "kind": "no-match-in-snapshot",
+    "reason": "No experiment identity was selected from this field-limited snapshot after the recorded name searches. The local primary sources remain authoritative for this entry; this is not a claim that INSPIRE has no relevant record or paper.",
+    "searchTerms": [
+      "Cronin",
+      "Fitch",
+      "CP violation"
+    ],
+    "evidenceUrls": [
+      "https://www.bnl.gov/decadeofdiscovery/index.php"
+    ],
+    "relatedRecords": []
   }
 }

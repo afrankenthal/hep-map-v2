@@ -419,3 +419,7 @@ kbd { font-family: inherit; font-size: 10px; padding: 2px 5px; border: 1px solid
 
 .inspire-record-links { display: grid; gap: 7px; max-width: 240px; }
 .inspire-record-links a { overflow-wrap: anywhere; }
+
+.review-kind { display: block; font-size: 10px; color: var(--ink); }
+.inspire-search-evidence { margin: 12px 0; font-size: 10px; color: var(--muted); }
+.inspire-search-evidence ul { padding-left: 17px; }

@@ -166,3 +166,41 @@ test('reviewed mode and run mappings preserve the physics-relevant distinctions'
   assert.ok(links.minos.records.some(r => r.inspireId === '1671995'));
   assert.ok(!links.minos.records.some(r => r.inspireId === '1108536'));
 });
+
+test('bounded no-match reviews keep search evidence without claiming global absence', () => {
+  const source = snapshot([record(1, 'Modern Compton experiment'), record(2, 'Different apparatus')]);
+  const note = { kind: 'no-match-in-snapshot', reason: 'No historical identity selected.', reviewedOn: '2026-11-06', reviewMethod: 'AI-assisted source comparison', evidenceUrls: ['https://example.org/history'], relatedRecords: [], searchTerms: ['Compton', 'historical name'] };
+  const report = reconcile([local('historical', 'Historical scattering')], source, {}, { historical: note });
+  assert.equal(report.entries[0].status, 'unmatched');
+  assert.equal(report.counts.noMatchNotes, 1);
+  assert.equal(report.counts.pendingWithoutNotes, 0);
+  assert.deepEqual(report.entries[0].reviewNote.searchEvidence.map(s => s.count), [1, 0]);
+  assert.equal(report.entries[0].reviewNote.searchEvidence[0].records[0].inspireId, '1');
+  const compact = publicAudit(report).entries[0].reviewNote.searchEvidence[0];
+  assert.deepEqual(compact, { term: 'Compton', count: 1 });
+  assert.equal(report.entries[0].identityReview, null);
+  for (const broken of [{ ...note, searchTerms: [] }, { ...note, relatedRecords: [{ inspireId: '1', relationship: 'identity' }] }, { ...note, kind: 'made-up' }]) assert.throws(() => reconcile([local('historical', 'Historical scattering')], source, {}, { historical: broken }), /Invalid|requires/);
+});
+
+test('metadata conflicts remain candidates until their identity is explicitly settled', () => {
+  const source = snapshot([record(1, 'BESIII', { date_started: '1991' })]);
+  const note = { kind: 'metadata-conflict', reason: 'Primary-source chronology differs.', reviewedOn: '2026-11-06', reviewMethod: 'AI-assisted source comparison', evidenceUrls: ['https://example.org/history'], relatedRecords: [{ inspireId: '1', relationship: 'candidate with conflicting chronology' }] };
+  const report = reconcile([local('besiii', 'BESIII')], source, {}, { besiii: note });
+  assert.equal(report.entries[0].status, 'candidate');
+  assert.equal(report.entries[0].candidates[0].sourceDates.started, '1991');
+  assert.equal(report.counts.metadataConflicts, 1);
+  assert.equal(report.counts.linked, 0);
+});
+
+test('every unresolved local identity has a documented follow-up disposition', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const report = JSON.parse(await readFile(new URL('../data/inspire/reconciliation.json', import.meta.url)));
+  assert.equal(report.counts.pendingWithoutNotes, 0);
+  for (const entry of report.entries.filter(e => e.status !== 'linked')) assert.ok(entry.reviewNote?.reason);
+  const besiii = report.entries.find(e => e.localId === 'besiii');
+  assert.equal(besiii.reviewNote.kind, 'metadata-conflict');
+  assert.equal(besiii.identityReview, null);
+  const mark = report.entries.find(e => e.localId === 'mark-i');
+  assert.equal(mark.candidates[0].inspireId, '1110108');
+  assert.ok(mark.identityReview.evidenceUrls.includes('https://ahro.slac.stanford.edu/history-bits/november-revolution-physics'));
+});

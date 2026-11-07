@@ -862,5 +862,302 @@
       "https://inspirehep.net/experiments/1109001",
       "https://inspirehep.net/experiments/1110316"
     ]
+  },
+  "super-k": {
+    "inspireId": "1109022",
+    "reason": "SUPER-KAMIOKANDE identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1109022",
+      "https://www-sk.icrr.u-tokyo.ac.jp/en/about/history/"
+    ]
+  },
+  "lz": {
+    "inspireId": "1262631",
+    "reason": "LZ identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1262631",
+      "https://lz.lbl.gov/"
+    ]
+  },
+  "juno": {
+    "inspireId": "1288789",
+    "reason": "JUNO identifies the same experiment as the cited collaboration or laboratory source. INSPIRE date_started=2020 is not used as the physics data-taking start; IHEP reports data from August 2025.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1288789",
+      "https://english.ihep.cas.cn/nw/han/y25/202511/t20251119_1132377.html"
+    ]
+  },
+  "news-g": {
+    "inspireId": "1606020",
+    "reason": "NEWS-G identifies the same experiment as the cited collaboration or laboratory source. A listed collaborating institution is not substituted for the detector location supported by SNOLAB.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1606020",
+      "https://www.snolab.ca/experiment/news-g/"
+    ]
+  },
+  "sensei": {
+    "inspireId": "1662255",
+    "reason": "SENSEI identifies the same experiment as the cited collaboration or laboratory source. A listed collaborating institution is not substituted for the detector location supported by SNOLAB.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1662255",
+      "https://www.snolab.ca/experiment/sensei/"
+    ]
+  },
+  "star": {
+    "inspireId": "1108784",
+    "reason": "BNL-RHIC-STAR identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108784",
+      "https://www.bnl.gov/rhic/star.php"
+    ]
+  },
+  "sphenix": {
+    "inspireId": "1500624",
+    "reason": "BNL-RHIC-SPHENIX identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1500624",
+      "https://www.sphenix.bnl.gov/"
+    ]
+  },
+  "t2k": {
+    "inspireId": "1108444",
+    "reason": "T2K identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108444",
+      "https://t2k-experiment.org/"
+    ]
+  },
+  "hyper-k": {
+    "inspireId": "1340261",
+    "reason": "HYPER-KAMIOKANDE identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1340261",
+      "https://www-sk.icrr.u-tokyo.ac.jp/en/hk/"
+    ]
+  },
+  "katrin": {
+    "inspireId": "1108400",
+    "reason": "KATRIN identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108400",
+      "https://www.katrin.kit.edu/"
+    ]
+  },
+  "meg-ii": {
+    "inspireId": "1679100",
+    "reason": "MEG-II identifies the same experiment as the cited collaboration or laboratory source. This is the MEG II upgrade, not the original MEG record.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1679100",
+      "https://www.psi.ch/en/cnm/news/meg-ii-new-result-2025"
+    ]
+  },
+  "mu3e": {
+    "inspireId": "1114537",
+    "reason": "Mu3e identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1114537",
+      "https://www.psi.ch/en/mu3e"
+    ]
+  },
+  "coherent": {
+    "inspireId": "1486780",
+    "reason": "ORNL-SNS-COHERENT identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1486780",
+      "https://sites.duke.edu/coherent/"
+    ]
+  },
+  "dayabay": {
+    "inspireId": "1108266",
+    "reason": "DAYA-BAY identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108266",
+      "https://arxiv.org/abs/1203.1669"
+    ]
+  },
+  "kamland": {
+    "inspireId": "1110499",
+    "reason": "KamLAND identifies the same experiment as the cited collaboration or laboratory source. This identifies KamLAND; KamLAND-Zen and KamLAND2 are not silently folded into this identity.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110499",
+      "https://www.awa.tohoku.ac.jp/rcns/RESEARCH_OUTLINE.html"
+    ]
+  },
+  "icecube": {
+    "inspireId": "1108514",
+    "reason": "ICECUBE identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108514",
+      "https://icecube.wisc.edu/"
+    ]
+  },
+  "auger": {
+    "inspireId": "1110614",
+    "reason": "AUGER identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110614",
+      "https://www.auger.org/"
+    ]
+  },
+  "donut": {
+    "inspireId": "1108575",
+    "reason": "FNAL-E-0872 identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108575",
+      "https://arxiv.org/abs/hep-ex/0012035"
+    ]
+  },
+  "ua1": {
+    "inspireId": "1109643",
+    "reason": "CERN-UA-001 identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1109643",
+      "https://home.cern/science/physics/z-boson"
+    ]
+  },
+  "ua2": {
+    "inspireId": "1109640",
+    "reason": "CERN-UA-002 identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1109640",
+      "https://home.cern/science/physics/z-boson"
+    ]
+  },
+  "kamiokande": {
+    "inspireId": "1110455",
+    "reason": "KAMIOKANDE identifies the same experiment as the cited collaboration or laboratory source. INSPIRE date_started=1985-11 does not describe the first observations in 1983 reported by the observatory chronology; historical dates remain separately curated.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110455",
+      "https://www-sk.icrr.u-tokyo.ac.jp/en/about/history/"
+    ]
+  },
+  "aleph": {
+    "inspireId": "1109311",
+    "reason": "CERN-LEP-ALEPH identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1109311",
+      "https://archives.web.cern.ch/CERN_archive/guide/accelerators/LEP/isalep/"
+    ]
+  },
+  "delphi": {
+    "inspireId": "1109312",
+    "reason": "CERN-LEP-DELPHI identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1109312",
+      "https://archives.web.cern.ch/CERN_archive/guide/accelerators/LEP/isalep/"
+    ]
+  },
+  "opal": {
+    "inspireId": "1109310",
+    "reason": "CERN-LEP-OPAL identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1109310",
+      "https://archives.web.cern.ch/CERN_archive/guide/accelerators/LEP/isalep/"
+    ]
+  },
+  "babar": {
+    "inspireId": "1108553",
+    "reason": "SLAC-PEP2-BABAR identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108553",
+      "https://arxiv.org/abs/hep-ex/0107013"
+    ]
+  },
+  "belle": {
+    "inspireId": "1108579",
+    "reason": "KEK-BF-BELLE identifies the same experiment as the cited collaboration or laboratory source.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108579",
+      "https://belle.kek.jp/"
+    ]
+  },
+  "mark-i": {
+    "inspireId": "1110108",
+    "reason": "SLAC Archives explicitly identifies the November 1974 experiment as SLAC-SP-017 at SPEAR with the Mark I detector. The INSPIRE start date in 1975 is not imported into the discovery chronology.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110108",
+      "https://ahro.slac.stanford.edu/history-bits/november-revolution-physics"
+    ]
   }
 }
