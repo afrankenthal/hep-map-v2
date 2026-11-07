@@ -423,3 +423,11 @@ kbd { font-family: inherit; font-size: 10px; padding: 2px 5px; border: 1px solid
 .review-kind { display: block; font-size: 10px; color: var(--ink); }
 .inspire-search-evidence { margin: 12px 0; font-size: 10px; color: var(--muted); }
 .inspire-search-evidence ul { padding-left: 17px; }
+
+.surprise-button { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; margin: 0 24px 18px; padding: 10px 12px; width: calc(100% - 48px); border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ink); font-size: 12px; text-align: left; }
+.surprise-button span { width: 100%; padding-left: 22px; color: var(--muted); font-size: 10px; }
+.surprise-pick { padding: 14px; margin: 0 0 18px; border-left: 2px solid var(--accent); background: var(--surface); }
+.surprise-pick h3 { font-size: 13px; margin: 10px 0; }
+.surprise-pick p { font-size: 12px; line-height: 1.7; margin: 10px 0; }
+.surprise-pick a, .surprise-pick button { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink); }
+.surprise-pick button { margin-top: 14px; padding: 7px 0; background: transparent; border: 0; text-decoration: underline; text-underline-offset: 3px; }

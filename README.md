@@ -21,6 +21,7 @@ Open http://localhost:3000. For a production preview, run `npm run build` follow
 - Switch between all particle physics, accelerator research, and underground/rare-event views. Open Coverage to inspect known missing records and exclusions.
 - Follow sourced research connections between experiments and optionally display their schematic map links.
 - Explore the 17-cell Standard Model table and follow proposal/evidence/discovery histories to their experimental sites.
+- Choose **Surprise me** for an experiment, a sourced fun fact, or a discovery milestone from the whole catalogue. It clears filters and skips the currently selected experiment. Shared links preserve the chosen record or milestone.
 - Follow five guided journeys, including dated neutrino and quark discovery trails with supporting evidence at each stop, or open the historical milestone timeline. Milestones are selected events, not a complete historical reconstruction.
 - Copy a link from an experiment panel to share its selection, filters, or journey stop. Back/forward navigation restores supported URL parameters.
 - For DUNE, optionally show the planned source-to-detector connection. This is a schematic surface projection, not surveyed beam geometry.

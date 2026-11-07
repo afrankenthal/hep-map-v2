@@ -5,7 +5,8 @@ import Map, { AttributionControl, Layer, Marker, NavigationControl, ScaleControl
 import { setWorkerUrl, type GeoJSONSource, type StyleSpecification } from 'maplibre-gl';
 
 setWorkerUrl('/maplibre/maplibre-gl-worker.mjs');
-import { ArrowLeft, ArrowRight, ArrowUpRight, Atom, BookOpen, Check, Compass, ExternalLink, Globe2, Layers3, Lightbulb, MapPin, Moon, Network, Search, Share2, Sun, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Atom, BookOpen, Check, Compass, ExternalLink, Globe2, Layers3, Lightbulb, MapPin, Moon, Network, Search, Share2, Shuffle, Sun, X } from 'lucide-react';
+import { pickSurprise, type Surprise } from '@/lib/surprise';
 import { inspireLinks } from '@/lib/inspire';
 import { PARTICLES } from '@/lib/particles.ts';
 import ParticleExplorer from '@/components/ParticleExplorer';
@@ -44,7 +45,9 @@ export default function FullMap() {
   const [showConnections, setShowConnections] = useState(false);
   const [showTimeline, setShowTimeline] = useState(false);
   const [notice, setNotice] = useState('');
+  const [surprise, setSurprise] = useState<Surprise | null>(null);
   const [clusters, setClusters] = useState<{ id: number; coordinates: [number, number]; count: number }[]>([]);
+  const lastSurprise = useRef<string | null>(null);
   const map = useRef<MapRef>(null);
   const search = useRef<HTMLInputElement>(null);
   const journeyStops = useRef<HTMLDivElement>(null);
@@ -93,6 +96,7 @@ export default function FullMap() {
   useEffect(() => {
     const restore = () => {
       const next = readSharedView(window.location.search);
+      setSurprise(null);
       setView(next);
       setTab(next.particle ? 'particles' : next.story ? 'journeys' : 'explore');
       setShowTimeline(next.milestone !== null);
@@ -168,6 +172,7 @@ export default function FullMap() {
   useEffect(() => { if (ready && !selected) resetMap(); }, [ready, selected, resetMap]);
 
   const select = (id: string) => {
+    setSurprise(null);
     setView(v => {
       const activeStory = STORIES.find(s => s.id === v.story);
       const stop = activeStory?.stops.findIndex(s => s.experiment === id) ?? -1;
@@ -180,10 +185,12 @@ export default function FullMap() {
     if (window.matchMedia('(max-width: 760px)').matches) mapArea.current?.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
   };
   const changeFilter = (patch: Partial<SharedView>) => {
+    setSurprise(null);
     setView(v => ({ ...v, ...patch, experiment: null, particle: null, story: null, milestone: null }));
     setShowTimeline(false);
   };
   const startStory = (id: string, stop = 0) => {
+    setSurprise(null);
     const next = STORIES.find(s => s.id === id);
     if (!next) return;
     setTab('journeys');
@@ -191,10 +198,23 @@ export default function FullMap() {
     setView({ ...INITIAL_VIEW, story: id, stop, experiment: next.stops[stop].experiment });
   };
   const chooseMilestone = (index: number) => {
+    setSurprise(null);
     setTab('explore');
     setView({ ...INITIAL_VIEW, milestone: index, experiment: MILESTONES[index].experiment });
     setShowTimeline(true);
   };
+
+  const surpriseMe = () => {
+    const next = pickSurprise(view.experiment ?? lastSurprise.current);
+    lastSurprise.current = next.experiment;
+    setSurprise(next);
+    setTab('explore');
+    setView({ ...INITIAL_VIEW, experiment: next.experiment, milestone: next.milestone });
+    // The inline milestone keeps details and another-surprise control visible on phones.
+    setShowTimeline(false);
+    setNotice('');
+  };
+  const activeSurprise = surprise?.experiment === selected?.id && surprise?.milestone === view.milestone ? surprise : null;
 
   const features = useMemo<GeoJSON.FeatureCollection>(() => ({ type: 'FeatureCollection', features: visible.map(e => ({
     type: 'Feature', geometry: { type: 'Point', coordinates: mapCoordinates(e) },
@@ -229,7 +249,7 @@ export default function FullMap() {
     } else if (feature.properties?.id) select(feature.properties.id);
   };
 
-  const followConnection = (id: string) => { setTab('explore'); setView({ ...INITIAL_VIEW, experiment: id }); };
+  const followConnection = (id: string) => { setSurprise(null); setTab('explore'); setView({ ...INITIAL_VIEW, experiment: id }); };
   const frameConnections = () => {
     if (!selected || !related.length || !map.current) return;
     const points = [mapCoordinates(selected), ...related.map(link => mapCoordinates(link.experiment))];
@@ -256,6 +276,7 @@ export default function FullMap() {
     <div className="workspace">
       <aside className="explorer" aria-label="Experiment explorer">
         <div className="explorer-intro"><h1>Particle physics around the world</h1><p>Find experiments, detector methods, and discovery histories.</p><button className="scope-note" onClick={() => coverage.current?.showModal()}>{EXPERIMENTS.length} mapped records · Coverage incomplete <ArrowUpRight size={11} /></button></div>
+        <button className="surprise-button" onClick={surpriseMe}><Shuffle size={15} />Surprise me<span>Explore across the whole map</span></button>
         <div className="explorer-tabs" role="tablist" aria-label="Explore mode" onKeyDown={event => {
           if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
           event.preventDefault();
@@ -319,6 +340,7 @@ export default function FullMap() {
         {selected && <article className="detail-panel" aria-label={`${selected.name} details`} ref={details} tabIndex={-1}>
           <div className="detail-top"><span className="eyebrow" style={{ color: TOPICS[selected.topic].color }}>{TOPICS[selected.topic].label}</span><div><button className="icon-button" onClick={share} aria-label="Copy link to this experiment"><Share2 size={16} /></button><button className="icon-button" aria-label="Close experiment details" onClick={() => setView(v => ({ ...v, experiment: null, particle: null, story: null, milestone: null }))}><X size={18} /></button></div></div>
           <div className="detail-title"><TopicMark topic={selected.topic} /><h2>{selected.name}</h2>{selected.fullName !== selected.name && <p>{selected.fullName}</p>}</div>
+          {activeSurprise && <aside className="surprise-pick" role="status"><span className="eyebrow">{activeSurprise.kind === 'fact' ? 'A fun fact' : activeSurprise.kind === 'milestone' ? 'A discovery milestone' : 'An experiment to explore'}</span>{activeSurprise.kind === 'fact' && selected.funFact ? <><p>{selected.funFact.text}</p><a href={selected.funFact.sourceUrl} target="_blank" rel="noreferrer">Read the source <ExternalLink size={12} /></a></> : activeSurprise.kind === 'milestone' && milestone ? <><h3>{milestone.year} · {milestone.title}</h3><p>{milestone.text}</p><a href={milestone.url} target="_blank" rel="noreferrer">Read the source <ExternalLink size={12} /></a></> : <p>{selected.question}</p>}<button onClick={surpriseMe}><Shuffle size={13} />Another surprise</button></aside>}
           <div className="detail-place"><MapPin size={14} /><span>{selected.place}<small>{selected.laboratory}</small></span></div>
           <div className="record-tags"><span className="stage-badge"><span />{selected.stage}</span><span>{RESEARCH[selected.id].recordKind}</span><span>{RESEARCH[selected.id].setting}</span></div>
           {related.length > 0 && <button className="connection-toggle" aria-pressed={showConnections} onClick={() => { setShowConnections(!showConnections); if (!showConnections) frameConnections(); else flyTo(selected); }}><Network size={14} />{showConnections ? 'Hide map connections' : `Show ${related.length} research connections`}<ArrowUpRight size={13} /></button>}
@@ -326,7 +348,7 @@ export default function FullMap() {
           <div className="detail-section"><h3>Research</h3><p>{selected.summary}</p></div>
           {selected.impact && <div className="historical-impact"><span className="eyebrow">Historical significance</span><p>{selected.impact}</p></div>}
           {selected.fact && <div className="key-fact"><strong>{selected.fact[0]}</strong><span>{selected.fact[1]}</span></div>}
-          {selected.funFact && <aside className="fun-fact" aria-label="Fun fact"><span><Lightbulb size={14} />FUN FACT</span><p>{selected.funFact.text}</p><a href={selected.funFact.sourceUrl} target="_blank" rel="noreferrer">Source <ExternalLink size={11} /></a></aside>}
+          {selected.funFact && activeSurprise?.kind !== 'fact' && <aside className="fun-fact" aria-label="Fun fact"><span><Lightbulb size={14} />FUN FACT</span><p>{selected.funFact.text}</p><a href={selected.funFact.sourceUrl} target="_blank" rel="noreferrer">Source <ExternalLink size={11} /></a></aside>}
           {selected.method && <details className="method"><summary>How does it work? <span>+</span></summary><p>{selected.method}</p></details>}
           {selected.id === 'dune' && <div className="beam-control"><button className={`secondary-button ${showBeam ? 'active' : ''}`} aria-pressed={showBeam} onClick={() => { setShowBeam(!showBeam); flyTo(selected, !showBeam); }}>{showBeam ? <Check size={16} /> : <ArrowUpRight size={16} />}{showBeam ? 'Hide planned beam' : 'Show planned beam'}</button><p>Source-to-detector connection; schematic surface projection, not a surveyed beam path.</p></div>}
           {selected.locationNote && <p className="location-note">{selected.locationNote}</p>}
