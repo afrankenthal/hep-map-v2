@@ -121,3 +121,48 @@ test('reviewed acronym collisions point to the correct laboratory and experiment
   assert.equal(source.get(links.homestake.inspireId).legacy_name, 'HOMESTAKE-CHLORINE');
   assert.notEqual(links.sno.inspireId, links['sno-plus'].inspireId);
 });
+
+test('aggregate mappings retain every labelled mode, per-record date, and source identity', () => {
+  const source = snapshot([record(1, 'Neutrino mode', { date_started: '2002' }), record(2, 'Antineutrino mode', { date_started: '2007' })]);
+  const group = { scope: 'aggregate', records: [{ inspireId: '1', relationship: 'operating-mode', label: 'Neutrino mode' }, { inspireId: '2', relationship: 'operating-mode', label: 'Antineutrino mode' }], origin: 'source-comparison', reason: 'One experiment with separate mode records.', reviewedOn: '2026-11-06', reviewMethod: 'AI-assisted source comparison', evidenceUrls: ['https://example.org/experiment'] };
+  const report = reconcile([local('experiment', 'Experiment')], source, { experiment: group });
+  assert.equal(report.counts.linked, 1);
+  assert.equal(report.counts.linkedSourceRecords, 2);
+  assert.equal(report.counts.aggregateEntries, 1);
+  assert.equal(report.unlinkedSourceRecords.length, 0);
+  assert.deepEqual(report.entries[0].candidates.map(c => c.displayDates.started), ['2002', '2007']);
+  assert.deepEqual(publicAudit(report).entries[0].candidates.map(c => c.label), ['Neutrino mode', 'Antineutrino mode']);
+  assert.equal(publicAudit(report).entries[0].linkScope, 'aggregate');
+});
+
+test('aggregate mappings cannot silently accept duplicate, unlabelled, or unscoped records', () => {
+  const source = snapshot([record(1, 'A'), record(2, 'B')]);
+  const base = { scope: 'aggregate', records: [{ inspireId: '1', relationship: 'detector-run', label: 'Run I' }, { inspireId: '2', relationship: 'detector-run', label: 'Run II' }], origin: 'source-comparison', reason: 'Same experiment across runs', reviewedOn: '2026-11-06', reviewMethod: 'AI-assisted source comparison', evidenceUrls: ['https://example.org/experiment'] };
+  for (const broken of [
+    { ...base, scope: 'identity' },
+    { ...base, inspireId: '1' },
+    { ...base, records: [base.records[0]] },
+    { ...base, records: [base.records[0], base.records[0]] },
+    { ...base, records: [base.records[0], { ...base.records[1], relationship: 'same-name' }] },
+    { ...base, records: [base.records[0], { ...base.records[1], label: '' }] },
+  ]) assert.throws(() => reconcile([local('a', 'A')], source, { a: broken }), /Invalid|require/);
+});
+
+test('cross-entry conflicts include every aggregate member, not just the first record', () => {
+  const source = snapshot([record(1, 'A'), record(2, 'B')]);
+  const group = { scope: 'aggregate', records: [{ inspireId: '1', relationship: 'detector-run', label: 'Run I' }, { inspireId: '2', relationship: 'detector-run', label: 'Run II' }], origin: 'source-comparison', reason: 'Detector runs', reviewedOn: '2026-11-06', reviewMethod: 'AI-assisted source comparison', evidenceUrls: ['https://example.org/experiment'] };
+  const report = reconcile([local('a', 'A'), local('b', 'B')], source, { a: group, b: { inspireId: '2', reason: 'Conflicting identity' } });
+  assert.equal(report.conflicts[0].inspireId, '2');
+  assert.deepEqual(report.conflicts[0].localIds, ['a', 'b']);
+  assert.throws(() => publicAudit(report), /before publishing/);
+});
+
+test('reviewed mode and run mappings preserve the physics-relevant distinctions', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const links = JSON.parse(await readFile(new URL('../data/inspire/links.json', import.meta.url)));
+  assert.deepEqual(links.miniboone.records.map(r => r.inspireId), ['1110641', '1108267', '1670770']);
+  assert.deepEqual(links.d0.records.map(r => r.inspireId), ['1109214', '1110315']);
+  assert.ok(links.cdf.records.some(r => r.inspireId === '1109001' && r.label === 'Run I upgrade'));
+  assert.ok(links.minos.records.some(r => r.inspireId === '1671995'));
+  assert.ok(!links.minos.records.some(r => r.inspireId === '1108536'));
+});

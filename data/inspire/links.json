@@ -259,5 +259,608 @@
       "https://inspirehep.net/experiments/1109313",
       "https://archives.web.cern.ch/CERN_archive/guide/accelerators/LEP/isalep/"
     ]
+  },
+  "miniboone": {
+    "scope": "aggregate",
+    "records": [
+      {
+        "inspireId": "1110641",
+        "relationship": "operating-mode",
+        "label": "Neutrino mode"
+      },
+      {
+        "inspireId": "1108267",
+        "relationship": "operating-mode",
+        "label": "Antineutrino mode"
+      },
+      {
+        "inspireId": "1670770",
+        "relationship": "operating-mode",
+        "label": "Later operating mode"
+      }
+    ],
+    "origin": "source-comparison",
+    "reason": "The local entry covers MiniBooNE as a whole. INSPIRE has separate neutrino, antineutrino, and later operating-mode records; no one mode is assigned as the whole experiment. The listed records are constituent modes or runs, not interchangeable identities.",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://neutrinophysics.fnal.gov/experiments/",
+      "https://inspirehep.net/experiments/1110641",
+      "https://inspirehep.net/experiments/1108267",
+      "https://inspirehep.net/experiments/1670770"
+    ]
+  },
+  "minos": {
+    "scope": "aggregate",
+    "records": [
+      {
+        "inspireId": "1671995",
+        "relationship": "constituent-experiment",
+        "label": "MINOS"
+      },
+      {
+        "inspireId": "1297172",
+        "relationship": "constituent-experiment",
+        "label": "MINOS+"
+      }
+    ],
+    "origin": "source-comparison",
+    "reason": "The local entry groups MINOS and MINOS+. Keep their records separate. FNAL-E-0934 is a veto-shield subproject and is not the identity of the whole MINOS experiment. The listed records are constituent modes or runs, not interchangeable identities.",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://neutrinophysics.fnal.gov/experiments/",
+      "https://inspirehep.net/experiments/1671995",
+      "https://inspirehep.net/experiments/1297172"
+    ]
+  },
+  "d0": {
+    "scope": "aggregate",
+    "records": [
+      {
+        "inspireId": "1109214",
+        "relationship": "detector-run",
+        "label": "Run I"
+      },
+      {
+        "inspireId": "1110315",
+        "relationship": "detector-run",
+        "label": "Run II"
+      }
+    ],
+    "origin": "source-comparison",
+    "reason": "The local DØ entry describes the experiment across its history. INSPIRE has distinct Run I and Run II records, so a one-record identity would silently narrow its scope. The listed records are constituent modes or runs, not interchangeable identities.",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://www.fnal.gov/pub/science/historical-results/",
+      "https://inspirehep.net/experiments/1109214",
+      "https://inspirehep.net/experiments/1110315"
+    ]
+  },
+  "na64": {
+    "inspireId": "1479798",
+    "reason": "CERN-NA-064: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1479798",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "faser": {
+    "inspireId": "1711193",
+    "reason": "CERN-LHC-FASER: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1711193",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "snd-lhc": {
+    "inspireId": "2032474",
+    "reason": "SND@LHC: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/2032474",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "totem": {
+    "inspireId": "1110567",
+    "reason": "CERN-LHC-TOTEM: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110567",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "lhcf": {
+    "inspireId": "1126263",
+    "reason": "CERN-LHC-LHCf: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1126263",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "aegis": {
+    "inspireId": "1184411",
+    "reason": "CERN-AEgIS: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1184411",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "asacusa": {
+    "inspireId": "1110478",
+    "reason": "CERN-ASACUSA: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110478",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "base": {
+    "inspireId": "1275753",
+    "reason": "CERN-BASE: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1275753",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "gbar": {
+    "inspireId": "1108191",
+    "reason": "CERN-GBAR: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108191",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "compass": {
+    "inspireId": "1110255",
+    "reason": "CERN-NA-058: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110255",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "na63": {
+    "inspireId": "1471570",
+    "reason": "CERN-NA-063: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1471570",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "na65": {
+    "inspireId": "2126008",
+    "reason": "CERN-NA-065: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/2126008",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "cast": {
+    "inspireId": "1110249",
+    "reason": "CERN-CAST: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110249",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "osqar": {
+    "inspireId": "1478483",
+    "reason": "CERN-OSQAR: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1478483",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "amber": {
+    "inspireId": "2054557",
+    "reason": "CERN-SPS-AMBER: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/2054557",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "dirac": {
+    "inspireId": "1110258",
+    "reason": "CERN-PS-212: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110258",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "athena": {
+    "inspireId": "1110479",
+    "reason": "CERN-ATHENA: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110479",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "atrap": {
+    "inspireId": "1110580",
+    "reason": "CERN-ATRAP: CERN roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110580",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "ams-02": {
+    "inspireId": "1401304",
+    "reason": "AMS-02: CERN roster and INSPIRE experiment identity agree. AMS-02 remains distinct from AMS; the map pin still denotes its CERN ground control centre, not an orbital detector position.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1401304",
+      "https://home.cern/science/experiments"
+    ]
+  },
+  "deap-3600": {
+    "inspireId": "1108195",
+    "reason": "DEAP-3600: SNOLAB roster and INSPIRE detector identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108195",
+      "https://www.snolab.ca/science/experiments/"
+    ]
+  },
+  "damic": {
+    "inspireId": "1401315",
+    "reason": "DAMIC: SNOLAB roster and INSPIRE detector identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1401315",
+      "https://www.snolab.ca/science/experiments/"
+    ]
+  },
+  "halo": {
+    "inspireId": "2863703",
+    "reason": "HALO: SNOLAB roster and INSPIRE detector identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/2863703",
+      "https://www.snolab.ca/science/experiments/"
+    ]
+  },
+  "miniclean": {
+    "inspireId": "1287309",
+    "reason": "MINICLEAN: SNOLAB roster and INSPIRE detector identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1287309",
+      "https://www.snolab.ca/science/experiments/"
+    ]
+  },
+  "picasso": {
+    "inspireId": "1108500",
+    "reason": "PICASSO: SNOLAB roster and INSPIRE detector identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108500",
+      "https://www.snolab.ca/science/experiments/"
+    ]
+  },
+  "borexino": {
+    "inspireId": "1110446",
+    "reason": "BOREXINO: Gran Sasso roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110446",
+      "https://www.lngs.infn.it/it/ricerca/"
+    ]
+  },
+  "cobra": {
+    "inspireId": "1108217",
+    "reason": "COBRA: Gran Sasso roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108217",
+      "https://www.lngs.infn.it/it/ricerca/"
+    ]
+  },
+  "cosinus": {
+    "inspireId": "1976027",
+    "reason": "COSINUS: Gran Sasso roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1976027",
+      "https://www.lngs.infn.it/it/ricerca/"
+    ]
+  },
+  "cupid": {
+    "inspireId": "1634682",
+    "reason": "CUPID: Gran Sasso roster and INSPIRE experiment identity agree. This is CUPID, not the CUPID-0 predecessor.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1634682",
+      "https://www.lngs.infn.it/it/ricerca/"
+    ]
+  },
+  "cresst": {
+    "inspireId": "1401310",
+    "reason": "CRESST: Gran Sasso roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1401310",
+      "https://www.lngs.infn.it/it/ricerca/"
+    ]
+  },
+  "darkside-20k": {
+    "inspireId": "1830577",
+    "reason": "DarkSide-20k: Gran Sasso roster and INSPIRE experiment identity agree. This is the 20k phase, not DarkSide-50 or the broader DarkSide programme.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1830577",
+      "https://www.lngs.infn.it/it/ricerca/"
+    ]
+  },
+  "lvd": {
+    "inspireId": "1109176",
+    "reason": "LVD: Gran Sasso roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1109176",
+      "https://www.lngs.infn.it/it/ricerca/"
+    ]
+  },
+  "newsdm": {
+    "inspireId": "2660829",
+    "reason": "NEWSdm: Gran Sasso roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/2660829",
+      "https://www.lngs.infn.it/it/ricerca/"
+    ]
+  },
+  "sabre": {
+    "inspireId": "1679757",
+    "reason": "SABRE: Gran Sasso roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1679757",
+      "https://www.lngs.infn.it/it/ricerca/"
+    ]
+  },
+  "vip": {
+    "inspireId": "1416761",
+    "reason": "VIP: Gran Sasso roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1416761",
+      "https://www.lngs.infn.it/it/ricerca/"
+    ]
+  },
+  "cuore": {
+    "inspireId": "1108343",
+    "reason": "CUORE: Gran Sasso roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108343",
+      "https://www.lngs.infn.it/it/ricerca/"
+    ]
+  },
+  "xenonnt": {
+    "inspireId": "1807876",
+    "reason": "XENONnT: Gran Sasso roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1807876",
+      "https://www.lngs.infn.it/it/ricerca/"
+    ]
+  },
+  "pandax-ii": {
+    "inspireId": "1677150",
+    "reason": "PandaX-II: The detector phase is named explicitly by both sources.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1677150",
+      "https://pandax.sjtu.edu.cn/"
+    ]
+  },
+  "pandax-4t": {
+    "inspireId": "1677151",
+    "reason": "PandaX-4T: The detector phase is named explicitly by both sources.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1677151",
+      "https://pandax.sjtu.edu.cn/"
+    ]
+  },
+  "nova": {
+    "inspireId": "1108441",
+    "reason": "FNAL-E-0929: Fermilab neutrino roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108441",
+      "https://neutrinophysics.fnal.gov/experiments/"
+    ]
+  },
+  "icarus": {
+    "inspireId": "1110271",
+    "reason": "ICARUS: Fermilab neutrino roster and INSPIRE experiment identity agree. The INSPIRE institution entry names Gran Sasso; the local Fermilab site is supported separately by the Fermilab roster. Institution metadata is not substituted for detector coordinates.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1110271",
+      "https://neutrinophysics.fnal.gov/experiments/"
+    ]
+  },
+  "annie": {
+    "inspireId": "1358349",
+    "reason": "FNAL-E-1063: Fermilab neutrino roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1358349",
+      "https://neutrinophysics.fnal.gov/experiments/"
+    ]
+  },
+  "sbnd": {
+    "inspireId": "1607955",
+    "reason": "SBND: Fermilab neutrino roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1607955",
+      "https://neutrinophysics.fnal.gov/experiments/"
+    ]
+  },
+  "lariat": {
+    "inspireId": "1297454",
+    "reason": "FNAL-T-1034: Fermilab neutrino roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1297454",
+      "https://neutrinophysics.fnal.gov/experiments/"
+    ]
+  },
+  "microboone": {
+    "inspireId": "1108254",
+    "reason": "FNAL-E-0974: Fermilab neutrino roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108254",
+      "https://neutrinophysics.fnal.gov/experiments/"
+    ]
+  },
+  "minerva": {
+    "inspireId": "1108452",
+    "reason": "FNAL-E-0938: Fermilab neutrino roster and INSPIRE experiment identity agree.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://inspirehep.net/experiments/1108452",
+      "https://neutrinophysics.fnal.gov/experiments/"
+    ]
+  },
+  "cdf": {
+    "scope": "aggregate",
+    "records": [
+      {
+        "inspireId": "1109361",
+        "relationship": "detector-run",
+        "label": "Original detector"
+      },
+      {
+        "inspireId": "1109001",
+        "relationship": "detector-run",
+        "label": "Run I upgrade"
+      },
+      {
+        "inspireId": "1110316",
+        "relationship": "detector-run",
+        "label": "Run II"
+      }
+    ],
+    "reason": "The CDF entry spans detector configurations. INSPIRE separates the original detector, its Run I upgrade, and Run II. The 1995 top discovery belongs to the Run I period, so the original pre-upgrade record alone is insufficient. Upgrade-component subprojects are not treated as the whole detector.",
+    "origin": "source-comparison",
+    "reviewedOn": "2026-11-06",
+    "reviewMethod": "AI-assisted source comparison",
+    "evidenceUrls": [
+      "https://www.fnal.gov/pub/science/historical-results/",
+      "https://inspirehep.net/experiments/1109361",
+      "https://inspirehep.net/experiments/1109001",
+      "https://inspirehep.net/experiments/1110316"
+    ]
   }
 }

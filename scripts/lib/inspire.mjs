@@ -113,10 +113,23 @@ export function reconcile(catalogue, snapshot, links = {}, notes = {}) {
   }
   const entries = catalogue.map(local => {
     const explicit = links[local.id];
-    if (explicit && (!explicit.reason || !/^\d+$/.test(String(explicit.inspireId)))) throw new Error(`Invalid explicit link for ${local.id}`);
+    let references = [];
+    if (explicit) {
+      if (!explicit.reason || (explicit.inspireId && explicit.records)) throw new Error(`Invalid explicit link for ${local.id}`);
+      if (explicit.records) {
+        const relations = ['operating-mode', 'detector-run', 'constituent-experiment'];
+        if (explicit.scope !== 'aggregate' || !Array.isArray(explicit.records) || explicit.records.length < 2 || explicit.origin !== 'source-comparison') throw new Error(`Aggregate link for ${local.id} requires reviewed, scoped records`);
+        references = explicit.records;
+        if (references.some(ref => !relations.includes(ref.relationship) || typeof ref.label !== 'string' || !ref.label.trim())) throw new Error(`Aggregate records for ${local.id} require a relationship and label`);
+      } else {
+        if (explicit.scope && explicit.scope !== 'identity') throw new Error(`Invalid single-record scope for ${local.id}`);
+        references = [{ inspireId: explicit.inspireId, relationship: 'identity', label: 'Experiment record' }];
+      }
+      if (references.some(ref => !/^\d+$/.test(String(ref.inspireId))) || new Set(references.map(ref => String(ref.inspireId))).size !== references.length) throw new Error(`Invalid or duplicate record IDs for ${local.id}`);
+    }
     if (explicit?.origin === 'source-comparison' && !validReview(explicit)) throw new Error(`Source comparison for ${local.id} requires a date, method, and HTTPS evidence`);
     if (explicit?.origin && !['source-comparison', 'upstream-legacy'].includes(explicit.origin)) throw new Error(`Invalid link origin for ${local.id}`);
-    if (explicit && !byId.has(String(explicit.inspireId))) throw new Error(`Linked INSPIRE record ${explicit.inspireId} missing from snapshot`);
+    for (const ref of references) if (!byId.has(String(ref.inspireId))) throw new Error(`Linked INSPIRE record ${ref.inspireId} missing from snapshot`);
     // Research keywords in aliases (e.g. Higgs, proton) are not identities.
     const names = [local.name, local.fullName];
     const evidence = new Map();
@@ -124,28 +137,30 @@ export function reconcile(catalogue, snapshot, links = {}, notes = {}) {
       if (!evidence.has(id)) evidence.set(id, []);
       evidence.get(id).push(name);
     }
-    const candidateIds = explicit ? [String(explicit.inspireId)] : [...evidence.keys()].sort((a, b) => Number(a) - Number(b));
+    const candidateIds = explicit ? references.map(ref => String(ref.inspireId)) : [...evidence.keys()].sort((a, b) => Number(a) - Number(b));
     const candidates = candidateIds.map(id => {
       const record = byId.get(id), m = record.metadata;
-      return { inspireId: id, name: m.legacy_name || m.long_name || id, url: `https://inspirehep.net/experiments/${id}`, matchedNames: evidence.get(id) || [], sourceUpdatedAt: record.updated, sourceDates: { proposed: m.date_proposed ?? null, approved: m.date_approved ?? null, started: m.date_started ?? null, completed: m.date_completed ?? null }, displayDates: { proposed: normalizeDate(m.date_proposed), approved: normalizeDate(m.date_approved), started: normalizeDate(m.date_started), completed: normalizeDate(m.date_completed) } };
+      const reference = references.find(ref => String(ref.inspireId) === id);
+      return { relationship: reference?.relationship || 'candidate', label: reference?.label || 'Name candidate', inspireId: id, name: m.legacy_name || m.long_name || id, url: `https://inspirehep.net/experiments/${id}`, matchedNames: evidence.get(id) || [], sourceUpdatedAt: record.updated, sourceDates: { proposed: m.date_proposed ?? null, approved: m.date_approved ?? null, started: m.date_started ?? null, completed: m.date_completed ?? null }, displayDates: { proposed: normalizeDate(m.date_proposed), approved: normalizeDate(m.date_approved), started: normalizeDate(m.date_started), completed: normalizeDate(m.date_completed) } };
     });
     const identityReview = explicit ? { origin: explicit.origin || 'upstream-legacy', reason: explicit.reason, reviewedOn: explicit.reviewedOn || null, reviewMethod: explicit.reviewMethod || null, evidenceUrls: explicit.evidenceUrls || [] } : null;
     const note = notes[local.id];
     const reviewNote = note ? { ...note, relatedRecords: note.relatedRecords.map(related => ({ ...related, inspireId: String(related.inspireId), name: byId.get(String(related.inspireId)).metadata.legacy_name || related.inspireId, url: `https://inspirehep.net/experiments/${related.inspireId}` })) } : null;
-    return { localId: local.id, name: local.name, identityReview, reviewNote, status: explicit ? 'linked' : candidates.length > 1 ? 'ambiguous' : candidates.length === 1 ? 'candidate' : 'unmatched', reason: explicit?.reason || (candidates.length ? 'Exact normalized identity match; manual review required, including programme/phase identity.' : 'No exact identity match. This does not establish absence from INSPIRE.'), candidates };
+    return { localId: local.id, name: local.name, linkScope: explicit?.scope || 'identity', identityReview, reviewNote, status: explicit ? 'linked' : candidates.length > 1 ? 'ambiguous' : candidates.length === 1 ? 'candidate' : 'unmatched', reason: explicit?.reason || (candidates.length ? 'Exact normalized identity match; manual review required, including programme/phase identity.' : 'No exact identity match. This does not establish absence from INSPIRE.'), candidates };
   });
   const assignments = new Map();
   for (const entry of entries.filter(entry => entry.status === 'linked')) {
-    const id = entry.candidates[0].inspireId;
-    if (!assignments.has(id)) assignments.set(id, []);
-    assignments.get(id).push(entry.localId);
+    for (const { inspireId: id } of entry.candidates) {
+      if (!assignments.has(id)) assignments.set(id, []);
+      assignments.get(id).push(entry.localId);
+    }
   }
   const conflicts = [...assignments].filter(([, ids]) => ids.length > 1).map(([inspireId, localIds]) => ({ inspireId, localIds }));
   const linkedIds = new Set(assignments.keys());
-  return { schemaVersion: 1, snapshotFetchedAt: snapshot.fetchedAt, source: snapshot.source, completeness: 'Not established. Unlinked INSPIRE records include out-of-scope programmes and phases requiring review.', counts: { local: entries.length, source: records.length, linked: entries.filter(e => e.status === 'linked').length, candidate: entries.filter(e => e.status === 'candidate').length, ambiguous: entries.filter(e => e.status === 'ambiguous').length, unmatched: entries.filter(e => e.status === 'unmatched').length, conflictingLinks: conflicts.length, sourceCompared: entries.filter(e => e.identityReview?.origin === 'source-comparison').length, scopeNotes: entries.filter(e => e.reviewNote).length }, conflicts, entries, unlinkedSourceRecords: records.filter(record => !linkedIds.has(record.id)).map(record => ({ inspireId: record.id, name: record.metadata.legacy_name || record.metadata.long_name || record.id, url: `https://inspirehep.net/experiments/${record.id}` })) };
+  return { schemaVersion: 1, snapshotFetchedAt: snapshot.fetchedAt, source: snapshot.source, completeness: 'Not established. Unlinked INSPIRE records include out-of-scope programmes and phases requiring review.', counts: { local: entries.length, source: records.length, linked: entries.filter(e => e.status === 'linked').length, candidate: entries.filter(e => e.status === 'candidate').length, ambiguous: entries.filter(e => e.status === 'ambiguous').length, unmatched: entries.filter(e => e.status === 'unmatched').length, conflictingLinks: conflicts.length, linkedSourceRecords: linkedIds.size, aggregateEntries: entries.filter(e => e.status === 'linked' && e.linkScope === 'aggregate').length, sourceCompared: entries.filter(e => e.identityReview?.origin === 'source-comparison').length, scopeNotes: entries.filter(e => e.reviewNote).length }, conflicts, entries, unlinkedSourceRecords: records.filter(record => !linkedIds.has(record.id)).map(record => ({ inspireId: record.id, name: record.metadata.legacy_name || record.metadata.long_name || record.id, url: `https://inspirehep.net/experiments/${record.id}` })) };
 }
 
 export function publicAudit(report) {
   if (report.conflicts.length) throw new Error('Conflicting explicit links require review before publishing the compact audit.');
-  return { snapshotFetchedAt: report.snapshotFetchedAt, source: report.source, counts: report.counts, entries: report.entries.map(({ localId, name, status, identityReview, reviewNote, candidates }) => ({ localId, name, status, identityReview, reviewNote, candidates: candidates.map(({ inspireId, name, url }) => ({ inspireId, name, url })) })) };
+  return { snapshotFetchedAt: report.snapshotFetchedAt, source: report.source, counts: report.counts, entries: report.entries.map(({ localId, name, status, linkScope, identityReview, reviewNote, candidates }) => ({ localId, name, status, linkScope, identityReview, reviewNote, candidates: candidates.map(({ inspireId, name, url, relationship, label }) => ({ inspireId, name, url, relationship, label })) })) };
 }

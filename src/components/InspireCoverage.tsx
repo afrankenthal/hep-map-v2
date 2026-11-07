@@ -19,11 +19,11 @@ export default function InspireCoverage({ onSelect }: { onSelect: (id: string) =
     <h3 id="inspire-audit-title">INSPIRE catalogue links</h3>
     <p>Snapshot: {snapshotFetchedAt.slice(0, 10)} (UTC), {counts.source.toLocaleString('en-US')} source records. This inventory is broader than the map and does not establish global completeness.</p>
     <div className="coverage-counts"><strong>{counts.linked} linked</strong><span>{counts.candidate} name candidates</span><span>{counts.ambiguous} ambiguous</span><span>{counts.unmatched} unresolved</span></div>
-    <p>{counts.linked - counts.sourceCompared} IDs come from the original catalogue; {counts.sourceCompared} have an AI-assisted source comparison with evidence below. Name candidates are not confirmed identities. {counts.scopeNotes} unresolved entries have notes explaining programme, mode, or run differences.</p>
+    <p>{counts.linked - counts.sourceCompared} IDs come from the original catalogue; {counts.sourceCompared} have an AI-assisted source comparison with evidence below. {counts.aggregateEntries} entries link to multiple constituent records ({counts.linkedSourceRecords} INSPIRE records in total). Name candidates are not confirmed identities. {counts.scopeNotes} unresolved {counts.scopeNotes === 1 ? 'entry has' : 'entries have'} notes explaining programme, mode, or run differences.</p>
     <details className="coverage-exclusions"><summary>Explicit identity links ({counts.linked})</summary>
       <div className="inspire-linked">{entries.filter(entry => entry.status === 'linked').map(entry => <div key={entry.localId}>
         <button className="text-button" onClick={() => onSelect(entry.localId)}>{entry.name}</button>
-        <a href={entry.candidates[0].url} target="_blank" rel="noreferrer">INSPIRE {entry.candidates[0].inspireId}<ExternalLink size={12} /></a>
+        <div className="inspire-record-links">{entry.candidates.map(record => <a key={record.inspireId} href={record.url} target="_blank" rel="noreferrer">{record.relationship === 'identity' ? 'INSPIRE' : record.label} {record.inspireId}<ExternalLink size={12} /></a>)}</div>
         <IdentityEvidence entry={entry} />
       </div>)}</div>
     </details>
