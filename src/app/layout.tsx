@@ -2,8 +2,8 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import './globals.css'
 
 export const metadata = {
-  title: 'HEPMAP — A world of particle physics',
-  description: 'Explore particle physics experiments, follow discovery journeys, and meet the big questions behind the smallest particles.',
+  title: 'HEPMAP — Particle physics experiments',
+  description: 'Map particle physics experiments, explore Standard Model discovery histories, and find sources for historical and current research.',
 }
 
 export default function RootLayout({
