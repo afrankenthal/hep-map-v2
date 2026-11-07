@@ -2,7 +2,7 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 import './globals.css'
 
 export const metadata = {
-  title: 'Particle Map — A world of particle physics',
+  title: 'HEPMAP — A world of particle physics',
   description: 'Explore particle physics experiments, follow discovery journeys, and meet the big questions behind the smallest particles.',
 }
 

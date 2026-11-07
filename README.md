@@ -1,4 +1,4 @@
-# Particle Map
+# HEPMAP
 
 A particle physics explorer based on [Andre Frankenthal’s HEP Map](https://github.com/afrankenthal/hep-map-v2). Built with Next.js, React, and MapLibre; no map API token or database is required.
 
@@ -27,7 +27,7 @@ Open http://localhost:3000. For a production preview, run `npm run build` follow
 
 ## Research scope and coverage
 
-Particle Map covers accelerator experiments, neutrino studies, dark-matter searches, rare processes, and particle astrophysics. The research-view switch supports all particle physics, accelerator experiments, underground/rare-event research, cosmic/natural sources, and precision/rare processes. The last two overlap: DUNE and Super-Kamiokande belong to both. An underground collider cavern does not by itself classify an experiment as a low-background underground search.
+HEPMAP covers accelerator experiments, neutrino studies, dark-matter searches, rare processes, and particle astrophysics. The research-view switch supports all particle physics, accelerator experiments, underground/rare-event research, cosmic/natural sources, and precision/rare processes. The last two overlap: DUNE and Super-Kamiokande belong to both. An underground collider cavern does not by itself classify an experiment as a low-background underground search.
 
 **Global completeness has not been established.** The visible Coverage panel exposes dated source snapshots, known omissions, exclusions, and pending audits. SNOLAB’s linked roster has been reconciled entry by entry: twelve mapped and four excluded (biology, test infrastructure, or engineering seismology). The linked Gran Sasso research table and Fermilab neutrino roster are also reconciled; other source reviews remain explicitly partial. Roster-level reconciliation does not establish coverage of every historical detector phase or every experiment at a laboratory.
 

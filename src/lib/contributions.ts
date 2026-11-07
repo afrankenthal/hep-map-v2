@@ -9,7 +9,7 @@ export interface ContributionContext {
 export function contributionDraft(kind: 'suggestion' | 'correction', name: string, description: string, sources: string, context?: ContributionContext) {
   const title = `${kind === 'correction' ? 'Correction' : 'Experiment suggestion'}: ${name.trim() || context?.name || 'New experiment'}`;
   const body = [
-    '## Particle Map contribution',
+    '## HEPMAP contribution',
     ...(context ? [`Record: ${context.name} (\`${context.id}\`)`, '', 'Current references:', ...context.sources.map(source => `- ${source.url}`)] : []),
     '', `## ${kind === 'correction' ? 'Suggested correction and reason' : 'Experiment and why it belongs'}`,
     description.trim(), '', '## Supporting sources', sources.trim(),
