@@ -1,4 +1,4 @@
-import { Marker } from 'react-map-gl';
+import { Marker } from 'react-map-gl/maplibre';
 import MyPin from '../MyPin/MyPin';
 import { memo } from 'react';
 import { StatusColors, MyMarkerProps } from '@/types/interfaces';

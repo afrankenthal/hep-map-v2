@@ -6,7 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "node --experimental-strip-types --test tests/*.test.mjs",
+    "typecheck": "tsc --noEmit",
+    "coverage:catalogue": "node --experimental-strip-types scripts/catalogue-coverage.mjs",
+    "predev": "node scripts/prepare-map-worker.mjs",
+    "prebuild": "node scripts/prepare-map-worker.mjs",
+    "inspire:sync": "node scripts/sync-inspire.mjs",
+    "inspire:report": "node --experimental-strip-types scripts/reconcile-inspire.mjs"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.1",
@@ -19,13 +26,13 @@
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
     "lucide-react": "^0.441.0",
-    "mapbox-gl": "^2.15.0",
+    "maplibre-gl": "^6.16.0",
     "mongodb": "^5.6.0",
-    "next": "^15.5.10",
+    "next": "^15.5.29",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^5.3.0",
-    "react-map-gl": "^7.0.25",
+    "react-map-gl": "^8.1.3",
     "react-responsive": "^10.0.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
@@ -33,7 +40,13 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.24",
+    "postcss": "^8.5.23",
     "tailwindcss": "^3.3.2"
+  },
+  "overrides": {
+    "postcss": "^8.5.23"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }

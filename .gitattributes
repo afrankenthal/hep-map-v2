@@ -1,0 +1,4 @@
+# Keep generated INSPIRE inventories collapsed in code review; review links.json normally.
+data/inspire/snapshot.json linguist-generated=true
+data/inspire/reconciliation.json linguist-generated=true
+data/inspire/catalogue-links.json linguist-generated=true

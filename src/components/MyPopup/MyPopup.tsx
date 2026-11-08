@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image';
-import {Popup} from 'react-map-gl';
+import {Popup} from 'react-map-gl/maplibre';
 import {memo} from 'react';
 
 import { FaChevronDown, FaChevronRight } from 'react-icons/fa';
